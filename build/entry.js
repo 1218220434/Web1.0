@@ -1,7 +1,10 @@
 // entry module
 module.exports = {
     main: './src/js/index.js',
-    loginRegister: './src/js/login-register.js',
-    sharepage: './src/js/share-page.js',
-
+    Login: './src/js/Login.js',
+    Register: './src/js/Register.js',
+    sharePage: './src/js/share-page.js',
+    videoPage: './src/js/video-page.js',
+    topSearch: './src/js/top-search.js',
+    homePage: './src/js/home-page.js',
 }

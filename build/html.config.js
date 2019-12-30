@@ -20,16 +20,16 @@ module.exports = [
             removeEmptyAttributes: true
         }
     }),
-    // —> 登录注册
+    // —> 登录的依赖
     new HtmlWebpackPlugin({
         // 模板文件
-        template: "./src/pages/login-register.html",
+        template: "./src/pages/login.html",
         // 文件名(相对于output.path)，可通过文件名设置目录，如 static/pages/detail.html
-        filename: "static/pages/login-register.html",
+        filename: "static/pages/login.html",
         // 静态资源位置
         inject: "body",
         // 指定输出文件所依赖的入口文件（*.js）的[name]
-        chunks: ["loginRegister"],
+        chunks: ["Login"],
         // 控制压缩
         minify: {
             collapseWhitespace: false,
@@ -38,6 +38,25 @@ module.exports = [
             removeEmptyAttributes: true
         }
     }),
+    // register的依赖
+    new HtmlWebpackPlugin({
+        // 模板文件
+        template: "./src/pages/register.html",
+        // 文件名(相对于output.path)，可通过文件名设置目录，如 static/pages/detail.html
+        filename: "static/pages/register.html",
+        // 静态资源位置
+        inject: "body",
+        // 指定输出文件所依赖的入口文件（*.js）的[name]
+        chunks: ["Register"],
+        // 控制压缩
+        minify: {
+            collapseWhitespace: false,
+            removeComments: true,
+            removeAttributeQuotes: true,
+            removeEmptyAttributes: true
+        }
+    }),
+    // share-page的依赖
     new HtmlWebpackPlugin({
         // 模板文件
         template: "./src/pages/share-page.html",
@@ -46,7 +65,7 @@ module.exports = [
         // 静态资源位置
         inject: "body",
         // 指定输出文件所依赖的入口文件（*.js）的[name]
-        chunks: ["sharepage"],
+        chunks: ["sharePage"],
         // 控制压缩
         minify: {
             collapseWhitespace: false,
@@ -55,4 +74,59 @@ module.exports = [
             removeEmptyAttributes: true
         }
     }),
+    // top-search的依赖
+    new HtmlWebpackPlugin({
+        // 模板文件
+        template: "./src/pages/top-search.html",
+        // 文件名(相对于output.path)，可通过文件名设置目录，如 static/pages/detail.html
+        filename: "static/pages/top-search.html",
+        // 静态资源位置
+        inject: "body",
+        // 指定输出文件所依赖的入口文件（*.js）的[name]
+        chunks: ["topSearch"],
+        // 控制压缩
+        minify: {
+            collapseWhitespace: false,
+            removeComments: true,
+            removeAttributeQuotes: true,
+            removeEmptyAttributes: true
+        }
+    }),
+    // home-page的依赖
+    new HtmlWebpackPlugin({
+        // 模板文件
+        template: "./src/pages/home-page.html",
+        // 文件名(相对于output.path)，可通过文件名设置目录，如 static/pages/detail.html
+        filename: "static/pages/home-page.html",
+        // 静态资源位置
+        inject: "body",
+        // 指定输出文件所依赖的入口文件（*.js）的[name]
+        chunks: ["homePage"],
+        // 控制压缩
+        minify: {
+            collapseWhitespace: false,
+            removeComments: true,
+            removeAttributeQuotes: true,
+            removeEmptyAttributes: true
+        }
+    }),
+    // video-page的依赖
+    new HtmlWebpackPlugin({
+        // 模板文件
+        template: "./src/pages/video-page.html",
+        // 文件名(相对于output.path)，可通过文件名设置目录，如 static/pages/detail.html
+        filename: "static/pages/video-page.html",
+        // 静态资源位置
+        inject: "body",
+        // 指定输出文件所依赖的入口文件（*.js）的[name]
+        chunks: ["videoPage"],
+        // 控制压缩
+        minify: {
+            collapseWhitespace: false,
+            removeComments: true,
+            removeAttributeQuotes: true,
+            removeEmptyAttributes: true
+        }
+    }),
+
 ]

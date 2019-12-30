@@ -1,6 +1,11 @@
 import '../less/index.less';
 import '../less/reset.less';
-import '../less/share-page.less';
+import '../public/link-url.js';
+import '../public/header.less';
+import '../public/header.js';
+import '../public/footer.less';
+import '../public/footer.js';
+
 
 import Swiper from "swiper";
 import "swiper/css/swiper.css";
@@ -99,13 +104,7 @@ let mySwiper = new Swiper('.swiper-container', {
 })
 
 // 判断是否登录
-if (!sessionStorage.LOGIN_USER) {
-    // 跳转至登录页面
-    location.href = './static/pages/login-register.html';
-}
-console.log($(".ac"))
-
-$(".ac").click(function() {
-    location.href = 'static/pages/share-page.html';
-
-});
+// if (!sessionStorage.LOGIN_USER) {
+//     // 跳转至登录页面
+//     location.href = './static/pages/login-register.html';
+// }
