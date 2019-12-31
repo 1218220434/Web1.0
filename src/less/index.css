@@ -1,0 +1,47 @@
+.main {
+  position: relative;
+}
+.swiper-container img {
+  width: 100%;
+}
+.swiper-pagination-bullet {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: purple;
+}
+.search {
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+}
+.search input {
+  background-color: #eeeeee;
+  height: 50px;
+  padding-left: 20px;
+}
+.search img {
+  background-color: #F69219;
+}
+.ajax {
+  width: 100%;
+  overflow: hidden;
+  height: 340px;
+  position: relative;
+}
+.ajax .wrper {
+  width: 200%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+.ajax .wrper li {
+  height: 340px;
+  padding-left: 2%;
+  box-sizing: border-box;
+  outline: 1px solid gray;
+}
+.ajax .wrper li img {
+  width: 80%;
+  height: auto;
+}

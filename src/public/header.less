@@ -1,14 +1,60 @@
-header{
-    width: 100%;
-    .banner{
+header {
+    width     : 100%;
+    background: rgba(245, 245, 245, 1);
+    box-shadow: 0 2px 10px rgb(70, 70, 70);
+
+    .banner {
+        min-width: 800px;
         max-width: 1200px;
-        margin: 0 auto;
-    }
-    li{
-        padding-right: 20px;
+        margin   : 0 auto;
 
     }
-    a{
-        color: salmon;
+
+    .nav {
+        margin-left: 10%;
+
+        li {width     : 89px;
+            height     : 59px;
+            line-height: 59px;
+            
+        }
+        .orange{
+            background : #F69219;
+            a{
+                color: #FFFFFF;
+            }
+            
+        }
+    }
+
+    .logined {
+        position: relative;
+        div{
+            position: absolute;
+        }
+        img {
+            width: 23px;
+        }
+
+        li:first-child {
+            border-right: 2px solid #F69219; 
+        }
+        a{
+            color: #F69219;
+            &:hover{
+                color: rgb(245, 63, 63);
+            }
+        }
+    }
+
+    li {
+        width     : 80px;
+        text-align: center;
+        color     : #444444;
+
+    }
+
+    a {
+        color: #444444;
     }
 }

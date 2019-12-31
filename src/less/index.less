@@ -1,5 +1,7 @@
-
-
+@orangecolor:#F69219;
+.main{
+    position: relative;
+}
 .swiper-container {
     img {
         width: 100%;
@@ -12,13 +14,47 @@
     height: 15px;
     background: purple;
 }
+// 搜索框
+.search{
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    
+    input{
+        background-color: rgb(238, 238, 238);
+        height: 50px;
+        padding-left: 20px;
+    }
+    img{
+        background-color: @orangecolor;
+        
+    }
+    
+}
 
-
-// echarts
-.echarts-box {
-    width: 800px;
-    height: 500px;
-    margin: 50px auto;
+// 处理精品动态展示栏
+.ajax{
+    width: 100%;
+    overflow: hidden;
+    height: 340px;
+    position: relative;
+    .wrper{ width: 200%;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        li{
+            height: 340px;
+            padding-left: 2%;
+            box-sizing: border-box;
+            outline: 1px solid gray;
+            img{
+                width: 80%;
+                height: auto;
+               
+            }
+        }  
+    }
+    
 }
 
 

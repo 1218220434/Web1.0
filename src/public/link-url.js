@@ -10,19 +10,19 @@ $(".logo").click(function() {
 });
 // 四个按钮分别跳转
 $(".nav li:eq(0)").click(function() {
+    if (location.href.indexOf('static') > 0) {
+        console.log("ture")
+        location.href = `${myurl}/index.html`;
+    }
+
+});
+$(".nav li:eq(1)").click(function() {
     if (location.href = `${myurl}/static/pages/share-page.html`) {
         location.href = '#';
     } else {
         location.href = `${myurl}/static/pages/share-page.html`;
     }
 
-});
-$(".nav li:eq(1)").click(function() {
-    if (location.href = `${myurl}/static/pages/top-search.html`) {
-        location.href = '#';
-    } else {
-        location.href = `${myurl}/static/pages/top-search.html`;
-    }
 });
 $(".nav li:eq(2)").click(function() {
     if (location.href = `${myurl}/static/pages/video-page.html`) {
@@ -32,6 +32,13 @@ $(".nav li:eq(2)").click(function() {
     }
 });
 $(".nav li:eq(3)").click(function() {
+    if (location.href = `${myurl}/static/pages/top-search.html`) {
+        location.href = '#';
+    } else {
+        location.href = `${myurl}/static/pages/top-search.html`;
+    }
+});
+$(".nav li:eq(4)").click(function() {
     if (location.href = `${myurl}/static/pages/home-page.html`) {
         location.href = '#';
     } else {
