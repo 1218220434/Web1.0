@@ -13,7 +13,6 @@
 .search {
   position: absolute;
   z-index: 1;
-  top: 20%;
 }
 .search input {
   background-color: #eeeeee;
