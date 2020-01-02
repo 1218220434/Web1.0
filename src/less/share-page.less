@@ -1,0 +1,128 @@
+.iconfont {
+    font-size: 38px;
+}
+
+main {
+    .banner {
+        min-width: 800px;
+        margin: 0 auto;
+    }
+
+    .img {
+        background-color: rgb(102, 101, 101);
+        height: 400px;
+        width: 100%;
+    }
+
+    .tabControl {
+        background-color: #fff;
+
+        .tab {
+            width: 70%;
+            height: 120px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+
+            .select {
+                display: inline-block;
+                width: 24%;
+                height: 100%;
+                text-align: center;
+                box-sizing: border-box;
+                padding: 20px;
+                position: relative;
+
+                // border: 1px solid black;
+                .border {
+                    width: 2px;
+                    height: 50%;
+                    top: 25%;
+                    right: 0;
+                    background-color: rgb(165, 158, 158);
+                    position: absolute;
+                }
+
+                h4 {
+                    margin-top: 10px;
+                    font-weight: normal;
+                }
+
+                &:hover {
+                    color: rgb(250, 137, 31);
+                }
+            }
+        }
+
+    }
+
+    .issue {
+        margin-top: 20px;
+        background-color: #fff;
+
+        .publish {
+            width: 30%;
+            background-color: rgb(201, 197, 197);
+            margin: 0 auto;
+            height: 80px;
+            border-radius: 8px;
+
+            p {
+                color: rgb(117, 115, 115);
+
+            }
+        }
+    }
+
+    .content {
+        background-color: #fff;
+
+        .plate {
+            width: 70%;
+            // height: 1600px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+            flex-flow: row wrap;
+
+            .box {
+                background-color: rgb(192, 184, 184);
+                width: 32%;
+                height: 32%;
+                border-radius: 8px;
+                box-sizing: border-box;
+                padding: 20px;
+
+                .top {
+                    background-color: #fff;
+                    height: 15%;
+                    width: 100%;
+                }
+
+                .pic {
+                    background-color: rgb(177, 163, 163);
+                    margin-top: 10px;
+                    width: 100%;
+                    height: 50%;
+                }
+
+                .word {
+                    background-color: rgb(201, 182, 182);
+                    margin-top: 10px;
+                    width: 100%;
+                    height: 20%;
+                }
+
+                .foot {
+                    background-color: #fff;
+                    margin-top: 10px;
+                    width: 100%;
+                    height: 8%;
+                }
+            }
+        }
+    }
+
+
+}
