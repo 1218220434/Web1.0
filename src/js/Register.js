@@ -6,7 +6,6 @@ import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
 
-
 // 记录状态
 let _isLogin = true;
 
@@ -34,6 +33,7 @@ $('.go-register').on('click', function () {
         display: 'block'
     })
 });
+
 // 点击返回登录
 $('.go-login').on('click', function () {
     _isLogin = true;
