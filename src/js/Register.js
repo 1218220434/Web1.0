@@ -6,11 +6,7 @@ import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> f357d07765d66a95ea12dc79137f5165b22afd93
 // 记录状态
 let _isLogin = true;
 
