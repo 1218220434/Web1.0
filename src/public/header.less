@@ -4,44 +4,45 @@ header {
     box-shadow: 0 2px 10px rgb(70, 70, 70);
 
     .banner {
-        min-width: 800px;
-        max-width: 1200px;
-        margin   : 0 auto;
-
+        width       : 74%;
+        margin      : 0 auto;
     }
 
     .nav {
-        margin-left: 10%;
-
-        li {width     : 89px;
-            height     : 59px;
-            line-height: 59px;
-            
+        li {
+            width      : 89px;
+            // height     : 59px;
+            // line-height: 59px;
+            cursor     : pointer;
         }
-        .orange{
-            background : #F69219;
-            a{
+
+        .orange {
+            background: #F69219;
+
+            a {
                 color: #FFFFFF;
             }
-            
         }
     }
 
     .logined {
         position: relative;
-        div{
+
+        div {
             position: absolute;
         }
+
         img {
             width: 23px;
         }
 
         li:first-child {
-            border-right: 2px solid #F69219; 
+            border-right: 2px solid #F69219;
         }
-        a{
+
+        a {
             color: #F69219;
-            &:hover{
+            &:hover {
                 color: rgb(245, 63, 63);
             }
         }

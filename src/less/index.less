@@ -1,7 +1,9 @@
-@orangecolor:#F69219;
-.main{
+@orangecolor: #F69219;
+
+.main {
     position: relative;
 }
+
 .swiper-container {
     img {
         width: 100%;
@@ -9,52 +11,162 @@
 }
 
 .swiper-pagination-bullet {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
+    display   : inline-block;
+    width     : 15px;
+    height    : 15px;
     background: purple;
 }
+
 // 搜索框
-.search{
-    position: absolute;
-    z-index: 1;
-    
-    
-    input{
+.search {
+    position : absolute;
+    width    : 331px;
+    z-index  : 1;
+    left     : 50%;
+    height   : 50px;
+    transform: translateX(-50%);
+
+
+    input {
         background-color: rgb(238, 238, 238);
-        height: 50px;
-        padding-left: 20px;
+        height          : 50px;
+        padding-left    : 20px;
+        width           : 260px;
+        box-shadow      : 0 3px 10px gray;
+
     }
-    img{
+
+    img {
         background-color: @orangecolor;
-        
+        box-shadow      : 1px 3px 10px gray;
+        transition      : .7s;
+        cursor          : pointer;
+
+        &:hover {
+            transform : translateY(-1px);
+            box-shadow: 1px 4px 10px gray;
+        }
     }
-    
+
 }
+
+// <!-- 动态展示框头部 -->
+.bout {
+    letter-spacing: 3px;
+    width         : 12%;
+    margin        : 60px auto;
+    color         : rgb(107, 107, 107);
+
+    .oreg {
+        width           : 20px;
+        height          : 4px;
+        background-color: @orangecolor;
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
+
 
 // 处理精品动态展示栏
-.ajax{
-    width: 100%;
-    overflow: hidden;
-    height: 340px;
-    position: relative;
-    .wrper{ width: 200%;
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        li{
-            height: 340px;
-            padding-left: 2%;
-            box-sizing: border-box;
-            outline: 1px solid gray;
-            img{
-                width: 80%;
+.ajax {
+    margin      : 0 auto;
+    width       : 80%;
+    // overflow : hidden
+    height      : 500px;
+    position    : relative;
+    padding-left: 4%;
+
+    .wrper {
+        background-color: rgb(241, 241, 241);
+        // position        : absolute;
+        display         : flex;
+        justify-content : space-around;
+
+        li {
+            position        : relative;
+            width           : 20%;
+            height          : 500px;
+            box-sizing      : border-box;
+            border-right    : 1px solid rgb(209, 209, 209);
+            background-color: rgb(221, 221, 221);
+
+            .impholi {
+                width : 100%;
                 height: auto;
-               
             }
-        }  
+
+            .mainget {
+                position: absolute;
+                right   : -20px;
+                top     : -20px;
+                width   : 70px;
+            }
+
+            .user-img {
+                width        : 60px;
+                border-radius: 50%;
+                position     : absolute;
+                left         : 0;
+                top          : 320px
+            }
+
+            .user-name {
+                position: absolute;
+                left    : 20px;
+            }
+
+            .user-art {
+                margin: 40px 30px 0;
+            }
+
+            span {
+                position: absolute;
+                right   : 38px;
+            }
+        }
     }
-    
 }
 
+.flex-d {
+    
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    flex-direction : column;
 
+    li {
+        border  :1px solid rgb(177, 177, 177);
+        position: relative;
+
+        .mainget {
+            top: -20px;
+            left: -20px;
+            width: 60px;
+            position: absolute;
+        }
+        .user-img{
+            width: 60px;
+            position: absolute;
+            top:20px;
+            left: 265px;
+        }
+        .user-name{
+            position: absolute;
+            top: 40px;  
+            left: 345px;
+        }
+        .user-art{
+            position: absolute;
+            top: 120px;  
+            left: 265px;
+        }
+        span{
+            position: absolute;
+            bottom: 20px; 
+            right:20px;
+        }
+    }
+}

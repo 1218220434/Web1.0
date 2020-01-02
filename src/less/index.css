@@ -12,35 +12,125 @@
 }
 .search {
   position: absolute;
+  width: 331px;
   z-index: 1;
+  left: 50%;
+  height: 50px;
+  transform: translateX(-50%);
 }
 .search input {
   background-color: #eeeeee;
   height: 50px;
   padding-left: 20px;
+  width: 260px;
+  box-shadow: 0 3px 10px gray;
 }
 .search img {
   background-color: #F69219;
+  box-shadow: 1px 3px 10px gray;
+  transition: 0.7s;
+  cursor: pointer;
+}
+.search img:hover {
+  transform: translateY(-1px);
+  box-shadow: 1px 4px 10px gray;
+}
+.bout {
+  letter-spacing: 3px;
+  width: 12%;
+  margin: 60px auto;
+  color: #6b6b6b;
+}
+.bout .oreg {
+  width: 20px;
+  height: 4px;
+  background-color: #F69219;
+}
+.bout p {
+  text-align: center;
 }
 .ajax {
-  width: 100%;
-  overflow: hidden;
-  height: 340px;
+  margin: 0 auto;
+  width: 80%;
+  height: 500px;
   position: relative;
+  padding-left: 4%;
 }
 .ajax .wrper {
-  width: 200%;
-  position: absolute;
+  background-color: #f1f1f1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .ajax .wrper li {
-  height: 340px;
-  padding-left: 2%;
+  position: relative;
+  width: 20%;
+  height: 500px;
   box-sizing: border-box;
-  outline: 1px solid gray;
+  border-right: 1px solid #d1d1d1;
+  background-color: #dddddd;
 }
-.ajax .wrper li img {
-  width: 80%;
+.ajax .wrper li .impholi {
+  width: 100%;
   height: auto;
+}
+.ajax .wrper li .mainget {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 70px;
+}
+.ajax .wrper li .user-img {
+  width: 60px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 320px;
+}
+.ajax .wrper li .user-name {
+  position: absolute;
+  left: 20px;
+}
+.ajax .wrper li .user-art {
+  margin: 40px 30px 0;
+}
+.ajax .wrper li span {
+  position: absolute;
+  right: 38px;
+}
+.flex-d {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.flex-d li {
+  border: 1px solid #b1b1b1;
+  position: relative;
+}
+.flex-d li .mainget {
+  top: -20px;
+  left: -20px;
+  width: 60px;
+  position: absolute;
+}
+.flex-d li .user-img {
+  width: 60px;
+  position: absolute;
+  top: 20px;
+  left: 265px;
+}
+.flex-d li .user-name {
+  position: absolute;
+  top: 40px;
+  left: 345px;
+}
+.flex-d li .user-art {
+  position: absolute;
+  top: 120px;
+  left: 265px;
+}
+.flex-d li span {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
