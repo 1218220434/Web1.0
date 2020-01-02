@@ -6,12 +6,12 @@ import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
 
-import '../less/login-register.less';
+
 
 // 记录状态
 let _isLogin = true;
 
-$('input').on('change', function () {
+$('input').on('change', function() {
     // 表单验证
     let reg = new RegExp($(this).data('reg'));
     if (reg.test($(this).val())) {
@@ -22,7 +22,7 @@ $('input').on('change', function () {
 });
 
 // 点击前往注册
-$('.go-register').on('click', function () {
+$('.go-register').on('click', function() {
     _isLogin = false;
     $('form')[0].reset();
     document.title = "PROJ - 注册";
@@ -36,7 +36,7 @@ $('.go-register').on('click', function () {
     })
 });
 // 点击返回登录
-$('.go-login').on('click', function () {
+$('.go-login').on('click', function() {
     _isLogin = true;
     $('form')[0].reset();
     document.title = "PROJ - 登录";
@@ -52,7 +52,7 @@ $('.go-login').on('click', function () {
 
 
 // 点击登录-注册
-$('.btn').click(function () {
+$('.btn').click(function() {
     if (_isLogin) {
         // 登录 - localStorage
         alert('登录成功！');
