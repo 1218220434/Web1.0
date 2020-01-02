@@ -30,6 +30,25 @@ let mySwiper = new Swiper('.swiper-container', {
         prevEl: '.swiper-button-prev',
     }
 })
+
 $(window).bind("load resize", function() {
-    $(".search").css("top", document.documentElement.clientWidth / 2.95)
+    let screenDom = document.documentElement.clientWidth;
+    $(".search").css({ "top": screenDom / 2.95, "height": 30 + screenDom / 95 })
+    $(".search input").css({ "height": 30 + screenDom / 95 })
+    $(".search img").css({ "height": 30 + screenDom / 95 })
+
+    $(".bout").css("fontSize", screenDom / 130).css("width", (380 + (1900 - screenDom) / 15))
+
+
+    if (screenDom < 1100) {
+        $(".the-d").attr("class", "flex-d the-d")
+        $(".flex-d li").css("width", 370 + screenDom / 5)
+        console.log($(".flex-d li").width())
+        $(".flex-d li .impholi").css("width", 200 + screenDom / 20)
+    } else {
+        $(".the-d").attr("class", "wrper the-d")
+        $(".the-d li").removeAttr("style");
+        $(".the-d li .impholi").css("width", $(".the-d li").width());
+    }
+
 });
