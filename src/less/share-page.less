@@ -1,19 +1,13 @@
-.iconfont {
-    font-size: 38px;
+p{
+    word-break:break-all;
 }
-
 main {
     .banner {
-        min-width: 800px;
         margin: 0 auto;
+        img{
+            width: 100%;
+        }
     }
-
-    .img {
-        background-color: rgb(102, 101, 101);
-        height: 400px;
-        width: 100%;
-    }
-
     .tabControl {
         background-color: #fff;
 
@@ -33,7 +27,6 @@ main {
                 padding: 20px;
                 position: relative;
 
-                // border: 1px solid black;
                 .border {
                     width: 2px;
                     height: 50%;
@@ -91,34 +84,68 @@ main {
                 width: 32%;
                 height: 32%;
                 border-radius: 8px;
-                box-sizing: border-box;
                 padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-between;
 
                 .top {
-                    background-color: #fff;
-                    height: 15%;
-                    width: 100%;
+                    height: 14%;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    .head{
+                        width: 15%;   
+                        img{
+                            width: 100%;
+                        }
+                        
+                    }
+                    .name{
+                        
+                        width: 60%;
+                    
+                    }
+                    .time{
+                        
+                        width: 15%;
+                    }
+                   
                 }
 
                 .pic {
-                    background-color: rgb(177, 163, 163);
-                    margin-top: 10px;
-                    width: 100%;
+                    background-color: rgb(211, 120, 120);
                     height: 50%;
+                    border-radius: 8px;
                 }
 
                 .word {
-                    background-color: rgb(201, 182, 182);
-                    margin-top: 10px;
-                    width: 100%;
-                    height: 20%;
+                    height: 18%;
+                    padding: 20px;
+                    box-sizing: border-box;   
                 }
 
                 .foot {
-                    background-color: #fff;
-                    margin-top: 10px;
-                    width: 100%;
-                    height: 8%;
+                    height: 10%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-flow: row nowrap;
+
+                    .place{
+                        width: 75%;
+                    }
+                    .discuss{
+                        width: 8%;
+                        text-align: right;
+                    }
+                    .love{
+                        width: 8%;
+                        text-align: center;
+                    }
+    
                 }
             }
         }
