@@ -6,7 +6,6 @@ import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
 
-import '../less/login-register.less';
 
 // 记录状态
 let _isLogin = true;
