@@ -222,7 +222,12 @@
 .todayNeav{
     width: 72%;
     margin: 0 auto;
+    h1,h2{
+        color: @orangecolor;
+    }
+
     .todayone{
+        transition: .7s;
         background-color: rgb(228, 228, 228);
         img{
             width: 70%;
@@ -230,9 +235,7 @@
         .todayone-p{
             padding-right: 20px;
             width: 18%;
-            h1,h2{
-                color: @orangecolor;
-            }
+            
             p{
                 color: rgb(138, 138, 138);
                 width: 16px;
@@ -240,5 +243,106 @@
                 word-wrap: break-word;
             }
         }
+        &:hover{
+            cursor: pointer;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 10px gray;
+            outline: 1px solid gray;
+            color: rgb(248, 248, 248);
+            background-color: rgb(69, 77, 92);
+        }
     }
+
+    .todaytwo{
+        margin-top: 42px;
+        background-color: rgb(228, 228, 228);
+        .todaytwo-p{
+            margin-left: 20px;
+            
+            width: 20%;
+        }
+        .todaytwo-ione{
+            width: 26%;
+        }
+        .todaytwo-itwo{
+            width: 45%;
+            img{
+                
+                &:first-child{
+                    margin:0 0 51px;    
+                } 
+                
+                width: 100%;
+            }
+        }
+        transition: .7s;
+        &:hover{
+            cursor: pointer;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 10px gray;
+            outline: 1px solid gray;
+            color: honeydew;
+            background-color: rgb(69, 77, 92);
+        }
+    }
+
+    .todaythr{
+        margin-top: 42px;
+        background-color: rgb(228, 228, 228);
+            .todaythr-ione{
+                width: 33.9%;   
+            } 
+             .todaythr-itwo{
+                    width: 37%;
+                } 
+              
+       
+        .todaythr-p{
+            margin-right: 20px;
+            width: 16%;
+        }
+        transition: .7s;
+        &:hover{
+            cursor: pointer;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 10px gray;
+            outline: 1px solid gray;
+            color: honeydew;
+            background-color: rgb(69, 77, 92);
+        }
+    }
+}
+
+// <!-- 底部轮播图 -->
+.sen-logo {
+    width: 80%;
+    height: 140px;
+    margin: 80px auto;
+    overflow: hidden;
+    outline: 1px solid rgb(173, 173, 173);
+    position: relative;
+}
+
+.sen-logo ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    transition: 2s;
+}
+
+.sen-logo ul li {
+    margin-right: 72px;
+    cursor: pointer;
+}
+
+.sen-logo ul li img {
+    transition: .7s;
+}
+
+.sen-logo ul li:hover img {
+    transform: scale(1.1) translateY(-2px);
+    /* box-shadow: 0 2px 10px rgb(209, 209, 209); */
 }

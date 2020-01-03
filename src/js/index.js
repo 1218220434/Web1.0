@@ -87,5 +87,49 @@ $(window).bind("load resize", function() {
         "width": screenDom / _pf,
         "font-size": screenDom / _pf,
     })
+    let _h1ft = 60,
+
+        _pft = 80
+
+    $(".todaytwo-p h1").css({
+        "width": screenDom / _h1ft,
+        "font-size": screenDom / _h1ft,
+    })
+
+    $(".todaytwo-p p").css({
+        "width": screenDom / _pft,
+        "font-size": screenDom / _pft,
+    })
+
+    let _h1fth = 60,
+
+        _pfth = 80
+
+    $(".todaythr-p h1").css({
+        "width": screenDom / _h1fth,
+        "font-size": screenDom / _h1fth,
+    })
+
+    $(".todaythr-p p").css({
+        "width": screenDom / _pfth,
+        "font-size": screenDom / _pfth,
+    })
 
 })
+
+// <!-- 底部轮播图 -->
+var _logoli = p(".sen-logo ul li", true).length
+    // console.log(_logoli)
+var agj = 0
+var icc = self.setInterval(function() {
+
+    agj++
+    if (agj >= 10) {
+        agj = 0
+    }
+    p(".sen-logo ul").style.left = `-${agj*196}px`
+        // console.log(agj)
+
+
+
+}, 3000)
