@@ -116,20 +116,3 @@ $(window).bind("load resize", function() {
     })
 
 })
-
-// <!-- 底部轮播图 -->
-// var _logoli = p(".sen-logo ul li", true).length
-//     // console.log(_logoli)
-// var agj = 0
-// var icc = self.setInterval(function() {
-
-//     agj++
-//     if (agj >= 10) {
-//         agj = 0
-//     }
-//     p(".sen-logo ul").style.left = `-${agj*196}px`
-//         // console.log(agj)
-
-
-
-// }, 3000)

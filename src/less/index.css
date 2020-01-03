@@ -259,3 +259,18 @@
   color: honeydew;
   background-color: #454d5c;
 }
+.sen-logo {
+  width: 100%;
+  margin: 0 auto;
+}
+.sen-logo ul {
+  border-top: 6px solid #6d6d6d;
+}
+.sen-logo li {
+  margin-top: 9px;
+  border-radius: 2px;
+  width: 19%;
+}
+.sen-logo li img {
+  width: 100%;
+}
