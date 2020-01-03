@@ -1,6 +1,5 @@
 .main-bg {
-  width: 1920px;
-  height: 738px;
+  width: 100%;
   position: relative;
   background: #f7edee;
   border-radius: 2px;

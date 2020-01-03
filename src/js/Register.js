@@ -5,72 +5,130 @@ import '../public/header.less';
 import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f357d07765d66a95ea12dc79137f5165b22afd93
 // 记录状态
-let _isLogin = true;
+var oUser = document.getElementById('user');
+    var oPass = document.getElementById('pass');
+    var oValidatePass = document.getElementById('validatePass');
+    var oPhoneNum = document.getElementById('phoneNum');
+    var oEmail = document.getElementById('email');
+    var oBtn = document.getElementById('btn');
 
-$('input').on('change', function() {
-    // 表单验证
-    let reg = new RegExp($(this).data('reg'));
-    if (reg.test($(this).val())) {
-        $(this).parent().removeClass('err');
-    } else {
-        $(this).parent().addClass('err');
-    }
-});
+    var u = p = p2 = ph = el = false;
 
-// 点击前往注册
-$('.go-register').on('click', function() {
-    _isLogin = false;
-    $('form')[0].reset();
-    document.title = "PROJ - 注册";
-    $('.title').text('REGISTER');
-    $('.btn').text('注册');
-    $(this).css({
-        display: 'none'
-    });
-    $('.register').css({
-        display: 'block'
-    })
-});
-
-// 点击返回登录
-$('.go-login').on('click', function() {
-    _isLogin = true;
-    $('form')[0].reset();
-    document.title = "PROJ - 登录";
-    $('.title').text('LOGIN');
-    $('.btn').text('登录');
-    $('.go-register').css({
-        display: 'block'
-    });
-    $('.register').css({
-        display: 'none'
-    })
-});
-
-
-// 点击登录-注册
-$('.btn').click(function() {
-    if (_isLogin) {
-        // 登录 - localStorage
-        alert('登录成功！');
-        sessionStorage.LOGIN_USER = {
-            username: '抽抽'
-        };
-        location.href = '../../index.html';
-    } else {
-        // 注册 - localStorage
-        alert('注册成功！');
-        sessionStorage.LOGIN_USER = {
-            username: '抽抽'
-        };
-        location.href = '../../index.html';
+    oUser.onblur = function() {
+        // var sUser = oUser.value;
+        var reg = /^[\u2E80-\u9FFF\w-]{4,20}$/;
+        // console.log(sUser)
+        if (reg.test(this.value)) {
+            this.nextElementSibling.innerHTML = "";
+            u = true;
+        } else {
+            this.nextElementSibling.innerHTML = "用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符";
+            u = false;
+        }
     }
 
-});
+    oPass.onblur = function() {
+        var a = b = c = 0;
+        var aReg = /\d/;
+        if (aReg.test(this.value)) {
+            a = 1;
+        }
+        var bReg = /[a-zA-Z]/;
+        if (bReg.test(this.value)) {
+            b = 1;
+        }
+        var cReg = /\W/;
+        if (cReg.test(this.value)) {
+            c = 1;
+        }
+        switch (a + b + c) {
+            case 1:
+                this.nextElementSibling.innerHTML = "简单";
+                break;
+            case 2:
+                this.nextElementSibling.innerHTML = "一般";
+                break;
+            case 3:
+                this.nextElementSibling.innerHTML = "困难";
+                break;
+        }
+        p = true;
+
+        if (this.value === oValidatePass.value) {
+            oValidatePass.nextElementSibling.innerHTML = "";
+            p2 = true;
+        } else {
+            oValidatePass.nextElementSibling.innerHTML = "不一致"
+            p2 = false;
+        }
+    }
+
+    oValidatePass.onblur = function() {
+        if (this.value === oPass.value) {
+            this.nextElementSibling.innerHTML = "";
+            p2 = true;
+        } else {
+            this.nextElementSibling.innerHTML = "不一致";
+            p2 = false;
+        }
+    }
+
+    oPhoneNum.onblur = function() {
+        var reg = /^1[356789]\d{9}$/;
+        if (reg.test(this.value)) {
+            this.nextElementSibling.innerHTML = "";
+            ph = true;
+        } else {
+            this.nextElementSibling.innerHTML = "手机号输入错误";
+            ph = false;
+        }
+    }
+    oEmail.onblur = function() {
+        var reg = /^[a-z0-9]{3,15}@[a-z0-9]{2,9}\.[a-z]{2,3}$/;
+        if (reg.test(this.value)) {
+            this.nextElementSibling.innerHTML = "";
+            el = true;
+        } else {
+            this.nextElementSibling.innerHTML = "邮箱输入错误";
+            el = false;
+        }
+    }
+
+
+    // -0--------------------------------------------------------------------------
+
+    if (window.localStorage.userArr) { //判断是否存在
+        var array = JSON.parse(window.localStorage.userArr);
+    } else {
+        array = []; //创建一个新数组
+    }
+
+
+    oBtn.onclick = function() {
+        var useval = oUser.value;
+        var passval = oPass.value;
+        for (var i = 0; i < array.length; i++) {
+            //判断是否有相同账号
+            if (useval == array[i].useval) {
+                alert("该账号已存在");
+                return;
+            }
+        }
+        //创建对象
+
+        if (u && p && p2 && ph && el) {
+            alert("注册成功")
+            var obj = {
+                useval: useval,
+                passval: passval,
+                score: 0
+            }
+            array.push(obj);
+            window.localStorage.userArr = JSON.stringify(array);
+            window.location.href = "./login.html";
+        } else {
+            alert("请填写完整信息")
+        }
+
+    }
