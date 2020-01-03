@@ -13,6 +13,7 @@ var oUser = document.getElementById('user');
     var oEmail = document.getElementById('email');
     var oBtn = document.getElementById('btn');
 
+<<<<<<< HEAD
     var u = p = p2 = ph = el = false;
 
     oUser.onblur = function() {
@@ -54,6 +55,11 @@ var oUser = document.getElementById('user');
                 break;
         }
         p = true;
+=======
+
+// 记录状态
+let _isLogin = true;
+>>>>>>> 771e851e5486f42421b2489c5e2fa0a8039daddf
 
         if (this.value === oValidatePass.value) {
             oValidatePass.nextElementSibling.innerHTML = "";
