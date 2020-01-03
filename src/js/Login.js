@@ -25,4 +25,11 @@ $("#denglubutton").click(function(){
             }
         }
     )
-})
+});
+
+// $(window).bind("load resize", function() {
+//     let screenDom = document.documentElement.clientWidth;
+//     $(".main-bg").css("top", screenDom / 10)
+//         .css("right", screenDom / 20)
+//         .css("width", screenDom / 4)
+// });

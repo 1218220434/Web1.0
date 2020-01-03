@@ -1,6 +1,5 @@
 .main-bg {
-  width: 1920px;
-  height: 738px;
+  width: 100%;
   position: relative;
   background: #f7edee;
   border-radius: 2px;
@@ -8,7 +7,7 @@
 }
 .main-lg {
   width: 693px;
-  height: 408px;
+  height: 272px;
   background: #f7edee;
   position: absolute;
   border-radius: 20px;
@@ -21,7 +20,7 @@
 }
 .main-lg .kuang {
   position: relative;
-  top: -67px;
+  top: -49px;
   left: 285px;
   width: 309px;
   height: 50px;
@@ -33,21 +32,9 @@
   font-size: 22px;
   text-align: center;
 }
-.main-lg .biaoti {
-  position: relative;
-  top: -21px;
-  left: 102px;
-  width: 550px;
-  height: 38px;
-  font-size: 45px;
-  font-family: Microsoft YaHei;
-  font-weight: 900;
-  color: #f8b551;
-  letter-spacing: 20px;
-}
 .main-lg .denglu {
   position: relative;
-  top: 130px;
+  top: 97px;
   left: -126px;
   width: 225px;
   height: 38px;
@@ -62,7 +49,7 @@
 }
 .main-lg .zhuche {
   position: relative;
-  top: -45px;
+  top: -31px;
   left: 561px;
   width: 98px;
   height: 33px;
@@ -84,5 +71,5 @@
   font-weight: 400;
   color: #050505;
   line-height: 40px;
-  padding: 20px;
+  padding: 1px;
 }

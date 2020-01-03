@@ -37,38 +37,36 @@
     </header>
     <!-- 内容 -->
     <main>
-        <div>
-            <form action="javascript:;" autocomplete="off">
-                <!-- 账号 -->
-                <section class="input-box" data-tips="账号由4~8位字母、数字、下划线组成">
-                    <input type="text" id="username" data-reg="^\w{4,8}$" placeholder="请输入账号">
-                </section>
-                <!-- 密码 -->
-                <section class="input-box" data-tips="密码由4~8位字母、数字、下划线组成">
-                    <input type="password" id="password" data-reg="^\w{4,8}$" placeholder="请输入密码">
-                </section>
-                <!-- 确认密码 -->
-                <section class="input-box register" data-tips="两次密码不一致">
-                    <input type="password" id="confirmPsw" placeholder="请确认密码">
-                </section>
-                <!-- 性别 -->
-                <label><input type="radio" name="sex" value="男生">男</label>
-                <label><input type="radio" name="sex" value="女生">女</label>
+        <div class="main-bg">
 
-                <!-- 邮箱 -->
-                <section class="input-box register" data-tips="邮箱格式不正确">
-                    <input type="email" id="email" data-reg="@" placeholder="请输入邮箱">
-                </section>
-                <!-- 手机号 -->
-                <section class="input-box register" data-tips="手机号格式不正确">
-                    <input type="tel" id="tel" data-reg="^1[3-9]\d{9}$" placeholder="请输入手机号">
-                </section>
-                <div class="infos">
-                    <span class="go-login  go-btn register">返回登录</span>
-                </div>
-                <!-- 登录 & 注册 -->
-                <div class="btn">登录</div>
-            </form>
+            <div class="main-lg">
+
+                <form>
+
+                    <h2>注册</h2>
+                    <p data-tips="账号由4~8位字母、数字、下划线组成">账&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号:
+                        <input type="text" id="user" class="inpStyle" data-reg="^\w{4,8}$" placeholder="请输入账号">
+                        <span class="error"></span></p>
+                    <p data-tips="密码由4~8位字母、数字、下划线组成">密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码:
+                        <input type="text" id="pass" class="inpStyle" data-reg="^\w{4,8}$" placeholder="请输入密码">
+                        <span class="error"></span></p>
+                    <p data-tips="两次密码不一致">确认密码:
+                        <input type="text" id="validatePass" class="inpStyle" placeholder="两次密码不一致">
+                        <span class="error"></span></p>
+                    <p data-tips="手机号格式不正确">手&nbsp&nbsp机&nbsp&nbsp号:
+                        <input type="text" id="phoneNum" class="inpStyle" data-reg="^1[3-9]\d{9}$" placeholder="请输入手机号">
+                        <span class="error"></span></p>
+                    <p data-tips="邮箱格式不正确">邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱:
+                        <input type="text" id="email" class="inpStyle" data-reg="@" placeholder="请输入邮箱">
+                        <span class="error"></span></p>
+                    <p>性别：<input name="sex" type="radio" checked="checked"/>男
+
+                    <input name="sex" type="radio" />女</p>
+
+                    <input type="button" id="btn" value="提交注册信息">
+
+                </form>
+            </div>
         </div>
     </main>
     <!-- 尾部 -->
