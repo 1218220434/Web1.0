@@ -7,4 +7,5 @@ module.exports = {
     videoPage: './src/js/video-page.js',
     topSearch: './src/js/top-search.js',
     homePage: './src/js/home-page.js',
+    myhobbyPage: './src/js/myhobby-page.js',
 }
