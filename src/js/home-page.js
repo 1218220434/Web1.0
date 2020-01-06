@@ -11,14 +11,14 @@ import '../public/footer.js';
 const _url = "http://127.0.0.1:8081/static/images/"
 let ajaxData = [{
     id: 1,
-    user_imgone: `${_url}IMG_0642@2x-4d851.png`,
+    user_imgone: `${_url}IMG_0642@2x.png`,
     username: "暴风雨使我安睡",
     neavtime: "2019-12-31 21:49",
     userinfo: "Buja由德国设计公司领衔设计的整体空间，加上全国采购的高颜值玩具及玩乐设施，因为我们相信美好的东西能跨越年龄，让大人和小孩都处于共同认可的美好之中，毕竟，带娃这件事，其实可以更漂亮",
-    mainimg: `${_url}曲线 1@2x-a4a67.png`,
-    someimg_one: `${_url}曲线 1@2x-a4a67.png`,
-    someimg_two: `${_url}曲线 1 拷贝 3@2x-cc83e.png`,
-    someimg_one: `${_url}曲线 1 拷贝@2x-d0870.png`,
+    mainimg: `${_url}曲线 1 拷贝@2x.png`,
+    someimg_one: `${_url}曲线 1@2x.png`,
+    someimg_two: `${_url}曲线 1@2x.png`,
+    someimg_thr: `${_url}曲线 1 拷贝 3@2x.png`,
     mainaddress: "东大街下东大街段169号晶融汇2期2楼",
     mainclass: "美食",
     maincoordinatesX: 104.089974,
@@ -26,14 +26,14 @@ let ajaxData = [{
     clikeint: 20,
 }, {
     id: 2,
-    user_imgone: `${_url}IMG_0642@2x-4d851.png`,
+    user_imgone: `${_url}IMG_0642@2x.png`,
     username: "暴风雨使我安睡",
     neavtime: "2019-12-12 11:49",
     userinfo: "童话九寨沟，一个让人来了还想再来的地方，景色纯朴自然，各种变换的景色扑面而来有无法形容的美，宛如人间仙境。九寨沟的水是上天赐予",
-    mainimg: `${_url}曲线 1@2x-a4a67.png`,
-    someimg_one: `${_url}曲线 1@2x-a4a67.png`,
-    someimg_two: `${_url}曲线 1 拷贝 3@2x-cc83e.png`,
-    someimg_thr: `${_url}曲线 1 拷贝@2x-d0870.png`,
+    mainimg: `${_url}曲线 1@2x.png`,
+    someimg_one: `${_url}曲线 1@2x.png`,
+    someimg_two: `${_url}曲线 1 拷贝 3@2x.png`,
+    someimg_thr: `${_url}曲线 1 拷贝@2x.png`,
     mainaddress: "四川省阿坝藏族羌族自治州九寨沟县漳扎镇",
     mainclass: "美景",
     maincoordinatesX: 103.925664,
@@ -65,7 +65,7 @@ ajaxData.forEach(el => {
         <div class="imgCol flex-c">
             <img src="${el.mainimg}" alt="" class="someimg">
             <img src="${el.someimg_two}" alt="" class="someimg">
-            <img src="${el.someimg_two}" alt="" class="someimg">
+            <img src="${el.someimg_thr}" alt="" class="someimg">
 
         </div>
         <div class="neavaddress flex-c">

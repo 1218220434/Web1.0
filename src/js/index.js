@@ -66,9 +66,15 @@ $(window).bind("load resize", function() {
     }
     $(".search").css({ "top": screenDom / 2.95, "height": 30 + screenDom / 95 })
     $(".search input").css({ "height": 30 + screenDom / 95 })
-    $(".search img").css({ "height": 30 + screenDom / 95 })
+    $(".search img").css({
+        "width": 30 + screenDom / 96,
+        "height": 30 + screenDom / 95.8
+    })
 
-    $(".bout").css("fontSize", screenDom / 130).css("width", (380 + (1900 - screenDom) / 15))
+    $(".bout").css({
+        "fontSize": screenDom / 130,
+        "width": (380 + (1900 - screenDom) / 15)
+    })
 
 });
 
