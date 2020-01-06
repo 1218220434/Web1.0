@@ -58,17 +58,12 @@ function uploadImage() {
 }
 // 记录状态
 var oUser = document.getElementById('user');
-<<<<<<< HEAD
-=======
-
->>>>>>> f5ce5a5f307391b12aa722873fd2c186ddbda4c0
 var oPass = document.getElementById('pass');
 var oValidatePass = document.getElementById('validatePass');
 var oPhoneNum = document.getElementById('phoneNum');
 var oEmail = document.getElementById('email');
 var oBtn = document.getElementById('btn');
 
-<<<<<<< HEAD
 // var u = p = p2 = ph = el = false;
 var u = false;
 var p = false;
@@ -76,20 +71,6 @@ var p2 = false;
 var ph = false;
 var el = false;
 oUser.onblur = function () {
-=======
-
-var u = p = p2 = ph = el = false;
-
-var oPass = document.getElementById('pass');
-var oValidatePass = document.getElementById('validatePass');
-var oPhoneNum = document.getElementById('phoneNum');
-var oEmail = document.getElementById('email');
-var oBtn = document.getElementById('btn');
-
-var u = p = p2 = ph = el = false;
-
-oUser.onblur = function() {
->>>>>>> f5ce5a5f307391b12aa722873fd2c186ddbda4c0
     // var sUser = oUser.value;
     var reg = /^[\u2E80-\u9FFF\w-]{4,20}$/;
     // console.log(sUser)
@@ -99,7 +80,6 @@ oUser.onblur = function() {
     } else {
         this.nextElementSibling.innerHTML = "用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符";
         u = false;
-<<<<<<< HEAD
     }
 }
 
@@ -133,41 +113,6 @@ oPass.onblur = function () {
     // 记录状态
     let _isLogin = true;
 
-=======
-    }
-}
-
-oPass.onblur = function() {
-    var a = b = c = 0;
-    var aReg = /\d/;
-    if (aReg.test(this.value)) {
-        a = 1;
-    }
-    var bReg = /[a-zA-Z]/;
-    if (bReg.test(this.value)) {
-        b = 1;
-    }
-    var cReg = /\W/;
-    if (cReg.test(this.value)) {
-        c = 1;
-    }
-    switch (a + b + c) {
-        case 1:
-            this.nextElementSibling.innerHTML = "简单";
-            break;
-        case 2:
-            this.nextElementSibling.innerHTML = "一般";
-            break;
-        case 3:
-            this.nextElementSibling.innerHTML = "困难";
-            break;
-    }
-    p = true;
-
-    // 记录状态
-    let _isLogin = true;
-
->>>>>>> f5ce5a5f307391b12aa722873fd2c186ddbda4c0
     if (this.value === oValidatePass.value) {
         oValidatePass.nextElementSibling.innerHTML = "";
         p2 = true;
@@ -177,7 +122,6 @@ oPass.onblur = function() {
     }
 }
 
-<<<<<<< HEAD
 oValidatePass.onblur = function () {
     if (this.value === oPass.value) {
         this.nextElementSibling.innerHTML = "";
@@ -225,108 +169,10 @@ if (window.localStorage.userArr) { //判断是否存在
     var array = JSON.parse(window.localStorage.userArr);
 } else {
     array = []; //创建一个新数组
-=======
-oUser.onblur = function() {
-    // var sUser = oUser.value;
-    var reg = /^[\u2E80-\u9FFF\w-]{4,20}$/;
-    // console.log(sUser)
-    if (reg.test(this.value)) {
-        this.nextElementSibling.innerHTML = "";
-        u = true;
-    } else {
-        this.nextElementSibling.innerHTML = "用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符";
-        u = false;
-    }
 }
 
-oPass.onblur = function() {
-    var a = b = c = 0;
-    var aReg = /\d/;
-    if (aReg.test(this.value)) {
-        a = 1;
-    }
-    var bReg = /[a-zA-Z]/;
-    if (bReg.test(this.value)) {
-        b = 1;
-    }
-    var cReg = /\W/;
-    if (cReg.test(this.value)) {
-        c = 1;
-    }
-    switch (a + b + c) {
-        case 1:
-            this.nextElementSibling.innerHTML = "简单";
-            break;
-        case 2:
-            this.nextElementSibling.innerHTML = "一般";
-            break;
-        case 3:
-            this.nextElementSibling.innerHTML = "困难";
-            break;
-    }
-    p = true;
 
-
-    // 记录状态
-    let _isLogin = true;
-
-
-    if (this.value === oValidatePass.value) {
-        oValidatePass.nextElementSibling.innerHTML = "";
-        p2 = true;
-    } else {
-        oValidatePass.nextElementSibling.innerHTML = "不一致"
-        p2 = false;
-    }
->>>>>>> f5ce5a5f307391b12aa722873fd2c186ddbda4c0
-}
-
-oValidatePass.onblur = function() {
-    if (this.value === oPass.value) {
-        this.nextElementSibling.innerHTML = "";
-        p2 = true;
-    } else {
-        this.nextElementSibling.innerHTML = "不一致";
-        p2 = false;
-    }
-}
-
-<<<<<<< HEAD
 oBtn.onclick = function () {
-=======
-oPhoneNum.onblur = function() {
-    var reg = /^1[356789]\d{9}$/;
-    if (reg.test(this.value)) {
-        this.nextElementSibling.innerHTML = "";
-        ph = true;
-    } else {
-        this.nextElementSibling.innerHTML = "手机号输入错误";
-        ph = false;
-    }
-}
-oEmail.onblur = function() {
-    var reg = /^[a-z0-9]{3,15}@[a-z0-9]{2,9}\.[a-z]{2,3}$/;
-    if (reg.test(this.value)) {
-        this.nextElementSibling.innerHTML = "";
-        el = true;
-    } else {
-        this.nextElementSibling.innerHTML = "邮箱输入错误";
-        el = false;
-    }
-}
-
-
-// -0--------------------------------------------------------------------------
-
-if (window.localStorage.userArr) { //判断是否存在
-    var array = JSON.parse(window.localStorage.userArr);
-} else {
-    array = []; //创建一个新数组
-}
-
-
-oBtn.onclick = function() {
->>>>>>> f5ce5a5f307391b12aa722873fd2c186ddbda4c0
     var useval = oUser.value;
     var passval = oPass.value;
     for (var i = 0; i < array.length; i++) {
@@ -351,11 +197,6 @@ oBtn.onclick = function() {
     } else {
         alert("请填写完整信息")
     }
-<<<<<<< HEAD
 
 }
 
-=======
-
-}
->>>>>>> f5ce5a5f307391b12aa722873fd2c186ddbda4c0
