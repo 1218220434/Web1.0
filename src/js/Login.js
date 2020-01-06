@@ -27,9 +27,34 @@ $("#denglubutton").click(function(){
     )
 });
 
+$(window).bind("load resize", function() {
+    let screenDom = document.documentElement.clientWidth;
+    $(".main-bg").css("top", screenDom / 80)
+        .css("right", screenDom / 30)
+        .css("width", screenDom / 1)
+});
 // $(window).bind("load resize", function() {
 //     let screenDom = document.documentElement.clientWidth;
-//     $(".main-bg").css("top", screenDom / 10)
-//         .css("right", screenDom / 20)
-//         .css("width", screenDom / 4)
+//     $(".beijin").css("top", screenDom / 10)
+//         .css("left", screenDom / 1)
+//         .css("width", screenDom / 3)
+// });
+$(window).bind("load resize", function() {
+    let screenDom = document.documentElement.clientWidth;
+    $(".red").css("top", screenDom / 100)
+        .css("left", screenDom / 20)
+        .css("width", screenDom / 4)
+});
+$(window).bind("load resize", function() {
+    let screenDom = document.documentElement.clientWidth;
+    $(".main-lg").css("top", screenDom / 35)
+        .css("left", screenDom / 4)
+        .css("width", screenDom / 2)
+        .css("height", screenDom / 6)
+});
+// $(window).bind("load resize", function() {
+//     let screenDom = document.documentElement.clientWidth;
+//     $(".red").css("top", screenDom /85)
+//         .css("right", screenDom / 9)
+//         .css("width", screenDom / 3)
 // });
