@@ -1,49 +1,94 @@
 .main-bg {
-    width: 1920px;
-    height: 610px;
-    background: url(../images/登录注册/登录背景图.png);
+    width: 100%;
     position: relative;
   }
   .main-lg {
-    width: 1000px;
-    height: 568px;
-    background: white;
+    width: 40%;
+    height: 60%;
+    background:rgba(255,255,255,1);
     position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 563px;
+    top: 96px;
     margin: auto;
-    padding: 50px 100px;
+    border-radius: 9px 9px 0 0;
+    form{
+      outline: solid;
+    }
+    .box{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 65px;
+      left: 486px;
+      border-radius: 9px;
+      background: #f5f5f5 url("../images/登录注册/上传头像.png") no-repeat center center;
+      input{
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+      }
+    }
+    button{
+      display: inline-block;
+      width: 15%;
+      position: absolute;
+      top: 293px;
+      left: 528px;
+      font-size:15px;
+      font-family:Microsoft YaHei;
+      font-weight:300;
+      color:rgba(5,5,5,1);
+      line-height:47px;
+    }
     h2 {
       text-align: center;
-      margin-top: 20px;
-      color: #1429a0;
+      background:rgba(248,181,81,1);
+      border-radius:9px;
     }
     p {
-      font-size: 22px;
-      margin: 20px 0 0 100px;
+      font-size:19px;
+      font-family:Microsoft YaHei;
+      font-weight:300;
+      color:rgba(5,5,5,1);
+      line-height:42px;
+      margin: 0 0 0 100px;
+    }
+    .xieyi{
+      position: absolute;
+      top: 311px;
+      left: 153px;
+    }
+    .agree{
+      position: absolute;
+      top: 295px;
+      left: 79px;
+      font-size:15px;
+      font-family:Microsoft YaHei;
+      font-weight:300;
+      color:rgba(5,5,5,1);
     }
     .inpStyle {
       margin-left: 30px;
-      border-radius: 15px;
-      border: 2px solid #888;
+      border:1px solid rgba(0,0,0,1);
+      opacity:0.39;
+      border-radius:2px;
     }
   }
   #btn {
-    width: 200px;
-    height: 50px;
-    border-radius: 15px;
-    background: #1429a0;
-    color: #fff;
-    font-size: 22px;
-    margin: 20px 0 0 200px;
+    width: 25%;
+    background: #f8b551;
+    margin: 20px 0 56px 200px;
+    font-size: 19px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 47px;
+    border-radius: 2px;
+    position: absolute;
+    top: 348px;
+    left: 58px;
   }
   .error {
     color: red;
-  }
-  .success {
-    color: green;
-    border: 2px solid green;
   }
   

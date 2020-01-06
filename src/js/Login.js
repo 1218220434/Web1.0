@@ -31,7 +31,7 @@ $(window).bind("load resize", function() {
     let screenDom = document.documentElement.clientWidth;
     $(".main-bg").css("top", screenDom / 80)
         .css("right", screenDom / 30)
-        .css("width", screenDom / 1)
+        
 });
 // $(window).bind("load resize", function() {
 //     let screenDom = document.documentElement.clientWidth;
@@ -41,20 +41,22 @@ $(window).bind("load resize", function() {
 // });
 $(window).bind("load resize", function() {
     let screenDom = document.documentElement.clientWidth;
-    $(".red").css("top", screenDom / 100)
-        .css("left", screenDom / 20)
-        .css("width", screenDom / 4)
-});
-$(window).bind("load resize", function() {
-    let screenDom = document.documentElement.clientWidth;
     $(".main-lg").css("top", screenDom / 35)
         .css("left", screenDom / 4)
         .css("width", screenDom / 2)
         .css("height", screenDom / 6)
 });
+$(window).bind("load resize", function() {
+    let screenDom = document.documentElement.clientWidth;
+    $(".red").css("top", screenDom / 70)
+        .css("left", screenDom / 35)
+        .css("width", screenDom / 5.3)
+        .css("height", screenDom / 32)
+});
+
 // $(window).bind("load resize", function() {
 //     let screenDom = document.documentElement.clientWidth;
-//     $(".red").css("top", screenDom /85)
-//         .css("right", screenDom / 9)
-//         .css("width", screenDom / 3)
+//     $(".zhuche").css("top", screenDom / 70)
+//         .css("left", screenDom / 65)
+//         .css("width", screenDom / 15)
 // });

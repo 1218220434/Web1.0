@@ -11,6 +11,7 @@
 }
 .main-lg {
   width: 50%;
+  background: #f7edee;
   position: absolute;
   border-radius: 20px;
   right: 500px;
@@ -18,11 +19,23 @@
   padding: 100px 0;
   transform: translateX(50%);
 }
+.main-lg .flex-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.main-lg .flex-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .main-lg .kuang {
   position: relative;
-  top: -49px;
-  left: 285px;
-  width: 40%;
+  top: -88px;
+  left: 142px;
+  width: 32%;
   margin-left: 30px;
   margin-top: 50px;
   padding-left: 30px;
@@ -33,9 +46,9 @@
 }
 .main-lg .denglu {
   position: relative;
-  top: 85px;
-  left: -126px;
-  width: 40%;
+  top: -20px;
+  left: 353px;
+  width: 22%;
   background: #f8b551;
   border-radius: 2px;
   font-size: 24px;
@@ -47,16 +60,15 @@
 }
 .main-lg .zhuche {
   position: relative;
-  top: -31px;
-  left: 470px;
-  width: 20%;
+  top: -87px;
+  left: -57px;
   background: #ffffff;
   border-radius: 2px;
   font-size: 16px;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: #e0a448;
-  line-height: 31px;
+  width: 100%;
 }
 .main-lg .red {
   position: relative;
