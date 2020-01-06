@@ -36,44 +36,91 @@
     </header>
     <!-- 内容 -->
     <main>
-        <div class="banner">
+        <div class="ban">
             <div class="img">
                 <img src="../images/duan/banner.png" alt="">
             </div>
-            <div class="tabControl">
-                <div class="tab">
-                    <div class="select">
-                        <i class="iconfont icon-huoguo big"></i>
-                        <h4>爱吃</h4>
-                        <div class="border"></div>
-                    </div>
-                    <div class="select">
-                        <i class="iconfont icon-youleyuan big"></i>
-                        <h4>趣玩</h4>
-                        <div class="border"></div>
-                    </div>
-                    <div class="select">
-                        <i class="iconfont icon-lvyou big"></i>
-                        <h4>美景</h4>
-                        <div class="border"></div>
-                    </div>
-                    <div class="select">
-                        <i class="iconfont icon-wupin big"></i>
-                        <h4>好物</h4>
-                    </div>
+        </div>
+        <div class="tabControl">
+            <div class="tab">
+                <div class="select">
+                    <i class="iconfont icon-huoguo big"></i>
+                    <h4>爱吃</h4>
+                    <div class="border"></div>
+                </div>
+                <div class="select">
+                    <i class="iconfont icon-youleyuan big"></i>
+                    <h4>趣玩</h4>
+                    <div class="border"></div>
+                </div>
+                <div class="select">
+                    <i class="iconfont icon-lvyou big"></i>
+                    <h4>美景</h4>
+                    <div class="border"></div>
+                </div>
+                <div class="select">
+                    <i class="iconfont icon-wupin big"></i>
+                    <h4>好物</h4>
                 </div>
             </div>
-            <div class="issue">
-                <div class="publish">
-                    <p>&nbsp;&nbsp;我的小日记.....</p>
+        </div>
+        <div class="issue">
+            <div class="publish">
+                <textarea name="" id="pub" placeholder="我的小日记...."></textarea>
+                <div class="anniu">
+                    <button id="affirm">发布</button>
+                    <button id="cancel">取消</button>
+                </div>
+                <div class="photo">
+                    <div class="case">
+                        <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                            onchange="imgPreview(this)">
+                    </div>
+                    <div class="case">
+                        <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                            onchange="imgPreview(this)">
+                    </div>
+                    <div class="case">
+                        <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                            onchange="imgPreview(this)">
+                    </div>
+                    <button id="tjtp" type="button" onclick="uploadImage()">点击上传</button>
                 </div>
             </div>
-            <div class="content">
-                <div class="plate">
+        </div>
+        <div class="content">
+            <div class="plate show">
+                <div class="bigbox">
                     <div class="box">
                         <section class="top">
                             <div class="head">
-                                <img src="../images/图标/头像.png" alt="">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>暗夜精灵</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/1.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>Rifle Paper Co. 万圣节圣诞节系列多款贺卡精致烫金</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p class="location"><i class="iconfont icon-dizhi1 small"></i>甘孜藏族自治州稻城县香格里拉镇</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
                             </div>
                             <div class="name">
                                 <p>的说法是大哥</p>
@@ -83,228 +130,918 @@
                             </div>
                         </section>
                         <section class="pic">
-                            <img src="" alt="">
+                            <img src="../images/duan/ac/2.png" alt="">
                         </section>
                         <section class="word">
                             <p>fgshghdfdhfghdsfgdfgdf</p>
                         </section>
-                        <section class="foot">
+                        <section class="tail">
                             <div class="place">
                                 <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/3.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/4.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/5.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/6.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/7.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/8.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/ac/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/ac/9.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
                             </div>
                             <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
-                </div>
-                <div class="box">
-                    <section class="top">
-                        <div class="head">
-                            <img src="../images/图标/头像.png" alt="">
-                        </div>
-                        <div class="name">
-                            <p>的说法是大哥</p>
-                        </div>
-                        <div class="time">
-                            <p>12/31</p>
-                        </div>
-                    </section>
-                    <section class="pic">
-                        <img src="" alt="">
-                    </section>
-                    <section class="word">
-                        <p>fgshghdfdhfghdsfgdfgdf</p>
-                    </section>
-                    <section class="foot">
-                        <div class="place">
-                            <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
-                            </div>
-                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
-                        <div class="love"><i class="iconfont icon-xin small"></div>
-                    </section>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
                 </div>
             </div>
+            <div class="plate">
+                <div class="bigbox">
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>hjhhffghj</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw1.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw2.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw3.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw4.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw5.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw6.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw7.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw8.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/qw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/qw/qw9.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="plate">
+                <div class="bigbox">
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj1.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj2.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj3.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj4.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj5.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj6.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj7.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj8.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/mj/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/mj/mj9.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="plate">
+                <div class="bigbox">
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw1.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw2.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw3.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw4.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw5.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw6.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw7.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw8.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                    <div class="box">
+                        <section class="top">
+                            <div class="head">
+                                <img src="../images/duan/hw/t1.png" alt="">
+                            </div>
+                            <div class="name">
+                                <p>的说法是大哥</p>
+                            </div>
+                            <div class="time">
+                                <p>12/31</p>
+                            </div>
+                        </section>
+                        <section class="pic">
+                            <img src="../images/duan/hw/hw9.png" alt="">
+                        </section>
+                        <section class="word">
+                            <p>fgshghdfdhfghdsfgdfgdf</p>
+                        </section>
+                        <section class="tail">
+                            <div class="place">
+                                <p><i class="iconfont icon-dizhi1 small"></i>ddddd</p>
+                            </div>
+                            <div class="discuss"><i class="iconfont icon-comment-copy small"></div>
+                            <div class="love"><i class="iconfont icon-xin small"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
     <!-- 尾部 -->
@@ -318,29 +1055,29 @@
                 <div class="flex-c">
 
                     <a href="../../index.html">
-                            网站首页
-                        </a>
+                        网站首页
+                    </a>
                     <a href="share-page.html">
-                           生活导航
-                        </a>
+                        生活导航
+                    </a>
                 </div>
                 <div class="flex-c">
 
                     <a href="video-page.html">
-                            美食视频
-                        </a>
+                        美食视频
+                    </a>
                     <a href="video-page.html">
-                            旅游视频
+                        旅游视频
                     </a>
                 </div>
                 <div class="flex-c">
 
                     <a href="home-page.html">
-                           个人中心
-                        </a>
+                        个人中心
+                    </a>
                     <a href="top-search.html">
-                           热搜榜
-                        </a>
+                        热搜榜
+                    </a>
                 </div>
 
             </div>
@@ -376,6 +1113,7 @@
         </div>
 
     </footer>
+   
 </body>
 
 </html>

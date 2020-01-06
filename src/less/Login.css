@@ -1,13 +1,16 @@
 .main-bg {
   width: 100%;
   position: relative;
-  background: #f7edee;
   border-radius: 2px;
-  background-image: url(../images/登录注册/登录背景图.png);
+}
+.beijin {
+  width: 100%;
+  position: relative;
+  top: -14px;
+  left: 39px;
 }
 .main-lg {
-  width: 693px;
-  height: 272px;
+  width: 50%;
   background: #f7edee;
   position: absolute;
   border-radius: 20px;
@@ -15,15 +18,24 @@
   top: 20px;
   padding: 100px 0;
   transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  -webkit-transform: translateX(45%);
+}
+.main-lg .flex-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.main-lg .flex-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .main-lg .kuang {
   position: relative;
-  top: -49px;
-  left: 285px;
-  width: 309px;
-  height: 50px;
+  top: -88px;
+  left: 142px;
+  width: 32%;
   margin-left: 30px;
   margin-top: 50px;
   padding-left: 30px;
@@ -34,10 +46,9 @@
 }
 .main-lg .denglu {
   position: relative;
-  top: 97px;
-  left: -126px;
-  width: 225px;
-  height: 38px;
+  top: -20px;
+  left: 353px;
+  width: 22%;
   background: #f8b551;
   border-radius: 2px;
   font-size: 24px;
@@ -49,17 +60,15 @@
 }
 .main-lg .zhuche {
   position: relative;
-  top: -31px;
-  left: 561px;
-  width: 98px;
-  height: 33px;
+  top: -87px;
+  left: -57px;
   background: #ffffff;
   border-radius: 2px;
   font-size: 16px;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: #e0a448;
-  line-height: 31px;
+  width: 100%;
 }
 .main-lg .red {
   position: relative;

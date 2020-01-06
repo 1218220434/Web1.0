@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PROJ - 登录</title>
+    <title>PROJ - 注册</title>
 </head>
 
 <body>
@@ -38,34 +38,42 @@
     <!-- 内容 -->
     <main>
         <div class="main-bg">
-
+            <img src="../images/登录注册/登录背景图.png" alt="">
             <div class="main-lg">
 
-                <form>
-
+                
                     <h2>注册</h2>
+                    <div class="box">
+                            <!-- accept：接受的类型 -->
+                        <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn" >
+                    </div>
+                    <button type="button" class="upbtn" >上传头像</button>
                     <p data-tips="账号由4~8位字母、数字、下划线组成">账&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号:
                         <input type="text" id="user" class="inpStyle" data-reg="^\w{4,8}$" placeholder="请输入账号">
                         <span class="error"></span></p>
                     <p data-tips="密码由4~8位字母、数字、下划线组成">密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码:
-                        <input type="text" id="pass" class="inpStyle" data-reg="^\w{4,8}$" placeholder="请输入密码">
+                        <input type="password" id="pass" class="inpStyle" data-reg="^\w{4,8}$" placeholder="请输入密码">
                         <span class="error"></span></p>
                     <p data-tips="两次密码不一致">确认密码:
-                        <input type="text" id="validatePass" class="inpStyle" placeholder="两次密码不一致">
+                        <input type="password" id="validatePass" class="inpStyle" placeholder="两次密码不一致">
                         <span class="error"></span></p>
+                    <p>性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input name="sex"
+                            type="radio" checked="checked" />男
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input name="sex" type="radio" />女</p>
                     <p data-tips="手机号格式不正确">手&nbsp&nbsp机&nbsp&nbsp号:
                         <input type="text" id="phoneNum" class="inpStyle" data-reg="^1[3-9]\d{9}$" placeholder="请输入手机号">
                         <span class="error"></span></p>
                     <p data-tips="邮箱格式不正确">邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱:
                         <input type="text" id="email" class="inpStyle" data-reg="@" placeholder="请输入邮箱">
                         <span class="error"></span></p>
-                    <p>性别：<input name="sex" type="radio" checked="checked" />男
+                    
+                    <input type="checkbox" name="check_id" value="checkbox" οnclick="isaccepted();" class="xieyi"/>
+                    <p class="agree">同意相关协议</p>
 
-                        <input name="sex" type="radio" />女</p>
+                    <input type="button" id="btn" value="注册">
 
-                    <input type="button" id="btn" value="提交注册信息">
-
-                </form>
+               
             </div>
         </div>
     </main>
