@@ -1,13 +1,19 @@
-p{
-    word-break:break-all;
+p {
+    word-break: break-all;
 }
+
+
+
 main {
-    .banner {
+    .ban {
+        width: 100%;
         margin: 0 auto;
-        img{
+
+        img {
             width: 100%;
         }
     }
+
     .tabControl {
         background-color: #fff;
 
@@ -32,7 +38,7 @@ main {
                     height: 50%;
                     top: 25%;
                     right: 0;
-                    background-color: rgb(165, 158, 158);
+                    background-color: rgba(165, 158, 158, 0.685);
                     position: absolute;
                 }
 
@@ -51,103 +57,197 @@ main {
 
     .issue {
         margin-top: 20px;
-        background-color: #fff;
 
         .publish {
             width: 30%;
-            background-color: rgb(201, 197, 197);
+            background-color: #EDEDED;
             margin: 0 auto;
-            height: 80px;
             border-radius: 8px;
+            box-sizing: border-box;
+            padding: 10px;
+            position: relative;
 
-            p {
-                color: rgb(117, 115, 115);
+            textarea {
+                width: 100%;
+                height: 100%;
+                background-color: #EDEDED;
+                font-size: 14px;
+                font-family: Microsoft YaHei;
+                font-weight: 300;
+                color: rgba(153, 153, 153, 1);
+                // display: block;
+            }
+
+            .anniu {
+                position: absolute;
+                display: none;
+                bottom: 10px;
+                right: 10px;
+
+                button {
+                    background-color: rgb(88, 87, 87);
+                    color: rgb(252, 249, 249);
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    font-size: 10px;
+                    margin-left: 10px;
+
+                    &:hover {
+                        background-color: rgb(19, 18, 18);
+                    }
+                }
+            }
+
+            .photo {
+                display: none;
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+
+                .case {
+                    vertical-align: top;
+                    display: inline-block;
+                    width: 100px;
+                    height: 100px;
+                    background: #f5f5f5 url("../images/duan/upload.png") no-repeat center center;
+                    background-size: cover;
+                    border: 1px dashed #ccc;
+
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                    }
+
+
+                }
+                button {
+                    display: inline-block;
+                    width:20px;
+                    color: rgb(255, 255, 255);
+                    background-color: rgb(88, 87, 87);
+                    border-radius: 6px;
+                    height: 100px;
+                    margin-left: 10px;
+                    &:hover {
+                        background-color: rgb(19, 18, 18);
+                    }
+                }
 
             }
+
         }
     }
 
     .content {
         background-color: #fff;
+        position: relative;
 
         .plate {
             width: 70%;
-            // height: 1600px;
             margin: 30px auto;
-            display: flex;
-            justify-content: space-between;
-            align-content: space-between;
-            flex-flow: row wrap;
+            position: absolute;
+            display: none;
+            left: 50%;
+            transform: translate(-50%);
 
-            .box {
-                background-color: rgb(192, 184, 184);
-                width: 32%;
-                height: 32%;
-                border-radius: 8px;
-                padding: 20px;
-                box-sizing: border-box;
+            .bigbox {
                 display: flex;
-                flex-flow: column nowrap;
                 justify-content: space-between;
+                align-content: space-between;
+                flex-flow: row wrap;
 
-                .top {
-                    height: 14%;
+                .box {
+                    background-color: rgb(175, 175, 175);
+                    width: 32%;
+                    height: 32%;
+                    border-radius: 8px;
+                    padding: 18px;
+                    box-sizing: border-box;
                     display: flex;
-                    flex-flow: row nowrap;
-                    align-items: center;
+                    flex-flow: column nowrap;
                     justify-content: space-between;
-                    .head{
-                        width: 15%;   
-                        img{
+
+                    .top {
+                        height: 14%;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .head {
+
+                            width: 18%;
+
+                            img {
+                                width: 100%;
+                            }
+
+                        }
+
+                        .name {
+
+                            width: 55%;
+
+                        }
+
+                        .time {
+
+                            width: 20%;
+                        }
+
+                    }
+
+                    .pic {
+                        border-radius: 8px;
+
+                        img {
                             width: 100%;
                         }
-                        
                     }
-                    .name{
-                        
-                        width: 60%;
-                    
-                    }
-                    .time{
-                        
-                        width: 15%;
-                    }
-                   
-                }
 
-                .pic {
-                    background-color: rgb(211, 120, 120);
-                    height: 50%;
-                    border-radius: 8px;
-                }
+                    .word {
+                        height: 15%;
+                        box-sizing: border-box;
+                        padding: 6px 0 0 0;
 
-                .word {
-                    height: 18%;
-                    padding: 20px;
-                    box-sizing: border-box;   
-                }
+                        p {
+                            letter-spacing: 1px;
+                            word-spacing: 1px;
+                        }
+                    }
 
-                .foot {
-                    height: 10%;
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    flex-flow: row nowrap;
+                    .tail {
+                        width: 100%;
+                        height: 10%;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        flex-flow: row nowrap;
 
-                    .place{
-                        width: 75%;
+                        .place {
+                            width: 75%;
+                        }
+
+                        .discuss {
+                            width: 8%;
+                            text-align: right;
+                        }
+
+                        .love {
+                            width: 8%;
+                            text-align: center;
+                        }
+
                     }
-                    .discuss{
-                        width: 8%;
-                        text-align: right;
-                    }
-                    .love{
-                        width: 8%;
-                        text-align: center;
-                    }
-    
                 }
             }
+
+
+        }
+
+        .plate.show {
+            display: block;
         }
     }
 

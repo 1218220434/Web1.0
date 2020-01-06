@@ -6,6 +6,18 @@ import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
 
+let topArr = [{
+    user_img: "",
+    name: "鲨鲨食物日记",
+    info: "匠欣 · 专业西餐厅，做精致的猪猪女孩",
+    photo: "",
+    address: "高新区交子大道233号1层",
+    addcon: "104.064482,30.587915"
+
+}]
+
+
+
 
 // 百度地图API功能
 var map = new BMap.Map("allmap"); // 创建Map实例

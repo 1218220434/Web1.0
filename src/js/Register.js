@@ -7,7 +7,7 @@ import '../public/footer.less';
 import '../public/footer.js';
 // 记录状态
 var oUser = document.getElementById('user');
-<<<<<<< HEAD
+
 var oPass = document.getElementById('pass');
 var oValidatePass = document.getElementById('validatePass');
 var oPhoneNum = document.getElementById('phoneNum');
@@ -16,67 +16,66 @@ var oBtn = document.getElementById('btn');
 
 
 var u = p = p2 = ph = el = false;
-=======
-    var oPass = document.getElementById('pass');
-    var oValidatePass = document.getElementById('validatePass');
-    var oPhoneNum = document.getElementById('phoneNum');
-    var oEmail = document.getElementById('email');
-    var oBtn = document.getElementById('btn');
 
-    var u = p = p2 = ph = el = false;
+var oPass = document.getElementById('pass');
+var oValidatePass = document.getElementById('validatePass');
+var oPhoneNum = document.getElementById('phoneNum');
+var oEmail = document.getElementById('email');
+var oBtn = document.getElementById('btn');
 
-    oUser.onblur = function() {
-        // var sUser = oUser.value;
-        var reg = /^[\u2E80-\u9FFF\w-]{4,20}$/;
-        // console.log(sUser)
-        if (reg.test(this.value)) {
-            this.nextElementSibling.innerHTML = "";
-            u = true;
-        } else {
-            this.nextElementSibling.innerHTML = "用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符";
-            u = false;
-        }
+var u = p = p2 = ph = el = false;
+
+oUser.onblur = function() {
+    // var sUser = oUser.value;
+    var reg = /^[\u2E80-\u9FFF\w-]{4,20}$/;
+    // console.log(sUser)
+    if (reg.test(this.value)) {
+        this.nextElementSibling.innerHTML = "";
+        u = true;
+    } else {
+        this.nextElementSibling.innerHTML = "用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符";
+        u = false;
     }
+}
 
-    oPass.onblur = function() {
-        var a = b = c = 0;
-        var aReg = /\d/;
-        if (aReg.test(this.value)) {
-            a = 1;
-        }
-        var bReg = /[a-zA-Z]/;
-        if (bReg.test(this.value)) {
-            b = 1;
-        }
-        var cReg = /\W/;
-        if (cReg.test(this.value)) {
-            c = 1;
-        }
-        switch (a + b + c) {
-            case 1:
-                this.nextElementSibling.innerHTML = "简单";
-                break;
-            case 2:
-                this.nextElementSibling.innerHTML = "一般";
-                break;
-            case 3:
-                this.nextElementSibling.innerHTML = "困难";
-                break;
-        }
-        p = true;
-
-// 记录状态
-let _isLogin = true;
-
-        if (this.value === oValidatePass.value) {
-            oValidatePass.nextElementSibling.innerHTML = "";
-            p2 = true;
-        } else {
-            oValidatePass.nextElementSibling.innerHTML = "不一致"
-            p2 = false;
-        }
+oPass.onblur = function() {
+    var a = b = c = 0;
+    var aReg = /\d/;
+    if (aReg.test(this.value)) {
+        a = 1;
     }
->>>>>>> 7d9185ac55f27fb25791e19ddc6f6e902ce812ef
+    var bReg = /[a-zA-Z]/;
+    if (bReg.test(this.value)) {
+        b = 1;
+    }
+    var cReg = /\W/;
+    if (cReg.test(this.value)) {
+        c = 1;
+    }
+    switch (a + b + c) {
+        case 1:
+            this.nextElementSibling.innerHTML = "简单";
+            break;
+        case 2:
+            this.nextElementSibling.innerHTML = "一般";
+            break;
+        case 3:
+            this.nextElementSibling.innerHTML = "困难";
+            break;
+    }
+    p = true;
+
+    // 记录状态
+    let _isLogin = true;
+
+    if (this.value === oValidatePass.value) {
+        oValidatePass.nextElementSibling.innerHTML = "";
+        p2 = true;
+    } else {
+        oValidatePass.nextElementSibling.innerHTML = "不一致"
+        p2 = false;
+    }
+}
 
 oUser.onblur = function() {
     // var sUser = oUser.value;
