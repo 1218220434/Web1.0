@@ -5,6 +5,15 @@ import '../public/header.less';
 import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
+
+// 记录状态
+var oUser = document.getElementById('user');
+var oPass = document.getElementById('pass');
+var oValidatePass = document.getElementById('validatePass');
+var oPhoneNum = document.getElementById('phoneNum');
+var oEmail = document.getElementById('email');
+var oBtn = document.getElementById('btn');
+
 // 上传头像
 $(".onchangebtn").click(function () {
     imgPreview(this);
@@ -56,13 +65,6 @@ function uploadImage() {
         console.log(res);
     }
 }
-// 记录状态
-var oUser = document.getElementById('user');
-var oPass = document.getElementById('pass');
-var oValidatePass = document.getElementById('validatePass');
-var oPhoneNum = document.getElementById('phoneNum');
-var oEmail = document.getElementById('email');
-var oBtn = document.getElementById('btn');
 
 // var u = p = p2 = ph = el = false;
 var u = false;
@@ -78,13 +80,15 @@ oUser.onblur = function () {
         this.nextElementSibling.innerHTML = "";
         u = true;
     } else {
-        this.nextElementSibling.innerHTML = "用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符";
+        this.nextElementSibling.innerHTML = "账号由4~8位字母、数字、下划线组成";
         u = false;
     }
 }
-
+console.log(oPass);
 oPass.onblur = function () {
-    var a = b = c = 0;
+    var a = 0;
+    var b = 0;
+    var c = 0;
     var aReg = /\d/;
     if (aReg.test(this.value)) {
         a = 1;
@@ -117,7 +121,7 @@ oPass.onblur = function () {
         oValidatePass.nextElementSibling.innerHTML = "";
         p2 = true;
     } else {
-        oValidatePass.nextElementSibling.innerHTML = "不一致"
+        oValidatePass.nextElementSibling.innerHTML = "密码不一致"
         p2 = false;
     }
 }
@@ -153,14 +157,14 @@ oEmail.onblur = function () {
     }
 }
 
-// // 勾选协议
-// function isaccepted(){
-//     if(document.getElementById("check_id").checked==true){
-//         document.getElementById("submit").disabled = false;
-//     }else{
-//         document.getElementById("submit").disabled = true;
-//     }
-// }
+// 勾选协议
+function isaccepted() {
+    if (document.getElementById("check_id").checked == true) {
+        document.getElementById("submit").disabled = false;
+    } else {
+        document.getElementById("submit").disabled = true;
+    }
+}
 
 
 // -0--------------------------------------------------------------------------
@@ -193,10 +197,19 @@ oBtn.onclick = function () {
         }
         array.push(obj);
         window.localStorage.userArr = JSON.stringify(array);
-        window.location.href = "./login.html";
+        // window.location.href = "./login.html";
+        console.log(
+            {
+                useval: useval,
+                passval: passval,
+                score: 0
+            }
+        )
     } else {
         alert("请填写完整信息")
     }
 
 }
+
+
 

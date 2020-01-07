@@ -7,7 +7,7 @@
     height: 60%;
     background:rgba(255,255,255,1);
     position: absolute;
-    left: 563px;
+    left: 706px;
     top: 96px;
     margin: auto;
     border-radius: 9px 9px 0 0;
@@ -46,7 +46,7 @@
       border-radius:9px;
     }
     p {
-      font-size:19px;
+      font-size:14px;
       font-family:Microsoft YaHei;
       font-weight:300;
       color:rgba(5,5,5,1);
@@ -58,6 +58,44 @@
       top: 311px;
       left: 153px;
     }
+    input[type="checkbox"] {
+      margin: 10px;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 10%;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 18px;
+      position: relative;
+  }
+
+  input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      top: -299px;
+      left: -17px;
+      background-color: rgba(248,181,81,1);
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(248,181,81,1)
+  }
+
+  input[type="checkbox"]:checked::before {
+      content: "\2713";
+      border-radius: 50%;
+      background-color: rgba(248,181,81,1);
+      position: absolute;
+      top: -299px;
+      left: -17px;
+      width: 100%;
+      // border: 1px solid ys_color;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+  }
     .agree{
       position: absolute;
       top: 295px;
@@ -72,6 +110,8 @@
       border:1px solid rgba(0,0,0,1);
       opacity:0.39;
       border-radius:2px;
+      width: 28%;
+      text-align: center;
     }
   }
   #btn {
