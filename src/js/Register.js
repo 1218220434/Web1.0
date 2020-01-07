@@ -15,9 +15,11 @@ var oEmail = document.getElementById('email');
 var oBtn = document.getElementById('btn');
 
 // 上传头像
-$(".onchangebtn").click(function () {
+
+$(".onchangebtn").change(function () {
     imgPreview(this);
 })
+
 function imgPreview(fileDom) {
     // 判断是否支持FileReader 
     let reader = null;
@@ -46,6 +48,7 @@ function imgPreview(fileDom) {
     // 读取图片 => 将图片转换成base64
     reader.readAsDataURL(file);
 }
+
 $(".upbtn").click(function () {
     uploadImage();
 })
