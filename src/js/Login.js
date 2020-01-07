@@ -39,24 +39,31 @@ $(window).bind("load resize", function() {
 //         .css("left", screenDom / 1)
 //         .css("width", screenDom / 3)
 // });
-$(window).bind("load resize", function() {
-    let screenDom = document.documentElement.clientWidth;
-    $(".main-lg").css("top", screenDom / 35)
-        .css("left", screenDom / 4)
-        .css("width", screenDom / 2)
-        .css("height", screenDom / 6)
-});
-$(window).bind("load resize", function() {
-    let screenDom = document.documentElement.clientWidth;
-    $(".red").css("top", screenDom / 70)
-        .css("left", screenDom / 35)
-        .css("width", screenDom / 5.3)
-        .css("height", screenDom / 32)
-});
-
 // $(window).bind("load resize", function() {
 //     let screenDom = document.documentElement.clientWidth;
-//     $(".zhuche").css("top", screenDom / 70)
-//         .css("left", screenDom / 65)
-//         .css("width", screenDom / 15)
+//     $(".main-lg").css("top", screenDom / 35)
+//         .css("left", screenDom / 7)
+//         .css("width", screenDom / 2)
+//         .css("height", screenDom / 6)
+// });
+// $(window).bind("load resize", function() {
+//     let screenDom = document.documentElement.clientWidth;
+//     $(".red").css("top", screenDom / 40)
+//         .css("left", screenDom / 45)
+//         .css("width", screenDom / 7)
+//         .css("height", screenDom /72)
+// });
+
+// // $(window).bind("load resize", function() {
+// //     let screenDom = document.documentElement.clientWidth;
+// //     $(".zhuche").css("top", screenDom / 70)
+// //         .css("left", screenDom / 65)
+// //         .css("width", screenDom / 15)
+// // });
+// $(window).bind("load resize", function() {
+//     let screenDom = document.documentElement.clientWidth;
+//     $(".denglu").css("top", screenDom / 95)
+//         .css("left", screenDom / 5)
+//         .css("width", screenDom / 7)
+//         .css("height", screenDom /72)
 // });
