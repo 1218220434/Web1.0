@@ -90,14 +90,16 @@ $(window).bind("load resize", function() {
     $(".sub p").on("click", function() {
 
         var strs = new Array(); //定义一数组
+        console.log(data_ste)
         strs = data_ste.split(","); //字符分割
+        console.log(strs)
         let ha1 = strs[0]
         let hai2 = strs[1]
             // 选择好分类后第二次提交至后台存储
-        console.log(ha1);
-        console.log(hai2);
+        console.log("爱好一:" + ha1);
+        console.log("爱好二:" + hai2);
 
-        window.location.href = `${myurl}/index.html`;
+        // window.location.href = `${myurl}/index.html`;
 
     })
 })
