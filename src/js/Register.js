@@ -16,7 +16,7 @@ var oBtn = document.getElementById('btn');
 
 // 上传头像
 
-$(".onchangebtn").change(function () {
+$(".onchangebtn").change(function() {
     imgPreview(this);
 })
 
@@ -38,20 +38,21 @@ function imgPreview(fileDom) {
         return;
     }
     // 读取完成
-    reader.onload = function (e) {
-        // 图片路径设置为读取的图片
-        // img.src = e.target.result;
-        let box = document.querySelector(".box");
-        // 回显图片
-        box.style.backgroundImage = `url(${e.target.result})`;
-    }
-    // 读取图片 => 将图片转换成base64
+    reader.onload = function(e) {
+            // 图片路径设置为读取的图片
+            // img.src = e.target.result;
+            let box = document.querySelector(".box");
+            // 回显图片
+            box.style.backgroundImage = `url(${e.target.result})`;
+        }
+        // 读取图片 => 将图片转换成base64
     reader.readAsDataURL(file);
 }
 
-$(".upbtn").click(function () {
+$(".upbtn").click(function() {
     uploadImage();
 })
+
 function uploadImage() {
     let file = document.querySelector("input").files[0];
     if (!file) {
@@ -64,7 +65,7 @@ function uploadImage() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:8800/up_image", true);
     xhr.send(formData);
-    xhr.onload = function (res) {
+    xhr.onload = function(res) {
         console.log(res);
     }
 }
@@ -75,47 +76,57 @@ var p = false;
 var p2 = false;
 var ph = false;
 var el = false;
-oUser.onblur = function () {
+oUser.onblur = function() {
     // var sUser = oUser.value;
     var reg = /^[\u2E80-\u9FFF\w-]{4,20}$/;
     // console.log(sUser)
     if (reg.test(this.value)) {
         this.nextElementSibling.innerHTML = "";
         u = true;
+    } else if (oUser.value == "") {
+        this.nextElementSibling.innerHTML = "账号不能为空";
     } else {
         this.nextElementSibling.innerHTML = "账号由4~8位字母、数字、下划线组成";
         u = false;
     }
 }
-console.log(oPass);
-oPass.onblur = function () {
-    var a = 0;
-    var b = 0;
-    var c = 0;
-    var aReg = /\d/;
-    if (aReg.test(this.value)) {
-        a = 1;
+
+oPass.onblur = function() {
+    if (oPass.value == "") {
+        this.nextElementSibling.innerHTML = "密码不能为空";
+        p = false;
+    } else {
+        var a = 0;
+        var b = 0;
+        var c = 0;
+        var aReg = /\d/;
+        if (aReg.test(this.value)) {
+            a = 1;
+        }
+        var bReg = /[a-zA-Z]/;
+        if (bReg.test(this.value)) {
+            b = 1;
+        }
+        var cReg = /\W/;
+        if (cReg.test(this.value)) {
+            c = 1;
+        }
+        switch (a + b + c) {
+            case 1:
+                this.nextElementSibling.innerHTML = "密码难度较低";
+                break;
+            case 2:
+                this.nextElementSibling.innerHTML = "密码难度中等";
+                break;
+            case 3:
+                this.nextElementSibling.innerHTML = "密码难度较高";
+                break;
+        }
+        p = true;
+
     }
-    var bReg = /[a-zA-Z]/;
-    if (bReg.test(this.value)) {
-        b = 1;
-    }
-    var cReg = /\W/;
-    if (cReg.test(this.value)) {
-        c = 1;
-    }
-    switch (a + b + c) {
-        case 1:
-            this.nextElementSibling.innerHTML = "简单";
-            break;
-        case 2:
-            this.nextElementSibling.innerHTML = "一般";
-            break;
-        case 3:
-            this.nextElementSibling.innerHTML = "困难";
-            break;
-    }
-    p = true;
+
+
 
     // 记录状态
     let _isLogin = true;
@@ -129,7 +140,7 @@ oPass.onblur = function () {
     }
 }
 
-oValidatePass.onblur = function () {
+oValidatePass.onblur = function() {
     if (this.value === oPass.value) {
         this.nextElementSibling.innerHTML = "";
         p2 = true;
@@ -139,7 +150,7 @@ oValidatePass.onblur = function () {
     }
 }
 
-oPhoneNum.onblur = function () {
+oPhoneNum.onblur = function() {
     var reg = /^1[356789]\d{9}$/;
     if (reg.test(this.value)) {
         this.nextElementSibling.innerHTML = "";
@@ -149,7 +160,7 @@ oPhoneNum.onblur = function () {
         ph = false;
     }
 }
-oEmail.onblur = function () {
+oEmail.onblur = function() {
     var reg = /^[a-z0-9]{3,15}@[a-z0-9]{2,9}\.[a-z]{2,3}$/;
     if (reg.test(this.value)) {
         this.nextElementSibling.innerHTML = "";
@@ -179,7 +190,7 @@ if (window.localStorage.userArr) { //判断是否存在
 }
 
 
-oBtn.onclick = function () {
+oBtn.onclick = function() {
     var useval = oUser.value;
     var passval = oPass.value;
     for (var i = 0; i < array.length; i++) {
@@ -201,18 +212,13 @@ oBtn.onclick = function () {
         array.push(obj);
         window.localStorage.userArr = JSON.stringify(array);
         // window.location.href = "./login.html";
-        console.log(
-            {
-                useval: useval,
-                passval: passval,
-                score: 0
-            }
-        )
+        console.log({
+            useval: useval,
+            passval: passval,
+            score: 0
+        })
     } else {
         alert("请填写完整信息")
     }
 
 }
-
-
-
