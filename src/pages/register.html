@@ -42,34 +42,61 @@
             <div class="main-lg">
 
 
-                <h2>&nbsp;&nbsp;&nbsp;&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                <h2>注册</h2>
                 <div class="box">
                     <!-- accept：接受的类型 -->
                     <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                    <p>上传头像</p>
                 </div>
-                <button type="button" class="upbtn">&nbsp;&nbsp;上&nbsp;&nbsp;传&nbsp;&nbsp;头&nbsp;&nbsp;像&nbsp;&nbsp;</button>
-                <p>账&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号:
-                    <input type="text" id="user" class="inpStyle" placeholder="&nbsp;&nbsp;请&nbsp;&nbsp;输&nbsp;&nbsp;入&nbsp;&nbsp;账&nbsp;&nbsp;号&nbsp;&nbsp;">
-                    <span class="error"></span></p>
-                <p>密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码:
-                    <input type="password" id="pass" class="inpStyle" placeholder="&nbsp;&nbsp;请&nbsp;&nbsp;输&nbsp;&nbsp;入&nbsp;&nbsp;密&nbsp;&nbsp;码&nbsp;&nbsp;">
-                    <span class="error"></span></p>
-                <p>确认密码:
-                    <input type="password" id="validatePass" class="inpStyle" placeholder="&nbsp;请&nbsp;再&nbsp;次&nbsp;输&nbsp;入&nbsp;密&nbsp;码&nbsp;">
-                    <span class="error"></span></p>
-                <p>性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input name="sex" type="radio" checked="checked" />男 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input name="sex" type="radio" />女</p>
-                <p>手&nbsp&nbsp机&nbsp&nbsp号:
-                    <input type="text" id="phoneNum" class="inpStyle" placeholder="&nbsp;&nbsp;请&nbsp;&nbsp;输&nbsp;&nbsp;入&nbsp;&nbsp;手&nbsp;&nbsp;机&nbsp;&nbsp;号&nbsp;&nbsp;">
-                    <span class="error"></span></p>
-                <p>邮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp箱:
-                    <input type="text" id="email" class="inpStyle" placeholder="&nbsp;&nbsp;请&nbsp;&nbsp;输&nbsp;&nbsp;入&nbsp;&nbsp;邮&nbsp;&nbsp;箱&nbsp;&nbsp;">
-                    <span class="error"></span></p>
 
-                <input type="checkbox" name="check_id" value="checkbox" οnclick="isaccepted();" class="xieyi" />
-                <p class="agree">&nbsp;同&nbsp;意&nbsp;相&nbsp;关&nbsp;协&nbsp;议&nbsp;</p>
+                <div class="forminp">
+                    <div class="flex-c inpnoml">
+                        <label for="user">账号</label>:
+                        <input type="text" id="user" class="inpStyle" placeholder="请输入账号">
+                    </div>
+                    <span class="error">1</span>
 
-                <input type="button" id="btn" value="&nbsp;&nbsp;&nbsp;&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;&nbsp;&nbsp;&nbsp;">
+                    <div class="flex-c inpnoml">
+                        <label for="pass">密码</label>:
+                        <input type="password" id="pass" class="inpStyle" placeholder="请输入密码">
+                    </div>
+                    <span class="error">1</span>
+
+                    <div class="flex-c inpnoml">
+                        <label for="validatePass">确认密码</label>:
+                        <input type="password" id="validatePass" class="inpStyle" placeholder="请再次输入密码">
+                    </div>
+                    <span class="error">1</span>
+
+                    <div class="flex-c inpnoml">
+                        <label for="">性别</label>:
+                        <div class="flex-sa manden">
+                            <input name="sex" type="radio" checked="checked" value="男" />男
+                            <input name="sex" type="radio" value="女" />女</div>
+
+                    </div>
+                    <span class="error">1</span>
+                    <div class="flex-c inpnoml">
+                        <label for="phoneNum">手机号</label>:
+                        <input type="text" id="phoneNum" class="inpStyle" placeholder="请输入手机号">
+                    </div>
+                    <span class="error">1</span>
+
+                    <div class="flex-c inpnoml">
+                        <label for="email">邮箱</label>:
+                        <input type="text" id="email" class="inpStyle" placeholder="请输入邮箱">
+                    </div>
+                    <span class="error">1</span>
+
+                    <div class="flex-c unpnoml">
+                        <input type="checkbox" name="check_id" value="checkbox" class="xieyi" />
+                        <label for="">同意相关协议</label>
+
+                    </div>
+
+                    <input type="button" id="btn" value="注册">
+
+                </div>
 
 
             </div>
