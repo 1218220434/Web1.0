@@ -6,9 +6,7 @@ const myurl = 'http://127.0.0.1:8081'
 
 $(window).bind("load resize", function() {
     let screenDom = document.documentElement.clientWidth;
-    let _h1f = 60,
-        _h2f = 65,
-        _pf = 80
+
     $(".one").css({
         "top": screenDom / 18.75,
         "left": screenDom / 10,
@@ -82,13 +80,24 @@ $(window).bind("load resize", function() {
         "height": screenDom / 50,
     })
     let thestr = ""
+    let data_ste = ""
+
     $(".cc").on("click", function() {
+        data_ste += $(this).attr("data-ste") + ","
         thestr += $(this).html() + " "
         $(".sub").children().first().val(thestr)
     })
     $(".sub p").on("click", function() {
-        // 选择好分类后第二提交至后台存储
-        console.log($(this).prev().val())
+
+        var strs = new Array(); //定义一数组
+        strs = data_ste.split(","); //字符分割
+        let ha1 = strs[0]
+        let hai2 = strs[1]
+            // 选择好分类后第二次提交至后台存储
+        console.log(ha1);
+        console.log(hai2);
+
         window.location.href = `${myurl}/index.html`;
+
     })
 })

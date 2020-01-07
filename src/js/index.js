@@ -71,7 +71,10 @@ $(window).bind("load resize", function() {
         "height": 30 + screenDom / 95.8
     })
 
-    $(".bout").css("fontSize", screenDom / 130).css("width", (380 + (1900 - screenDom) / 15))
+    $(".bout").css({
+        "fontSize": screenDom / 130,
+        "width": (380 + (1900 - screenDom) / 15)
+    })
 
 });
 

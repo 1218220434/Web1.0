@@ -37,7 +37,8 @@ module.exports = [
                     plugins: [require("autoprefixer")]
                 }
             },
-            "less-loader"]
+            "less-loader"
+        ]
     },
     {
         test: /\.css$/,
@@ -58,7 +59,7 @@ module.exports = [
                 // <= 2kb，则转换成base64
                 limit: 10000,
                 // 图片名字
-                name: "[name]-[hash:5].[ext]",
+                name: "[name].[ext]",
                 // 输出路径
                 outputPath: "static/images/",
                 // 启用commonJS规范  
