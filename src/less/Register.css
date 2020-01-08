@@ -29,6 +29,7 @@
   margin: 40px auto;
   border-radius: 50%;
   background: #f5f5f5 url("../images/图标/头像.png") no-repeat center center;
+  background-size: cover;
 }
 .main-lg .box input {
   opacity: 0;
