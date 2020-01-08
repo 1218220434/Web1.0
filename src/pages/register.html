@@ -40,16 +40,12 @@
         <div class="main-bg">
             <img src="../images/登录注册/登录背景图.png" alt="">
             <div class="main-lg">
-
-
-                <h2>注册</h2>
-                <div class="box">
-                    <!-- accept：接受的类型 -->
-                    <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
-                    <p>上传头像</p>
-                </div>
-
                 <div class="forminp">
+                    <div class="tipsc flex-c">
+                        <span>1234</span>
+                        <div class="close">x</div>
+                    </div>
+                    <h2><img src="../images/图标/头像.png" alt=""></h2>
                     <div class="flex-c inpnoml">
                         <label for="user">账号</label>:
                         <input type="text" id="user" class="inpStyle" placeholder="请输入账号">
@@ -94,14 +90,23 @@
 
                     </div>
 
-                    <input type="button" id="btn" value="注册">
+                    <input type="button" id="btn" value="注  册">
 
+                </div>
+                <div class="imginp">
+                    <div class="box">
+                        <!-- accept：接受的类型 -->
+                        <input type="file" id="user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                        <p>请上传一张图片</p>
+                    </div>
                 </div>
 
 
             </div>
         </div>
     </main>
+
+    <div class="graych"></div>
     <!-- 尾部 -->
     <footer>
         <div class="foot flex-c">

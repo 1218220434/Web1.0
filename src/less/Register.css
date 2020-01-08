@@ -2,57 +2,102 @@
   width: 100%;
   position: relative;
 }
+.main-bg img {
+  width: 100%;
+}
 .main-lg {
-  width: 40%;
-  height: 60%;
-  background: #ffffff;
   position: absolute;
-  left: 706px;
-  top: 96px;
-  margin: auto;
+  box-sizing: border-box;
   border-radius: 9px 9px 0 0;
 }
-.main-lg form {
-  outline: solid;
+.main-lg span {
+  opacity: 0;
+  height: 20px;
+}
+.main-lg .imginp {
+  box-sizing: border-box;
+  width: 80px;
+  margin: 20px auto ;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 5px;
+  box-shadow: 2px 0 10px #5c5c5c;
+  background-color: #d7d2cc;
+  opacity: 0.9;
 }
 .main-lg .box {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 65px;
-  left: 486px;
-  border-radius: 9px;
-  background: #f5f5f5 url("../images/登录注册/上传头像.png") no-repeat center center;
+  margin: 40px auto;
+  border-radius: 50%;
+  background: #f5f5f5 url("../images/图标/头像.png") no-repeat center center;
 }
 .main-lg .box input {
-  width: 100%;
-  height: 100%;
   opacity: 0;
 }
-.main-lg button {
-  display: inline-block;
-  width: 15%;
-  position: absolute;
-  top: 293px;
-  left: 528px;
-  font-size: 15px;
-  font-family: Microsoft YaHei;
-  font-weight: 300;
-  color: #050505;
-  line-height: 47px;
-}
-.main-lg h2 {
-  text-align: center;
-  background: #f8b551;
-  border-radius: 9px;
-}
-.main-lg p {
+.main-lg .box p {
   font-size: 14px;
   font-family: Microsoft YaHei;
   font-weight: 300;
   color: #050505;
   line-height: 42px;
-  margin: 0 0 0 100px;
+  text-align: center;
+}
+.main-lg .forminp {
+  opacity: 0.9;
+  border-radius: 5px;
+  box-shadow: -2px 0 20px #505050;
+  background-image: linear-gradient(to right, #304352, #d7d2cc);
+  padding: 30px 30px 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  margin: 20px auto;
+}
+.main-lg .forminp .tipsc {
+  top: 50%;
+  left: 50%;
+  transform: translate(-250%, -50%);
+  width: 200px;
+  height: 40px;
+  opacity: 0 !important;
+  line-height: 40px;
+  text-align: center;
+  box-shadow: 0 0 10px #585858;
+  background: #304352;
+  position: absolute;
+  z-index: -1;
+  transition: 0.7s;
+  padding-left: 30px;
+}
+.main-lg .forminp .tipsc span {
+  height: 37px !important;
+  line-height: 40px;
+  opacity: 1 !important;
+  color: white;
+}
+.main-lg .forminp .tipsgo {
+  transform: translate(-50%, -53%) scale(1.1);
+  z-index: 1 !important;
+  opacity: 0.9 !important;
+}
+.main-lg .forminp .tipsgo .close {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.main-lg h2 {
+  line-height: 40px;
+  height: 40px;
+  text-align: center;
+  background: #304352;
+  border-radius: 9px;
+  margin-bottom: 20px;
+}
+.main-lg h2 img {
+  width: 30px;
 }
 .main-lg .xieyi {
   position: absolute;
@@ -70,16 +115,18 @@
   vertical-align: middle;
   line-height: 18px;
   position: relative;
+  cursor: pointer;
 }
 .main-lg input[type="checkbox"]::before {
   content: "";
   position: absolute;
   border-radius: 50%;
-  top: -299px;
-  left: -17px;
+  top: -311px;
+  left: -85px;
   background-color: #f8b551;
   width: 100%;
   height: 100%;
+  cursor: pointer;
   border: 1px solid #f8b551;
 }
 .main-lg input[type="checkbox"]:checked::before {
@@ -87,44 +134,100 @@
   border-radius: 50%;
   background-color: #f8b551;
   position: absolute;
-  top: -299px;
-  left: -17px;
+  cursor: pointer;
+  top: -311px;
+  left: -85px;
   width: 100%;
   color: white;
   font-size: 20px;
   font-weight: bold;
 }
-.main-lg .agree {
-  position: absolute;
-  top: 295px;
-  left: 79px;
-  font-size: 15px;
-  font-family: Microsoft YaHei;
-  font-weight: 300;
-  color: #050505;
-}
 .main-lg .inpStyle {
-  margin-left: 30px;
-  border: 1px solid #000000;
-  opacity: 0.39;
+  color: #121e88;
+  opacity: 0.9;
   border-radius: 2px;
-  width: 28%;
-  text-align: center;
+  padding-left: 8px;
+  padding-bottom: 2px;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 2px solid #6d6d6d;
 }
 #btn {
-  width: 25%;
+  width: 72%;
+  height: 30px;
+  margin: 20px 0 0 40px;
   background: #f8b551;
-  margin: 20px 0 56px 200px;
+  border-radius: 5px !important;
+  box-shadow: 0 0 10px grey;
   font-size: 19px;
-  font-family: Microsoft YaHei;
-  font-weight: 400;
   color: #ffffff;
-  line-height: 47px;
   border-radius: 2px;
-  position: absolute;
-  top: 348px;
-  left: 58px;
+  text-align: center;
 }
 .error {
   color: red;
+}
+.sucs {
+  color: #57ec49;
+}
+.inpnoml {
+  margin-top: 6px;
+  box-sizing: border-box;
+  width: 50%;
+}
+.inpnoml label {
+  color: ivory;
+  width: 34%;
+  text-align: justify;
+  text-align-last: justify;
+}
+.inpnoml input::-webkit-input-placeholder {
+  color: ivory;
+}
+.inpnoml input {
+  width: 50%;
+  border-radius: 3px ;
+}
+.inpnoml .manden {
+  width: 52%;
+}
+.inpnoml .manden input {
+  box-shadow: 0;
+}
+.unpnoml {
+  color: white;
+  width: 72%;
+}
+.unpnoml label {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.flex-sa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tips {
+  opacity: 1 !important;
+}
+.tips2 {
+  opacity: 0;
+  animation: linear myfirst 5s;
+}
+@keyframes myfirst {
+  from {
+    color: #30d421;
+    opacity: 1;
+  }
+  to {
+    color: #cc7979;
+    opacity: 0;
+  }
+}
+.graych {
+  width: 80%;
+  margin: 40px auto 0;
+  height: 3px;
+  background-image: linear-gradient(to right, #b1b1b1, #7a7a7a, #b1b1b1);
 }
