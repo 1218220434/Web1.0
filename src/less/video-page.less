@@ -1,0 +1,285 @@
+.white {
+    background-color: white !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+body {
+    min-width: 800px;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: none;
+}
+
+.mask video {
+    width: 600px;
+    height: 400px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 150;
+}
+
+.mask .quit {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 150;
+    color: white;
+}
+
+.clear {
+    content: "";
+    display: block;
+    clear: both;
+    font-size: 20px;
+}
+
+
+main {
+    .ban {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+
+        .bann {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .bann.show {
+            display: block;
+        }
+
+
+    }
+
+    .tab {
+        width: 100%;
+        height: 65px;
+        display: flex;
+
+        .select {
+            width: 50%;
+            text-align: center;
+            line-height: 60px;
+            background-color: rgb(240, 240, 240);
+
+        }
+
+        h4 {
+            display: inline;
+            font-weight: 400px;
+            letter-spacing: 2px;
+            color: rgb(56, 55, 55);
+        }
+
+        i {
+            color: orange;
+            font-weight: normal;
+            display: inline;
+        }
+
+
+    }
+
+
+
+
+    #content {
+        position: relative;
+
+        .m-content {
+            position: absolute;
+            display: none;
+
+            .daily-recommendation {
+                .bout {
+                    letter-spacing: 3px;
+                    width: 12%;
+                    margin: 50px auto;
+                    color: rgb(107, 107, 107);
+
+                    .oreg {
+                        width: 20px;
+                        height: 4px;
+                        background-color: #F69219;
+                    }
+
+                    p {
+                        text-align: center;
+                    }
+                }
+
+                .bigphoto {
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .tubiao {
+                        position: absolute;
+                        right: -30px;
+                        top: -30px;
+                        width: 60px;
+
+                    }
+                }
+
+                .smallphoto {
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .word {
+                        width: 38%;
+                        box-sizing: border-box;
+                        padding: 10px 10px 10px 0;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .picture {
+                        width: 60%;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .big {
+                            width: 68%;
+                            position: relative;
+
+                            .player {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                        }
+
+                        .small {
+                            display: flex;
+                            flex-flow: column nowrap;
+                            justify-content: space-between;
+                            width: 30%;
+                            overflow: hidden;
+
+                            img {
+                                width: 100%;
+
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            .food-diary {
+                .bout {
+                    letter-spacing: 3px;
+                    width: 12%;
+                    margin: 50px auto;
+                    color: rgb(107, 107, 107);
+
+                    .oreg {
+                        width: 20px;
+                        height: 4px;
+                        background-color: #F69219;
+                    }
+
+                    p {
+                        text-align: center;
+                    }
+                }
+
+                .bigbbox {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 30px;
+
+                    .bbox {
+                        width: 48%;
+                        background-color: rgba(235, 235, 235, 0.651);
+                        border-radius: 10px;
+                        position: relative;
+
+                        img {
+                            width: 100%;
+
+                        }
+
+                        h1 {
+                            color: rgb(255, 255, 255);
+                            position: absolute;
+                            letter-spacing: 5px;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+
+                        .info {
+                            display: none;
+                            position: absolute;
+                            border-radius: 10px;
+                            text-align: center;
+                            bottom: 0px;
+                            left: 0px;
+                            color: rgb(255, 255, 255);
+
+                        }
+
+                        .info.tebie {
+                            top: 0;
+                            left: 0;
+                            background-color: rgba(168, 168, 168, 0.363);
+
+                            .player {
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                transform: translate(-50%, -50%);
+                                border-radius: 10px;
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        .m-content.show {
+            display: block;
+        }
+    }
+}
