@@ -7,11 +7,11 @@ import '../public/footer.less';
 import '../public/footer.js';
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
 
     //随浏览器变化而变化
-    $(window).bind("load resize", function () {
+    $(window).bind("load resize", function() {
         let screenDom = document.documentElement.clientWidth;
         $("main p").css("fontSize", screenDom / 120)
         $("h4").css("fontSize", screenDom / 100)
@@ -29,9 +29,9 @@ $(document).ready(function () {
     // 2. 定义变量记录上一次选中的下标，默认值为0
     let last_sel_index = 0;
     // 3. 遍历菜单项
-    menu_items.forEach(function (menu_item) {
+    menu_items.forEach(function(menu_item) {
         // 4. 添加点击事件
-        menu_item.onclick = function () {
+        menu_item.onclick = function() {
             // 5. 获取单击的当前菜单项的下标
             let index = menu_items.indexOf(this);
             // 6. 通过移除class实现移除上一次菜单项选中和内容显示的效果

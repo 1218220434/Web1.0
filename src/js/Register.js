@@ -10,33 +10,57 @@ import '../public/footer.js';
 var oUser = document.getElementById('user');
 var oPass = document.getElementById('pass');
 var oValidatePass = document.getElementById('validatePass');
-
 var oPhoneNum = document.getElementById('phoneNum');
 var oEmail = document.getElementById('email');
 var oBtn = document.getElementById('btn');
 
+// 域名
+const BASE_URL = "http://192.168.7.5:8000/zjcx";
 
 
-// $(".upbtn").click(function() {
-//     uploadImage();
-// })
+$(window).bind("load resize", function() {
+    // 操作头部导航栏的自适应
+    let screenDom = document.documentElement.clientWidth;
 
-function uploadImage() {
-    let file = document.querySelector("input").files[0];
-    if (!file) {
-        alert("点击上方方框选择图片！");
-        return;
-    }
-    let formData = new FormData();
-    formData.append("photo", file);
-    // ajax
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8800/up_image", true);
-    xhr.send(formData);
-    xhr.onload = function(res) {
-        console.log(res);
-    }
-}
+
+
+    $(".main-lg").css({
+        "fontSize": screenDom / 90,
+        "width": screenDom / 2.1,
+        "height": screenDom / 1.5,
+        "left": screenDom / 2.1,
+        "top": 0
+    })
+
+
+    $(".inpnoml").css({
+        "height": screenDom / 60,
+        "width": screenDom / 2 / 2.3
+    })
+    $(".forminp").css({
+        "height": screenDom / 3.1,
+        "width": screenDom / 2.1 / 2
+    })
+    $(".imginp").css({
+        "height": $(".forminp").height() + 30 + "px",
+        "width": screenDom / 2.1 / 3.7
+    })
+    $(".box").css({
+        "height": screenDom / 12,
+        "width": screenDom / 12
+    })
+
+    $(".box input").css({
+        "height": screenDom / 8,
+
+    })
+    $(".inpStyle").css({
+        "fontSize": screenDom / 120,
+    })
+});
+$(".close").on("click", function() {
+    $(this).parent().removeClass("tipsgo")
+})
 
 //分布小开关，最后控制大开关
 var u = false;
@@ -45,6 +69,7 @@ var p2 = false;
 var ph = false;
 var el = false;
 var xy = false;
+
 // 验证用户名
 oUser.onblur = function() {
         // var sUser = oUser.value;
@@ -55,22 +80,25 @@ oUser.onblur = function() {
             u = true;
         } else if (oUser.value == "") {
             console.log()
-            $(this).parent().next().addClass("tips")
-            $(this).parent().next().html("请输入一个账号")
+            $(this).parent().parent().children().first().addClass("tipsgo")
+            $(this).parent().parent().children().first().children().first().html("请输入一个账号")
             u = false;
         } else {
-            $(this).parent().next().html("账号由4~8位字母、数字、下划线组成")
+            $(this).parent().parent().children().first().addClass("tipsgo")
+            $(this).parent().parent().children().first().children().first().html("请输入4~8位字母或数字")
+
             u = false;
         }
     }
     // 验证密码
 oPass.onblur = function() {
         if (oPass.value == "") {
-            $(this).parent().next().addClass("tips")
-            $(this).parent().next().html("密码不能为空")
+            $(this).parent().parent().children().first().addClass("tipsgo")
+            $(this).parent().parent().children().first().children().first().html("密码不能为空")
+
             p = false;
         } else {
-            $(this).parent().next().removeClass("tips")
+
             var a = 0;
             var b = 0;
             var c = 0;
@@ -88,18 +116,19 @@ oPass.onblur = function() {
             }
             switch (a + b + c) {
                 case 1:
-                    $(this).parent().next().addClass("tips2")
-                        .html("密码难度较低")
+                    $(this).parent().parent().children().first().addClass("tipsgo")
+                    $(this).parent().parent().children().first().children().first().html("密码难度较低")
+
                     p = true;
                     break;
                 case 2:
-                    $(this).parent().next().addClass("tips2")
-                        .html("密码难度中等")
+                    $(this).parent().parent().children().first().addClass("tipsgo")
+                    $(this).parent().parent().children().first().children().first().html("密码难度中等")
                     p = true;
                     break;
                 case 3:
-                    $(this).parent().next().addClass("tips2")
-                        .html("密码难度较高")
+                    $(this).parent().parent().children().first().addClass("tipsgo")
+                    $(this).parent().parent().children().first().children().first().html("密码难度较高")
                     p = true;
                     break;
             }
@@ -108,10 +137,12 @@ oPass.onblur = function() {
     // 验证二次密码
 oValidatePass.onblur = function() {
     if (this.value === oPass.value) {
-        $(this).parent().next().removeClass("tips")
+
         p2 = true;
     } else {
-        $(this).parent().next().addClass("tips").html("密码不一致,请重新确认")
+        $(this).parent().parent().children().first().addClass("tipsgo")
+        $(this).parent().parent().children().first().children().first().html("密码不一致,请重新确认")
+
         p2 = false;
     }
 }
@@ -124,17 +155,20 @@ oPhoneNum.onblur = function() {
         $(this).parent().next().removeClass("tips")
         ph = true;
     } else {
-        $(this).parent().next().addClass("tips").html("手机号输入错误")
+        $(this).parent().parent().children().first().addClass("tipsgo")
+        $(this).parent().parent().children().first().children().first().html("请输入正确的手机号")
+
         ph = false;
     }
 }
 oEmail.onblur = function() {
     var reg = /^[a-z0-9]{3,15}@[a-z0-9]{2,9}\.[a-z]{2,3}$/;
     if (reg.test(this.value)) {
-        $(this).parent().next().removeClass("tips")
+
         el = true;
     } else {
-        $(this).parent().next().addClass("tips").html("邮箱输入错误")
+        $(this).parent().parent().children().first().addClass("tipsgo")
+        $(this).parent().parent().children().first().children().first().html("请输入正确的邮箱地址")
         el = false;
     }
 }
@@ -187,54 +221,62 @@ function imgPreview(fileDom) {
         // 读取图片 => 将图片转换成base64
     reader.readAsDataURL(file);
 }
-// 刷新或者关闭浏览器后清空浏览器缓存
-window.localStorage.clear()
-    // -0--------------------------------------------------------------------------
-const BASE_URL = "http://192.168.7.5:8000/zjcx";
+
+// -0--------------------------------------------------------------------------
+
 oBtn.onclick = function() {
 
     var oSex = $('input:radio[name="sex"]:checked').val();
     if (oSex == "男") {
-        oSex = "男"
+        oSex = 1
     } else {
-        oSex = "女"
+        oSex = 0
     }
 
+    var formData = new FormData();
+
+    let file = document.querySelector("#user_img").files[0];
+
+    formData.append("user_img", file)
+    formData.append("username", oUser.value)
+    formData.append("password", oPass.value)
+    formData.append("rep_password", oValidatePass.value)
+    formData.append("sex", oSex)
+    formData.append("phone", oPhoneNum.value)
+    formData.append("email", oEmail.value)
+        // var files = $('#user_img').prop('files');
+        // var data = new FormData();
+        // data.append('#user_img', files[0]);
     if (u && p && p2 && ph && el && xy) {
-        console.log({
-                user_img: localStorage.getItem("user_img"),
-                username: oUser.value,
-                password: oPass.value,
-                sex: oSex,
-                phone: oPhoneNum.value,
-                email: oEmail.value,
-            })
-            // fetch(`${BASE_URL}/register/`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify({
-            //         username: oUser.value,
-            //         password: oPass.value,
-            //         sex: oSex.value,
-            //         phone: oPhoneNum.value,
-            //         email: oEmail.value,
-            //     })
-            // }).then(res => {
-            //     return res.json();
-            // }).then(data => {
-            //     // console.log(data);
-            //     if (data.data == "注册成功") {
-            //         window.location.href = "../index.html";
-            //     } else if (data.data == "用户已存在") {
-            //         console.log("用户不存在")
-            //     } else {
-            //         console.log("服务繁忙，请稍后")
-            //     }
-            // });
+        // if (true) {
+        console.log("发送请求中")
+        $.ajax({
+            url: `${BASE_URL}/register/`,
+            type: "POST",
+            // dataType: "json",
+            processData: false,
+            contentType: false,
+            data: formData
+
+
+        }).done(res => {
+            console.log("注册成功")
+        }).fail(err => {
+            if (err.status == 401) {
+                console.log(err.responseText )
+            } else {
+                $.each(err.responseJSON, function(key, values) {
+                    console.log(key + "  字段的值存在错误  ", "  错误是 " + values)
+                        // $(`[name="${key}"]`).addClass('input_error')
+                        // $(`[name="${key}"]`).prop('placeholder', values[0].message)
+                })
+            }
+        });
     } else {
-        alert("请填写完整信息")
+
+        document.querySelector(".tipsc").classList.add("tipsgo")
+        document.querySelector(".tipsc span").innerHTML = "请完善信息"
+
     }
 
 }
