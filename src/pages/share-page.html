@@ -36,9 +36,9 @@
     </header>
     <!-- 内容 -->
     <main>
-        <div class="ban">
+        <div class="fl-banner">
             <div class="img">
-                <img src="../images/duan/banner.png" alt="">
+                <img src="../images/duan/flbanner.png" alt="">
             </div>
         </div>
         <div class="tabControl">
@@ -66,27 +66,50 @@
         </div>
         <div class="issue">
             <div class="publish">
-                <textarea name="" id="pub" placeholder="我的小日记...."></textarea>
+                <!-- 标题 -->
+                <div class="headline">
+                    <input type="text" id="headline"" placeholder=" 请输入标题">
+                </div>
+                <!-- 文字信息 -->
+                <div class="details">
+                    <textarea name="" id="details" placeholder="添加正文"></textarea>
+                </div>
+                <!-- 图片 -->
+                <div class="photo">
+                    <div class="picture_box">
+                        <div class="case">
+                            <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                onchange="imgPreview(this)">
+                        </div>
+                        <div class="case">
+                            <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                onchange="imgPreview(this)">
+                        </div>
+                        <div class="case">
+                            <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                onchange="imgPreview(this)">
+                        </div>
+                    </div>
+                    <!-- <div class="click_upload">
+                        <button id="tjtp" type="button" onclick="uploadImage()">点击上传</button>
+                    </div> -->
+
+                </div>
+                <!-- 地址 -->
+                <div class="site">
+                    <div class="map">
+                        <div class="af"><i class="iconfont icon-dizhi1 small"></i>标记地理位置</div>
+                        <div id="allmap"></div>
+                    </div>
+
+                </div>
+                <!-- 发布或取消 -->
                 <div class="anniu">
                     <button id="affirm">发布</button>
-                    <button id="cancel">取消</button>
                 </div>
-                <div class="photo">
-                    <div class="case">
-                        <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
-                            onchange="imgPreview(this)">
-                    </div>
-                    <div class="case">
-                        <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
-                            onchange="imgPreview(this)">
-                    </div>
-                    <div class="case">
-                        <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
-                            onchange="imgPreview(this)">
-                    </div>
-                    <button id="tjtp" type="button" onclick="uploadImage()">点击上传</button>
-                </div>
+                <div class="cancel">x</div>
             </div>
+
         </div>
         <div class="content">
             <div class="plate show">
@@ -1113,7 +1136,7 @@
         </div>
 
     </footer>
-   
+
 </body>
 
 </html>
