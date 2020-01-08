@@ -154,7 +154,7 @@
   }
    
     .inpStyle {
-     
+     height: 100%;
       color: rgb(18, 30, 136);
       opacity:0.9;
       border-radius:2px;
@@ -163,22 +163,27 @@
       
       outline: 0;
     border: 0;
-    background-color: transparent;
+    background-color: transparent ;
     border-bottom: 2px solid rgb(109, 109, 109);
-
+    transition: .7s;
+    &:hover{
+      color: #f8b551;
+      background-color: #304352;
+    }
     }
   }
   #btn {
     width: 72%;
     height: 30px;
-    margin: 20px 0 0 40px;
+    margin: 14px 0 0 40px;
     background: #f8b551;
-    border-radius: 5px !important;
+    border-radius: 5px ;
     box-shadow: 0 0 10px grey;
+    text-align: center;
     font-size: 19px;
     color: #ffffff;
-    border-radius: 2px;
-   text-align: center;
+  
+   
   }
   .error {
     color: red;
@@ -199,6 +204,7 @@
     }
     input::-webkit-input-placeholder{
       color: ivory;
+      font-size: 12px;
     }
     input{
       
