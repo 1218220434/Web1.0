@@ -89,6 +89,7 @@ $(document).ready(function () {
     })
     $(".mask .quit").click(function(){
         $(".mask").fadeOut(300);
+        $(".videos").hide();
     })
     console.log("1")
     
