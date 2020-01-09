@@ -126,5 +126,21 @@ $(window).bind("load resize", function() {
         "width": screenDom / _pfth,
         "font-size": screenDom / _pfth,
     })
+    $(".vid").css({
+        "height":$(".vid img").height()
+    }) 
+    $(".cover").css({
+        "height":$(".vid img").height()
+    })
 
+    $(".vid video").css({
+        "height":$(".vid img").height()
+    })    
+    $(".cover").click(function(){
+        $(".cover img").fadeOut(200);
+        $("#movie").fadeIn(300);
+        $("#movie").get(0).play();
+
+
+    });
 })
