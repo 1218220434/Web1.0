@@ -34,12 +34,12 @@ $(window).bind("load resize", function() {
 
 
     $(".inpnoml").css({
-        "height": screenDom / 60,
-        "width": screenDom / 2 / 2.3
+        "height": screenDom / 50,
+        "width": screenDom / 1.8 / 2.3
     })
     $(".forminp").css({
-        "height": screenDom / 3.1,
-        "width": screenDom / 2.1 / 2
+        "height": screenDom / 2.6,
+        "width": screenDom / 1.8 / 2
     })
     $(".imginp").css({
         "height": $(".forminp").height() + 30 + "px",
@@ -141,7 +141,7 @@ oValidatePass.onblur = function() {
         p2 = true;
     } else {
         $(this).parent().parent().children().first().addClass("tipsgo")
-        $(this).parent().parent().children().first().children().first().html("密码不一致,请重新确认")
+        $(this).parent().parent().children().first().children().first().html("密码不一致,请确认")
 
         p2 = false;
     }
@@ -152,15 +152,53 @@ oValidatePass.onblur = function() {
 oPhoneNum.onblur = function() {
     var reg = /^1[356789]\d{9}$/;
     if (reg.test(this.value)) {
-        $(this).parent().next().removeClass("tips")
+        $(this).parent().parent().children().first().addClass("tipsgo")
+        $(this).parent().parent().children().first().children().first().html("发送验证码")
+        $(this).parent().parent().children().first().children().first().css({
+                "background-color": "white",
+                "border-radius": "5px",
+                "color": "rgb(72, 75, 100)",
+                "cursor": "pointer"
+            })
+            // 发送验证码
+        $(this).parent().parent().children().first().children().first().on("click", function() {
+            let thespan = $(this).parent().parent().children().first().children().first()
+            console.log(thespan)
+            $.ajax({
+                url: `${BASE_URL}/register/phonecode/`,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    phone: oPhoneNum.value,
+                }
+
+            }).done(res => {
+                console.log("发送成功")
+                thespan.removeAttr("style")
+                thespan.html("去改变样式")
+            }).fail(err => {
+                if (err.status == 401) {
+                    console.log(err.responseText )
+                } else {
+                    console.log(err.responseJSON)
+
+                }
+            });
+        })
         ph = true;
     } else {
         $(this).parent().parent().children().first().addClass("tipsgo")
-        $(this).parent().parent().children().first().children().first().html("请输入正确的手机号")
-
+        $(this).parent().parent().children().first().children().first().html("请输入手机号")
         ph = false;
     }
 }
+document.querySelector(".tesinp").onblur = function() {
+    if ($(this).val() == "") {
+        $(this).parent().parent().children().first().addClass("tipsgo")
+        $(this).parent().parent().children().first().children().first().html("请输入短信验证码")
+    }
+}
+
 oEmail.onblur = function() {
     var reg = /^[a-z0-9]{3,15}@[a-z0-9]{2,9}\.[a-z]{2,3}$/;
     if (reg.test(this.value)) {
@@ -168,7 +206,7 @@ oEmail.onblur = function() {
         el = true;
     } else {
         $(this).parent().parent().children().first().addClass("tipsgo")
-        $(this).parent().parent().children().first().children().first().html("请输入正确的邮箱地址")
+        $(this).parent().parent().children().first().children().first().html("请输入邮箱地址")
         el = false;
     }
 }
@@ -236,17 +274,18 @@ oBtn.onclick = function() {
     var formData = new FormData();
 
     let file = document.querySelector("#user_img").files[0];
+    let phonecode = $(".tesinp").val()
 
     formData.append("user_img", file)
     formData.append("username", oUser.value)
     formData.append("password", oPass.value)
     formData.append("rep_password", oValidatePass.value)
     formData.append("sex", oSex)
+    formData.append("phone_code", phonecode)
     formData.append("phone", oPhoneNum.value)
     formData.append("email", oEmail.value)
-        // var files = $('#user_img').prop('files');
-        // var data = new FormData();
-        // data.append('#user_img', files[0]);
+
+
     if (u && p && p2 && ph && el && xy) {
         // if (true) {
         console.log("发送请求中")
