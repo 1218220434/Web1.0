@@ -1,11 +1,11 @@
 @bgcolor: #E7EAED;
-      
-.op {
-    opacity: 1 !important;
-    z-index: 1 !important;
-    transform: translateY(-2px);
-}
 
+.iconfont .smaller{
+    font-size: 5px;
+}
+.op{
+    display: block;
+}
 p {
     word-break: break-all;
 }
@@ -67,116 +67,123 @@ main {
         box-sizing: border-box;
         padding-top: 30px;
         position: relative;
-        .displayer{
-            width: 450px;
-            height: 70px;
-            background-color: #fff;
+
+        .displayer {
+            width: 350px;
+            height: 60px;
+            background-color: rgb(255, 255, 255);
             margin: 0 auto;
-            box-sizing: border-box;
-            padding: 20px;
+            color: orange;
+            // box-sizing: border-box;
+            // padding: 20px 20px 0 20px;
             border-radius: 8px;
-      
-        }
+            span{
+                display: inline-block;
+                width: 100%;
+                height: 100%;              
+                font-size: 14px;
+                cursor: pointer;
+                line-height: 60px;
+                text-indent: 1em;
+
+            }
 
 
-        .publish {
-            display: none;
-            width: 450px;
-            background-color: #fff;
-            margin: 0 auto;
-            box-sizing: border-box;
-            padding: 20px;
-            border-radius: 8px;
-            position: relative;
 
-            .headline {
-                margin-bottom: 10px;
+            .publish {
+                display: none;
+                background-color: #fff;
+                margin: 0 auto;
+                border-radius: 8px;
+                position: relative;
+                 box-sizing: border-box;
+                padding: 20px 20px 0 20px;
 
-                input {
+                .headline {
+                    margin-bottom: 10px;
+
+                    input {
+                        border-bottom: 1px solid rgb(202, 201, 201);
+                        width: 100%;
+                        height: 30px;
+                    }
+                }
+
+                .details {
+                    width: 100%;
+                    height: 100px;
                     border-bottom: 1px solid rgb(202, 201, 201);
-                    width: 410px;
-                    height: 30px;
+                    margin-bottom: 10px;
+                    textarea {
+                        resize: none;
+                        width: 100%;
+                        height: 100%;                    }
                 }
-            }
 
-            .details {
-                width: 410px;
-                height: 100px;
-                border-bottom: 1px solid rgb(202, 201, 201);
-                margin-bottom: 10px;
-                textarea{
-                    resize: none;
-                }
-            }
+                .photo {
+                    text-align: center;
+                    margin-bottom: 10px;
 
-            .photo {
-                text-align: center;
-                margin-bottom: 5px;
+                    .picture_box {
+                        .case {
+                            vertical-align: top;
+                            display: inline-block;
+                            width: 100px;
+                            height: 100px;
+                            background: #f5f5f5 url("../images/duan/upload.png") no-repeat center center;
+                            background-size: cover;
+                            border: 1px dashed #ccc;
 
-                .picture_box {
-                    .case {
-                        vertical-align: top;
-                        display: inline-block;
-                        width: 100px;
-                        height: 100px;
-                        background: #f5f5f5 url("../images/duan/upload.png") no-repeat center center;
-                        background-size: cover;
-                        border: 1px dashed #ccc;
-
-                        input {
-                            width: 100%;
-                            height: 100%;
-                            opacity: 0;
+                            input {
+                                width: 100%;
+                                height: 100%;
+                                opacity: 0;
+                            }
                         }
+
                     }
 
                 }
-
             }
 
-            .site {
+            .map {
                 margin-bottom: 30px;
-
-                .map {
+                .pub-type{
+                    margin-bottom: 20px;     
+                }
+                .map-mask{
+                    position: fixed;
                     width: 100%;
                     height: 100%;
-                    overflow: hidden;
-                    margin: 0;
-                    font-family: "微软雅黑";
- 
-
-                    #allmap {
+                    background-color: rgba(0, 0, 0, 0.7);
+                    left: 0;
+                    top: 0;
+                    z-index: 100;
+                    display: none;
+                    #allmap{
+                        width: 800px;
+                        height: 700px;
                         position: fixed;
-                        top: 45%;
                         left: 50%;
-                        width: 46%;
-                        height: 44%;
-                        overflow: hidden;
-                        opacity: 0;
-                        margin: 0;
-                        font-family: "微软雅黑";
-                        z-index: -1;
-                        transition: .7s;
-                        border: 1px solid rgb(163, 163, 163);
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 200;
                     }
-
-                    .af {
-                        font-size: 12px;
-
-                        &:hover {
-                            color: hotpink;
-                            cursor: pointer;
-                        }
+                    .map-quit{
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        z-index: 500;
+                        cursor: pointer;
                     }
-
                 }
+
             }
 
             .anniu {
                 text-align: center;
-
                 button {
-                    border: 1px solid rgb(192, 186, 186);
+                    background: linear-gradient(to right, #ffe259, #ffa751);
                     border-radius: 5px;
                     width: 160px;
                     height: 25px;
@@ -185,8 +192,10 @@ main {
 
             .cancel {
                 position: absolute;
-                top: 5px;
-                right: 10px;
+                top: 3px;
+                right: 5px;
+                cursor: pointer;
+                color: gray;
             }
 
         }

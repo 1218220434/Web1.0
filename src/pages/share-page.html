@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1588532_1oz2p96wkhs.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1588532_423i14v09i5.css">
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=W1a6ywZFkybedSCHadpRbkz4w5HYfG4R" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -65,42 +66,57 @@
             </div>
         </div>
         <div class="issue">
-            <div class="displayer">我的小日记</div>
-            <div class="publish">
+            <div class="displayer"> <span>我的小日记...</span> 
+                <div class="publish">
+                    <div class="pub-type">
+                        <label style="font-size: medium;">发布类型:</lable>
+                        <select>
+                            <option value ="0">爱吃</option>
+                            <option value ="1">趣玩</option>
+                            <option value="2">美景</option>
+                            <option value="3">好物</option>
+                        </select>
+                    </div>
 
-                <div class="headline">
-                    <input type="text" id="headline" placeholder=" 请输入标题 ">
-                </div>
-
-                <div class=" details ">
-                    <textarea name=" " id=" details " placeholder=" 添加正文 "></textarea>
-                </div>
-                <div class="photo">
-                    <div class=" picture_box ">
-                        <div class=" case ">
-                            <input type=" file " accept=" image/gif,image/jpeg,image/jpg,image/png,image/svg "
-                                onchange=" imgPreview(this) ">
-                        </div>
-                        <div class=" case ">
-                            <input type=" file " accept=" image/gif,image/jpeg,image/jpg,image/png,image/svg "
-                                onchange=" imgPreview(this) ">
-                        </div>
-                        <div class=" case ">
-                            <input type=" file " accept=" image/gif,image/jpeg,image/jpg,image/png,image/svg "
-                                onchange=" imgPreview(this) ">
+                    <div class="headline">
+                        <input type="text" id="headline" placeholder=" 请输入标题 ">
+                    </div>
+                    <div class="details">
+                        <textarea id="details" placeholder="添加正文"></textarea>
+                    </div>
+                    <div class="photo">
+                        <div class=" picture_box ">
+                            <div class="case case1">
+                                <input type="file" id="user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                            </div>
+                            <div class="case case2">
+                                <input type="file" id="user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                            </div>
+                            <div class="case case3">
+                                <input type="file" id="user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                            </div>
                         </div>
                     </div>
+                    <div class="map">
+                        <div class="af">点击获取当前地址</div>
+                        <div class="map-mask">
+                            <div id="allmap"></div>
+                            <div class="map-quit">
+                                选好了<i class="iconfont icon-arrow-top smaller"></i>
+                            </div> 
+                        </div>
+                              
+                    </div>
+                     
+                    <div class=" anniu ">
+                        <button id="affirm">发布</button>
+                    </div>
+                    <div class="cancel"><i class="iconfont icon-quxiao1 smaller"></i></div>
                 </div>
-
-
-                <div class=" site "></div>
-
-                <div class=" anniu ">
-                    <button id=" affirm ">发布</button>
-                </div>
-                <div class=" cancel ">x</div>
             </div>
+
         </div>
+        
         <div class=" content">
             <div class="plate show">
                 <div class="bigbox">

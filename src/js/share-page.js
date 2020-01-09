@@ -7,7 +7,7 @@ import '../public/footer.less';
 import '../public/footer.js';
 
 
-$(document).ready(function () {
+
 
 
     //随浏览器变化而变化
@@ -21,13 +21,10 @@ $(document).ready(function () {
         $(".box").css("height", screenDom / 3.5)
         $(".bigbox").css("height", ($(".box").height() + 40) * 3.08)
         $(".content").css("height", $(".bigbox").height() + 70)
-        $("textarea").css("width", $(".details").width())
-        $("textarea").css("height", $(".details").height())
     });
-    //选项卡
+    //选项卡变换内容
     let menu_items = [...document.querySelectorAll(".tab .select")];
     let ct_items = [...document.querySelectorAll(".content .plate")];
-
     // 2. 定义变量记录上一次选中的下标，默认值为0
     let last_sel_index = 0;
     // 3. 遍历菜单项
@@ -44,41 +41,130 @@ $(document).ready(function () {
             last_sel_index = index;
         }
     });
-    // //设置发布框变换
-    // $("#pub").click(function () {
-    //     $(".publish").animate({ height: "300px", width: "550px" });
-    //     $(".anniu").fadeIn("slow");
-    //     $(".photo").fadeIn("slow");
-    // });
-    // $(".anniu button").click(function () {
-    //     $(".anniu").fadeOut("fast");
-    //     $(".photo").fadeOut("fast");
-
-    //     setTimeout(function () {
-    //         $(".publish").removeAttr("style");
-    //         $("#pub").val("");
-    //     }
-    //         , 200)
-    // })
-    // //发布成功
-    // $("#affirm").click(function () {
-    //     alert("发布成功！")
-    // })
-    // //插入图片
-
-
+    //选项卡变色
     $(".tabControl .tab .select").click(function () {
         $(this).addClass("show-c").siblings().removeClass("show-c");
     }).first().trigger("click");
 
     //发布框
-    $(".displayer").click(function () {
-        $(this).fadeOut("slow")
-        $(".publish").slideDown("slow");
+    $(".displayer span").click(function () {
+        $(".displayer").animate({ height: "410px", width: "430px" });
+        $(".displayer span").hide();
+        $(".publish").fadeIn("slow");
     })
-    // $("#pub").click(function () {
-    //     $(".publish").animate({ height: "300px", width: "550px" });
-    //     $(".anniu").fadeIn("slow");
-    //     $(".photo").fadeIn("slow");
-    // });
-});
+    $("#affirm").click(function () {
+        $(".publish").fadeOut("fast");
+        setTimeout(function () {
+            $("#headline").val("");
+            $(".publish textarea").val("");
+            $(".displayer").removeAttr("style");
+            $(".displayer span").show();
+        }, 500);
+        alert("发布成功!")
+    })
+    $(".publish .cancel").click(function () {
+        $(".publish").fadeOut("fast");
+        setTimeout(function () {
+            $("#headline").val("");
+            $(".publish textarea").val("");
+            $(".displayer").removeAttr("style");
+            $(".displayer span").show();
+        }, 600);
+    })
+    //插入图片
+    $(".onchangebtn").change(function () {
+        imgPreview(this);
+    })
+
+
+    function imgPreview(fileDom) {
+        // 判断是否支持FileReader 
+        let reader = null;
+        if (window.FileReader) {
+            reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+            return;
+        }
+        // 获取选中的文件
+        let file = fileDom.files[0];
+        // 判断是否是图片类型
+        let imageType = /^image\//;
+        if (!imageType.test(file.type)) {
+            alert("请选择图片！");
+            return;
+        }
+        // 读取完成
+        reader.onload = function (e) {
+            // 图片路径设置为读取的图片
+            // img.src = e.target.result;
+            let box = document.querySelector(".case");
+            $(".case").css("backgroundImage")
+            // 回显图片
+            box.style.backgroundImage = `url(${e.target.result})`;
+            localStorage.setItem("user_img", e.target.result);
+
+        }
+        // 读取图片 => 将图片转换成base64
+        reader.readAsDataURL(file);
+    }
+    //地图功能实现
+    var site = ""
+    // var _af = document.querySelector(".af")
+    // _af.onclick = function () {
+    //     document.querySelector("#allmap").classList.add("op")
+    // } 
+    $(".af").click(function(){
+        $(this).next().show();
+        $("#allmap").fadeIn(300);
+    })
+    $(".map-quit").click(function(){
+        $(".map-mask").fadeOut(300);
+    })
+    // $(document).mouseup(function(e){
+    //     if($(e.target).parent(".map-mask").length==0){
+    //       $(".map-mask").hide("fast");
+    //     }
+    //   })
+
+    // $("#box").click(function(event){  
+    //     var e=window.event || event;  
+    //     if(e.stopPropagation){  
+    //         e.stopPropagation();  
+    //     }else{  
+    //         e.cancelBubble = true;  
+    //     }  
+    // });  
+    // document.onclick = function(){  
+    //     $("#box").hide();  
+    // };  
+
+    // 百度地图API功能
+   
+    var map = new BMap.Map("allmap"); // 创建Map实例
+    map.centerAndZoom("成都市高新区锦城大道758", 17); // 初始化地图,用城市名设置地图中心点
+    map.enableScrollWheelZoom(); // 缩放功能
+    var geoc = new BMap.Geocoder();
+    map.addEventListener("click", function (e) {
+        var site=""
+        // var what = e.point.lng + "," + e.point.lat
+        var _point = new BMap.Point(e.point.lng, e.point.lat);
+        var marker = new BMap.Marker(_point); // 创建标注
+        map.addOverlay(marker); // 将标注添加到地图中
+        //    定位控件
+        var pt = e.point;
+        geoc.getLocation(pt, function (rs) {
+            //addressComponents对象可以获取到详细的地址信息
+            var addComp = rs.addressComponents;
+            site=  addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+            //将对应的HTML元素设置值
+            console.log(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber)
+        });
+        setTimeout(function(){
+            
+        },200)
+    });
+   
+
+
+
