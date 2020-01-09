@@ -5,13 +5,16 @@ import '../public/header.less';
 import '../public/header.js';
 import '../public/footer.less';
 import '../public/footer.js';
+import '../public/skill.js';
 import '../js/index-ajax.js';
+
+
 
 
 import Swiper from "swiper";
 import "swiper/css/swiper.css";
 
-import echarts from 'echarts';
+
 
 // 轮播图
 let mySwiper = new Swiper('.swiper-container', {

@@ -99,6 +99,45 @@ $(window).bind("load resize", function() {
         console.log("爱好一:" + ha1);
         console.log("爱好二:" + hai2);
 
+        $.ajax({
+            url: `${BASE_URL}/login/`,
+            type: 'post',
+            // headers: {
+            //     Authorization: 'Bearer ' + localStorage.getItem('access')
+            // },
+            data: {
+                hobby1: ha1,
+                hobby2: hai2
+            },
+            cache: false,
+            success: function(rsp_data) {
+
+                console.log(rsp_data)
+                setTimeout(function() {
+                    window.location.href = "../pages/myhobby-page.html";
+                }, 200)
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 400) {
+                    formError(jqXHR)
+                } else if (jqXHR.status == 401) {
+                    $.ajax({
+                        url: api_host + '/system_user/refresh/',
+                        type: 'post',
+                        data: { 'refresh': localStorage.getItem('refresh') },
+                        success: function(rsp_data) {
+                            localStorage.setItem('access', rsp_data['access']);
+                            $.myAjaxGet(url, callback)
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            window.location.href = projectName + '/polls/login.html'
+                        }
+                    })
+                }
+            }
+        })
+
         // window.location.href = `${myurl}/index.html`;
 
     })

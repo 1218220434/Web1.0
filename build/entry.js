@@ -8,4 +8,5 @@ module.exports = {
     topSearch: './src/js/top-search.js',
     homePage: './src/js/home-page.js',
     myhobbyPage: './src/js/myhobby-page.js',
+    capturePage: './src/js/capture-page.js',
 }
