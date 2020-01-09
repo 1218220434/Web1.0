@@ -29,9 +29,23 @@ $(window).bind("load resize", function() {
         $(".nav li").css("height", $(".logo img").height())
             .css("line-height", $(".logo img").height() + "px");
     }
-
-
-
-
-
 });
+
+if (localStorage.getItem("user_img")) {
+    console.log($(".user-img"))
+    $(".user-img").fadeIn()
+    $(".user-img").css("display", "block")
+    $(".logined li:eq(0)").hide().next().hide().next().hide()
+
+}
+$(".user-img").on("click", function() {
+    $(".user-mesge").slideToggle()
+})
+
+//注销
+$(".user-address li:eq(3)").on("click", function() {
+    $(".logined li:eq(0)").fadeIn().next().fadeIn().next().fadeIn()
+    $(".user-img").fadeOut()
+    $(".user-mesge").fadeOut()
+    localStorage.clear();
+})

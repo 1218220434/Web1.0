@@ -51,6 +51,12 @@ body{
     align-items: center;
     flex-wrap: wrap;
 }
+.flex-cpp {
+    display: flex;
+    justify-content: space-between;
+   
+    flex-wrap: wrap;
+}
 
 @homewidth:80%;
 @homeblack:#333333;
@@ -101,6 +107,8 @@ body{
             }
         .homeNeav-son{
             .user-imgone{
+                width: 80px;
+                background-color: rgb(238, 102, 102);
                 padding-top: 20px;
                 position: relative;
             img{
@@ -192,6 +200,8 @@ body{
                 width: @homewidth;
                 color: @homegray;
                 font-family:"STFangsong";
+                cursor: pointer;
+                
                 .com{
                     width: 20%;
                     img{
@@ -238,12 +248,48 @@ body{
             &:hover {
                 background-color   : rgb(235, 235, 235);
                 transform : translateY(-2px) ;
-                box-shadow: 0 2px 10px grey,inset 5px 5px 10px rgb(197, 197, 197);
+                box-shadow: 0 2px 10px grey;
             }
         }
         
 
     }
+    // 评论区
+    .comments-some{
+        height: 0;
+        // position: relative;
+      
+        display: none;
+        width: 98%;
+        border-radius: 10px;
+        background-color: rgba(65, 66, 104, 0.8);
+       
+        
+    }
+    .othercomoents{
+        
+        img{
+            width: 50px;
+        }
+      
+        border-radius: 5px;
+        box-shadow: 0 0 1px gray;
+        width: 80%;
+        margin: 20px auto 0;
+        background-color: rgb(238, 102, 102);
+    }
+    .myhuifu{
+        img{
+            width: 30px;
+        }
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 1px gray;
+        width: 80%;
+        margin: 20px auto 0;
+        background-color: rgb(238, 102, 102);
+    }
+
     .homeall{
         margin-top: 30px;
         width: 29%;
