@@ -7,58 +7,12 @@ import '../public/footer.less';
 import '../public/footer.js';
 import '../public/skill.js';
 import '../js/index-ajax.js';
-const BASE_URL = "http://192.168.110.8:8000/zjcx";
-const USER_IMG = "http://192.168.110.8:8000";
-// const _url = "http://127.0.0.1:8081/static/images/"
-// let _topArr = [{
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "鲨鲨食物日记",
-//     info: "匠欣 · 专业西餐厅，做精致的猪猪女孩",
-//     photo: `${_url}221.png`,
-//     address: "成都市武侯区",
-// }, {
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "终身幸福",
-//     info: "不是所以餐厅都能叫做”私房菜“",
-//     photo: `${_url}221.png`,
-//     address: "广汉市苏州路15号",
-// }, {
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "西大学长",
-//     info: "这里是西南交大",
-//     photo: `${_url}221.png`,
-//     address: "四川省成都市金牛区二环路北一段111号",
-// }, {
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "西大学长",
-//     info: "这里是西南交大",
-//     photo: `${_url}221.png`,
-//     address: "四川省成都市金牛区二环路北一段111号",
-// }, {
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "西大学长",
-//     info: "这里是西南交大",
-//     photo: `${_url}221.png`,
-//     address: "四川省成都市金牛区二环路北一段111号",
-// }, {
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "西大学长",
-//     info: "这里是西南交大",
-//     photo: `${_url}221.png`,
-//     address: "四川省成都市金牛区二环路北一段111号",
-// }, {
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "西大学长",
-//     info: "这里是西南交大",
-//     photo: `${_url}221.png`,
-//     address: "四川省成都市金牛区二环路北一段111号",
-// }, {
-//     user_img: `${_url}IMG_0642@2x.png`,
-//     name: "西大学长",
-//     info: "这里是西南交大",
-//     photo: `${_url}221.png`,
-//     address: "四川省成都市金牛区二环路北一段111号",
-// }, ]
+
+
+import { BASE_URL } from '../js/util.js';
+import { USER_IMG } from '../js/util.js';
+import {BASES_URL}from '../js/util.js';
+
 let konstr = ""
 let addArray = []
     // 将所有坐标添加到数组addArray中
@@ -74,9 +28,9 @@ $.ajax({
     success: function(rsp_data) {
         console.log(rsp_data);
         rsp_data.forEach(index => {
-                addArray.push(index.address)
-
-            })
+            addArray.push(index.address_detail)
+           
+        })
             // 动态加载多个li标签
         rsp_data.forEach(el => {
             konstr += ` <li>
@@ -96,25 +50,10 @@ $.ajax({
 
         $(".theTop-info").html(konstr)
 
-
-        // 百度地图API功能
-        var map = new BMap.Map("allmap"); // 创建Map实例
-        map.centerAndZoom(new BMap.Point(102.924042, 30.630206), 10); // 初始化地图,用城市名设置地图中心点
-        map.enableScrollWheelZoom(); // 缩放功能
-
-        var someAddr = addArray
-
-        // 命名一个空数组用来装地址被解析后的坐标
-        var allClient = []
-            //打开浏览器即执行封装的getPoint函数
-        $(function() {
-            getPoint(someAddr);
-        })
-
         //getPoint函数
-        function getPoint(someAddr) {
+        function getPoint(addArray) {
             // 创建地址解析器实例
-            someAddr.forEach(element => {
+            addArray.forEach(element => {
                 new BMap.Geocoder().getPoint(element, function(point) {
                     //遍历出每个地址的坐标添加到allClient数组中
                     allClient.unshift(JSON.stringify(point.lng) + "," + JSON.stringify(point.lat))
@@ -132,6 +71,22 @@ $.ajax({
                 });
             });
         }
+
+        // 百度地图API功能
+        var map = new BMap.Map("allmap"); // 创建Map实例
+        map.centerAndZoom(new BMap.Point(102.924042, 30.630206), 10); // 初始化地图,用城市名设置地图中心点
+        map.enableScrollWheelZoom(); // 缩放功能
+
+        var someAddr = addArray
+
+        // 命名一个空数组用来装地址被解析后的坐标
+        var allClient = []
+            //打开浏览器即执行封装的getPoint函数
+        $(function() {
+            getPoint(someAddr);
+        })
+
+        
 
 
         $(".theTop-info li").on("click", function() {
