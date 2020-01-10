@@ -8,7 +8,8 @@ import '../public/footer.js';
 import '../public/skill.js';
 import '../js/index-ajax.js';
 
-
+import { BASE_URL } from '../js/util.js';
+import { USER_IMG } from '../js/util.js';
 
 
 import Swiper from "swiper";
@@ -127,20 +128,31 @@ $(window).bind("load resize", function() {
         "font-size": screenDom / _pfth,
     })
     $(".vid").css({
-        "height":$(".vid img").height()
-    }) 
+        "height": $(".vid img").height()
+    })
     $(".cover").css({
-        "height":$(".vid img").height()
+        "height": $(".vid img").height()
     })
 
     $(".vid video").css({
-        "height":$(".vid img").height()
-    })    
-    $(".cover").click(function(){
+        "height": $(".vid img").height()
+    })
+    $(".cover").click(function() {
         $(".cover img").fadeOut(200);
         $("#movie").fadeIn(300);
         $("#movie").get(0).play();
 
 
     });
+})
+
+$(".wrper li").on("click", function() {
+    window.location.href = "../static/pages/share-page.html";
+})
+
+$(".todayNeav").on("click", function() {
+    window.location.href = "../static/pages/share-page.html";
+})
+$(".sen-logo").on("click", function() {
+    window.location.href = "../static/pages/video-page.html";
 })

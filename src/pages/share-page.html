@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1588532_423i14v09i5.css">
-    <script src="http://api.map.baidu.com/api?v=2.0&ak=W1a6ywZFkybedSCHadpRbkz4w5HYfG4R" type="text/javascript" charset="utf-8"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=W1a6ywZFkybedSCHadpRbkz4w5HYfG4R"  type="text/javascript"  charset="utf-8"></script>
 </head>
 
 <body>
@@ -31,8 +31,18 @@
                 <li><a href="javascript:;">登录</a></li>
                 <li><a href="javascript:;">注册</a></li>
                 <img src="../images/图标/头像.png" alt="">
-                <div>1</div>
+                <div class="user-address">
+                    <p class="user-namec"></p>
+                    <img src="" alt="" class="myuser-img">
+                    <ul class="user-mesge">
+                        <li><a href="#">个人信息</a></li>
+                        <li><a href="#">成为会员</a></li>
+                        <li><a href="video-page.html">观看视频</a></li>
+                        <li><a href="#">注销</a></li>
+                    </ul>
+                </div>
             </ul>
+
         </div>
     </header>
 
@@ -66,17 +76,9 @@
             </div>
         </div>
         <div class="issue">
-            <div class="displayer"> <span>我的小日记...</span> 
+            <div class="displayer"> <span>我的小日记...</span>
                 <div class="publish">
-                    <div class="pub-type">
-                        <label style="font-size: medium;">发布类型:</lable>
-                        <select>
-                            <option value ="0">爱吃</option>
-                            <option value ="1">趣玩</option>
-                            <option value="2">美景</option>
-                            <option value="3">好物</option>
-                        </select>
-                    </div>
+           
 
                     <div class="headline">
                         <input type="text" id="headline" placeholder=" 请输入标题 ">
@@ -87,18 +89,20 @@
                     <div class="photo">
                         <div class=" picture_box ">
                             <div class="case case1">
-                                <input type="file" id="user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                                <input type="file" id="user_img1" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
                             </div>
                             <div class="case case2">
-                                <input type="file" id="user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                                <input type="file" id="user_img2" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
                             </div>
                             <div class="case case3">
-                                <input type="file" id="user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
+                                <input type="file" id="user_img3" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" class="onchangebtn">
                             </div>
                         </div>
                     </div>
                     <div class="map">
-                        <div class="af">点击获取当前地址</div>
+                        <div class="af" style="font-size: 14px;">
+                            <i class="iconfont icon-dizhi smaller"></i>点击获取当前地址
+                        </div>
                         <div class="map-mask">
                             <div id="allmap"></div>
                             <div class="map-quit">
@@ -106,6 +110,15 @@
                             </div> 
                         </div>
                               
+                    </div>
+                    <div class="pub-type">
+                        <label style="font-size: 14px">发布类型:</lable>
+                        <select id="dynamic_type">
+                            <option value ="0">爱吃</option>
+                            <option value ="1">趣玩</option>
+                            <option value="2">美景</option>
+                            <option value="3">好物</option>
+                        </select>
                     </div>
                      
                     <div class=" anniu ">
@@ -1140,7 +1153,13 @@
                 </div>
             </div>
         </div>
-        </div>
+        <!-- //右侧功能条 -->
+        <ul class="skill">
+            <li class="back-to-top">👆</li>
+            <li class="capture"><a href="./capture-page.html">2️⃣</a></li>
+            <li></li>
+
+        </ul>
 
     </footer>
 

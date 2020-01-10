@@ -5,3 +5,7 @@ import '../public/header.less';
 import '../public/link-url.js';
 import '../public/footer.less';
 import '../public/footer.js';
+
+import '../public/skill.js';
+import '../js/index-ajax.js';
+

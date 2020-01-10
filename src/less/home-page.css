@@ -5,12 +5,30 @@ body {
   z-index: -1;
   display: none;
 }
+.showclose {
+  position: fixed;
+  right: 2%;
+  top: 6%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px black;
+  cursor: pointer;
+  z-index: 10;
+}
 .showa {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  outline: 999px solid rgba(99, 99, 99, 0.8);
+  border-radius: 5px;
+  background-color: rgba(99, 99, 99, 0.9);
+  border: 999px solid rgba(99, 99, 99, 0.8);
   z-index: 10;
 }
 .bg-user {
@@ -31,6 +49,7 @@ body {
 }
 .bg-user .userNeav img {
   width: 40%;
+  border-radius: 50%;
 }
 .bg-user img {
   width: 100%;
@@ -131,8 +150,9 @@ body {
   font-family: "STFangsong";
 }
 .homebanner .homeNeav .homeNeav-son .homeNeav-any .mainimg {
+  height: auto !important;
   cursor: pointer;
-  width: 80%;
+  width: 62% !important;
 }
 .homebanner .homeNeav .homeNeav-son .homeNeav-any .imgCol {
   cursor: pointer;
