@@ -30,7 +30,9 @@ body {
     left     : 50%;
     top      : 50%;
     transform: translate(-50%, -50%);
-    outline  : 999px solid rgba(99, 99, 99, 0.8);
+    border-radius: 5px;
+    background-color:rgba(99, 99, 99,0.9) ;
+    border  : 999px solid rgba(99, 99, 99, 0.8);
     z-index  : 10;
 }
 
@@ -55,6 +57,7 @@ body {
 
         img {
             width: 40%;
+            border-radius: 50%;
         }
     }
 
@@ -182,8 +185,9 @@ body {
                 }
 
                 .mainimg {
+                    height:  auto !important;
                     cursor: pointer;
-                    width : @homewidth;
+                    width : 62% !important;
                 }
 
                 .imgCol {

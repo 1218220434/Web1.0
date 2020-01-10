@@ -24,7 +24,8 @@ $(window).bind("load resize", function() {
     })
 });
 
-const BASE_URL = "http://192.168.7.5:8000/zjcx";
+import { BASE_URL } from '../js/util.js';
+import { USER_IMG } from '../js/util.js';
 
 
 // 这里处理第一次跨域存储用户信息
@@ -74,15 +75,18 @@ $(".denglu").on("click", function() {
                     formError(jqXHR)
                 } else if (jqXHR.status == 401) {
                     $.ajax({
-                        url: api_host + '/system_user/refresh/',
+                        url: `${BASE_URL}/fresh/`,
                         type: 'post',
                         data: { 'refresh': localStorage.getItem('refresh') },
                         success: function(rsp_data) {
                             localStorage.setItem('access', rsp_data['access']);
-                            $.myAjaxGet(url, callback)
+                            $.myAjaxGet(`${BASE_URL}/login/`, function() {
+                                console.log(rsp_data)
+                            })
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
-                            window.location.href = projectName + '/polls/login.html'
+                            // window.location.href = projectName + '/polls/login.html'
+                            console.log("到这儿了")
                         }
                     })
                 }

@@ -1,4 +1,5 @@
-const USER_IMG = "http://192.168.7.5:8000/media/";
+import { BASE_URL } from '../js/util.js';
+import { USER_IMG } from '../js/util.js';
 
 // 导航栏切换样式改变
 $(document).ready(function() {
@@ -36,13 +37,13 @@ $(window).bind("load resize", function() {
 // 判断登录后是否存储了username
 if (localStorage.getItem("user")) {
     $(".user-namec").html(localStorage.getItem("name"))
-    $(".user-img").fadeIn()
-    $(".user-img").attr("src", USER_IMG + localStorage.getItem("user"))
+    $(".myuser-img").fadeIn()
+    $(".myuser-img").attr("src", USER_IMG + localStorage.getItem("user"))
     $(".logined li:eq(0)").hide().next().hide().next().hide()
 
 }
 //点击头像查看功能
-$(".user-img").on("click", function() {
+$(".myuser-img").on("click", function() {
     $(".user-mesge").slideToggle()
 })
 
@@ -50,7 +51,8 @@ $(".user-img").on("click", function() {
 $(".user-address li:eq(3)").on("click", function() {
     $(".logined li:eq(0)").fadeIn().next().fadeIn().next().fadeIn()
     $(".user-namec").fadeOut()
-    $(".user-img").fadeOut()
+    $(".myuser-img").fadeOut()
+    $(".myuser-img").hide()
     $(".user-mesge").fadeOut()
     localStorage.clear();
 })

@@ -2,7 +2,9 @@ import '../less/myhobby-page.less';
 import '../less/reset.less';
 import '../public/link-url.js';
 
-const myurl = 'http://127.0.0.1:8081'
+
+import { BASE_URL } from '../js/util.js';
+import { USER_IMG } from '../js/util.js';
 
 $(window).bind("load resize", function() {
     let screenDom = document.documentElement.clientWidth;
@@ -90,40 +92,50 @@ $(window).bind("load resize", function() {
     $(".sub p").on("click", function() {
 
         var strs = new Array(); //定义一数组
-        console.log(data_ste)
+        // console.log(data_ste)
         strs = data_ste.split(","); //字符分割
-        console.log(strs)
+        // console.log(strs)
         let ha1 = strs[0]
         let hai2 = strs[1]
             // 选择好分类后第二次提交至后台存储
-        console.log("爱好一:" + ha1);
-        console.log("爱好二:" + hai2);
+            // console.log("爱好一:" + ha1);
+            // console.log("爱好二:" + hai2);
+
+
 
         $.ajax({
-            url: `${BASE_URL}/login/`,
-            type: 'post',
-            // headers: {
-            //     Authorization: 'Bearer ' + localStorage.getItem('access')
-            // },
+            url: `${BASE_URL}/updatehobby/`,
+            type: 'put',
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('pas')
+            },
             data: {
                 hobby1: ha1,
                 hobby2: hai2
             },
             cache: false,
             success: function(rsp_data) {
-
                 console.log(rsp_data)
                 setTimeout(function() {
-                    window.location.href = "../pages/myhobby-page.html";
+                    window.location.href = "/index.html";
                 }, 200)
-
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 if (jqXHR.status == 400) {
-                    formError(jqXHR)
+                    console.log(jqXHR)
+                    if ("non_field_errors" in JSON.parse(jqXHR.responseText)) {
+                        let errmessage = JSON.parse(jqXHR.responseText)["non_field_errors"][0];
+                        popup({ type: 'error', msg: errmessage, delay: 2000, bg: true, clickDomCancel: true });
+                    } else if ('new_password' in JSON.parse(jqXHR.responseText)) {
+                        let errmessage = JSON.parse(jqXHR.responseText)["new_password"][0];
+                        popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
+                    } else if ('new_password_too' in JSON.parse(jqXHR.responseText)) {
+                        let errmessage = JSON.parse(jqXHR.responseText)["new_password_too"][0];
+                        popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
+                    }
                 } else if (jqXHR.status == 401) {
                     $.ajax({
-                        url: api_host + '/system_user/refresh/',
+                        url: BASES_URL + '/system_user/refresh/',
                         type: 'post',
                         data: { 'refresh': localStorage.getItem('refresh') },
                         success: function(rsp_data) {
@@ -131,14 +143,12 @@ $(window).bind("load resize", function() {
                             $.myAjaxGet(url, callback)
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
-                            window.location.href = projectName + '/polls/login.html'
+                            window.location.href = projectName + '/static/pages/login.html'
                         }
                     })
                 }
             }
         })
-
-        // window.location.href = `${myurl}/index.html`;
 
     })
 })

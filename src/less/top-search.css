@@ -44,6 +44,7 @@
   height: 95%;
 }
 .top-map .theTop-right .theTop-info li {
+  outline: 1px dashed gray;
   position: relative;
   height: 12.5%;
 }
@@ -86,6 +87,9 @@
 }
 .top-map .theTop-right .theTop-info li .infoab .artic p:last-child:hover {
   color: crimson;
+}
+.top-map .theTop-right .theTop-info li .infoab .theinfog {
+  width: 70px;
 }
 .top-map .theTop-right .theTop-info .info-one {
   height: 30px;
