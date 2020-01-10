@@ -146,5 +146,24 @@ module.exports = [
             removeEmptyAttributes: true
         }
     }),
+    // capture-page的依赖
+    new HtmlWebpackPlugin({
+        // 模板文件
+        template: "./src/pages/capture-page.html",
+        // 文件名(相对于output.path)，可通过文件名设置目录，如 static/pages/detail.html
+        filename: "static/pages/capture-page.html",
+        // 静态资源位置
+        inject: "body",
+        // 指定输出文件所依赖的入口文件（*.js）的[name]
+        chunks: ["capturePage"],
+        // 控制压缩
+        minify: {
+            collapseWhitespace: false,
+            removeComments: true,
+            removeAttributeQuotes: true,
+            removeEmptyAttributes: true
+        }
+    }),
+
 
 ]
