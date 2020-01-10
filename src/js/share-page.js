@@ -8,8 +8,7 @@ import '../public/footer.js';
 import '../public/skill.js';
 import '../js/index-ajax.js';
 
-import { BASE_URL } from '../js/util.js';
-import { USER_IMG } from '../js/util.js';
+
 
 
 
