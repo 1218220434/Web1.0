@@ -123,24 +123,7 @@ $(".af").click(function() {
 })
 $(".map-quit").click(function() {
         $(".map-mask").fadeOut(300);
-    })
-    // $(document).mouseup(function(e){
-    //     if($(e.target).parent(".map-mask").length==0){
-    //       $(".map-mask").hide("fast");
-    //     }
-    //   })
-
-// $("#box").click(function(event){  
-//     var e=window.event || event;  
-//     if(e.stopPropagation){  
-//         e.stopPropagation();  
-//     }else{  
-//         e.cancelBubble = true;  
-//     }  
-// });  
-// document.onclick = function(){  
-//     $("#box").hide();  
-// };  
+    }) 
 
 // 百度地图API功能
 
