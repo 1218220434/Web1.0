@@ -13,7 +13,6 @@
 .search {
   font-size: 0;
   position: absolute;
-  width: 332px;
   z-index: 1;
   left: 50%;
   height: 50px;
@@ -99,14 +98,14 @@
 }
 .ajax .wrper li .user-name {
   position: absolute;
-  left: 60px;
+  left: 70px;
   transition: 0.7s;
 }
 .ajax .wrper li .user-name:hover {
   color: #F09C38;
 }
 .ajax .wrper li .user-art {
-  margin: 40px 30px 0;
+  margin: 50px 30px 0;
   transition: 0.7s;
 }
 .ajax .wrper li .user-art:hover {

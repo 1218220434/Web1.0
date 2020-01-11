@@ -1,3 +1,4 @@
+import {BASES_URL}from '../js/util.js';
 export let b = $.extend({ //全局封装，把函数直接封装到jquery的属性上
     myAjaxGet: function(url, data, callback) {
         if (callback == undefined) {
@@ -8,7 +9,7 @@ export let b = $.extend({ //全局封装，把函数直接封装到jquery的属�
             url: BASES_URL + url,
             type: 'get',
             headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('access')
+                Authorization: 'Bearer ' + localStorage.getItem('pas')
             },
             data: data,
             cache: false,

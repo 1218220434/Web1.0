@@ -11,54 +11,75 @@ import '../js/index-ajax.js';
 
 import { BASE_URL } from '../js/util.js';
 import { USER_IMG } from '../js/util.js';
+import {BASES_URL}from '../js/util.js';
 
-// const BASE_URL = "http://192.168.110.8:8000/zjcx";
-// const USER_IMG = "http://192.168.110.8:8000";
-// 动态渲染
-
+    // const BASE_URL = "http://192.168.110.8:8000/zjcx";
+    // const USER_IMG = "http://192.168.110.8:8000";
+    // 动态渲染
+import { b } from '../js/ajax.js';
 
 // 点赞效果以及计数存储和渲染
-$.ajax({
-    url: `${BASE_URL}/mydynamic/all/`,
-    type: 'get',
-    headers: {
-        Authorization: 'Bearer' + ' ' + localStorage.getItem('pas')
-    },
-    cache: false,
-    success: function(rsp_data) {
-        console.log(rsp_data)
-        var somead = []
-        var someAddr = somead
-        let allClient = []
-        rsp_data.forEach(el => {
-            somead.push(el.mainaddress)
 
-        })
 
-        function getPoints(someAddr) {
-            $.each(someAddr, function(index, item) {
-                console.log(item)
-                    // let zb = { };
-                new BMap.Geocoder().getPoint(item, function(point) {
-                    if (point) {
-                        //经度
-                        var pointx = point.lng;
-                        //纬度
-                        var pointy = point.lat;
-                        console.log(pointx, pointy);
-                        allClient.push({ x: pointx, y: pointy })
-                    }
-                })
+
+// 跨域获取用户动态的图片，地址，时间并加载
+var somead = []
+var someAddr = somead
+let allClient = []
+let _kong = ""
+$.myAjaxGet(`/mydynamic/all/`,  function (rsp_data)  {
+    console.log(rsp_data)
+    // 取出回传数据的地址填入数组
+    rsp_data.forEach(el => {
+        somead.push(el.address_detail)
+       
+    })
+
+    // 将回传数据交百度API解析
+    function getPoints(someAddr) {
+        $.each(someAddr, function(index, item) {
+            new BMap.Geocoder().getPoint(item, function(point) {
+                if (point) {
+                    //经度
+                    var pointx = point.lng;
+                    //纬度
+                    var pointy = point.lat;
+                    
+                    allClient.push({ x: pointx, y: pointy })
+                }
             })
-
-        }
-        // 
-        getPoints(someAddr);
-        setTimeout(function() {
-            console.log(allClient);
-            rsp_data.forEach((el, index) => {
-                // console.log(el["x"]);
-                _kong += ` <div class="homeNeav-son flex-cpp">
+        })
+    } 
+    // 执行
+    getPoints(someAddr);
+    // 延时处理异步，动态渲染其余回传数据
+    setTimeout(function() {
+        // 处理作品类型
+        let hobbarry=[]
+        rsp_data.forEach((el)=>{
+            if(el.dynamic_type==0){
+                hobbarry.push("爱吃")
+            }else if(el.dynamic_type==1){
+                hobbarry.push("趣玩")
+            }else if(el.dynamic_type==1){
+                hobbarry.push("美景")
+            }else{
+                hobbarry.push("好物")
+            }
+        })
+       // 处理作品发布时间
+        var ac=""
+        var lk=""
+        var timearry=[]
+        rsp_data.forEach((el)=>{
+            ac=el.create_datetime.substring(0,10)
+            lk=el.create_datetime.substring(11,19)
+            timearry.push(ac+" "+lk)
+        })
+        // 动态渲染
+        rsp_data.forEach((el, index) => {
+            // console.log(el["x"]);
+            _kong += ` <div class="homeNeav-son flex-cpp">
                         <div class="user-imgone">
                             <img src=${USER_IMG}${el.user_img} alt="">
                         </div>
@@ -68,7 +89,7 @@ $.ajax({
                                 ${el.user_name}
                             </div>
                             <div class="neavtime the-m">
-                                <p>${el.create_datetime}</p>
+                                <p>${timearry[index]}</p>
                             </div>
                             <div class="userinfo the-m">
                             <p>${el.description}</p>
@@ -89,10 +110,11 @@ $.ajax({
             </p>
             <div class="the-map">
             <div id="allmap" dX="${allClient[index]["x"]}" dY="${allClient[index]["y"]}"></div>
+            <div id="closemap">x</div>
             </div>
             </div>
 
-            <p class="mainclass">来自 ${el.dynamic_type}</p>
+            <p class="mainclass">来自 ${hobbarry[index]}</p>
             </div>
             <div class="comments flex-a">
             <div class="com flex-c">
@@ -121,56 +143,28 @@ $.ajax({
             </div>
             </div>
             </div>`
-            })
-            $(".myNeav").html(_kong)
+        })
+        $(".myNeav").html(_kong)
 
 
 
-        }, 500)
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-        if (jqXHR.status == 400) {
-            console.log(jqXHR)
-            if ("non_field_errors" in JSON.parse(jqXHR.responseText)) {
-                let errmessage = JSON.parse(jqXHR.responseText)["non_field_errors"][0];
-                popup({ type: 'error', msg: errmessage, delay: 2000, bg: true, clickDomCancel: true });
-            } else if ('new_password' in JSON.parse(jqXHR.responseText)) {
-                let errmessage = JSON.parse(jqXHR.responseText)["new_password"][0];
-                popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
-            } else if ('new_password_too' in JSON.parse(jqXHR.responseText)) {
-                let errmessage = JSON.parse(jqXHR.responseText)["new_password_too"][0];
-                popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
-            }
-        } else if (jqXHR.status == 401) {
-            $.ajax({
-                url: BASES_URL + '/system_user/refresh/',
-                type: 'post',
-                data: { 'refresh': localStorage.getItem('refresh') },
-                success: function(rsp_data) {
-                    localStorage.setItem('access', rsp_data['access']);
-                    $.myAjaxGet(url, callback)
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    window.location.href = projectName + '/static/pages/login.html'
-                }
-            })
-        }
-    }
+    }, 1000)
 })
-let _kong = ""
-
 
 
 
 // 页面处理
 setTimeout(function() {
 
+    // 修改头像用户名
     $(".userNeav p:eq(0)").html(localStorage.getItem("name"))
     $(".userNeav img").attr("src", USER_IMG + localStorage.getItem("user"))
 
+    // 点击打开地图
     let _af = $(".af")
     _af.on("click", function() {
-        $(this).next().children().addClass("opmap")
+        $(this).next().children().first().addClass("opmap")
+        $(this).next().children().last().addClass("opmap")
         let mapX = Number($(this).next().children().attr("dX"))
         let mapY = Number($(this).next().children().attr("dY"))
         var map = new BMap.Map("allmap"); // 创建Map实例
@@ -179,7 +173,12 @@ setTimeout(function() {
         map.enableScrollWheelZoom(); // 缩放功能
         var marker = new BMap.Marker(point); // 创建标注
         map.addOverlay(marker); // 将标注添加到地图中
-        marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        // marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+    })
+    // 关闭按钮
+    $("#closemap").on("click", function() {
+        $(this).removeClass("opmap")
+        $(this).prev().removeClass("opmap")
     })
 
     //点击评论展开评论区
@@ -188,6 +187,7 @@ setTimeout(function() {
         $(this).parent().next().slideToggle()
     })
 
+    // 响应式
     $(window).bind("load resize", function() {
             let screenDom = document.documentElement.clientWidth;
             let _img1 = 20,
@@ -224,13 +224,13 @@ setTimeout(function() {
             })
             if (screenDom < 900) {
                 $(".homebanner").css("width", "100%")
-                $(".mainimg").css("width", "68%")
+                $(".mainimg").css("width", "50%")
                 $(".homeNeav-any").css({
                     "height": screenDom / 1.5 + $(".combox").height()
                 })
             } else {
                 $(".homebanner").css("width", "74%")
-                $(".mainimg").css("width", "80%")
+                $(".mainimg").css("width", "60%")
                 $(".homeNeav-any").css({
                     "height": screenDom / 2.35 + $(".combox").height()
                 })
@@ -266,8 +266,9 @@ setTimeout(function() {
             $(".mainimg").css({
                 "height": screenDom / 5
             })
-        })
-        // 点击小图，切换大图
+    })
+
+    // 点击小图，切换大图
     $(".someimg").on("click", function() {
         console.log(1)
         $(this).parent().prev().attr("src", $(this).attr("src"))
@@ -308,4 +309,4 @@ setTimeout(function() {
         $(this).children().first().next().next().removeClass("nowjump")
     });
     //点赞数处理结束
-}, 1000)
+}, 1400)
