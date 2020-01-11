@@ -8,7 +8,8 @@ import '../public/footer.js';
 import '../public/skill.js';
 import '../js/index-ajax.js';
 
-
+import { BASE_URL } from '../js/util.js';
+import { USER_IMG } from '../js/util.js';
 
 
 import Swiper from "swiper";
@@ -67,11 +68,16 @@ $(window).bind("load resize", function() {
         $(".ajax").css("height", $(".the-d").height())
         $(".the-d li .impholi").css("width", $(".the-d li").width());
     }
-    $(".search").css({ "top": screenDom / 2.95, "height": 30 + screenDom / 95 })
-    $(".search input").css({ "height": 30 + screenDom / 95 })
+    $(".search").css({ 
+        "width":screenDom / 2,
+        "top": screenDom / 2.95, 
+        "height": 42 + screenDom / 95 })
+    $(".search input").css({ 
+        "height": 42 + screenDom / 95, 
+        "width": screenDom / 2.4 })
     $(".search img").css({
-        "width": 30 + screenDom / 96,
-        "height": 30 + screenDom / 95.8
+        "width": 42 + screenDom / 96,
+        "height": 42 + screenDom / 95
     })
 
     $(".bout").css({
@@ -127,20 +133,31 @@ $(window).bind("load resize", function() {
         "font-size": screenDom / _pfth,
     })
     $(".vid").css({
-        "height":$(".vid img").height()
-    }) 
+        "height": $(".vid img").height()
+    })
     $(".cover").css({
-        "height":$(".vid img").height()
+        "height": $(".vid img").height()
     })
 
     $(".vid video").css({
-        "height":$(".vid img").height()
-    })    
-    $(".cover").click(function(){
+        "height": $(".vid img").height()
+    })
+    $(".cover").click(function() {
         $(".cover img").fadeOut(200);
         $("#movie").fadeIn(300);
         $("#movie").get(0).play();
 
 
     });
+})
+
+$(".wrper li").on("click", function() {
+    window.location.href = "../static/pages/share-page.html";
+})
+
+$(".todayNeav").on("click", function() {
+    window.location.href = "../static/pages/share-page.html";
+})
+$(".sen-logo").on("click", function() {
+    window.location.href = "../static/pages/video-page.html";
 })

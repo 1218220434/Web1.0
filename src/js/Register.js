@@ -15,7 +15,8 @@ var oEmail = document.getElementById('email');
 var oBtn = document.getElementById('btn');
 
 // 域名
-const BASE_URL = "http://192.168.7.5:8000/zjcx";
+import { BASE_URL } from '../js/util.js';
+import { USER_IMG } from '../js/util.js';
 
 
 $(window).bind("load resize", function() {
@@ -300,6 +301,11 @@ oBtn.onclick = function() {
 
         }).done(res => {
             console.log("注册成功")
+            document.querySelector(".tipsc").classList.add("tipsgo")
+            document.querySelector(".tipsc span").innerHTML = "注册成功！"
+            setTimeout(function() {
+                window.location.href = "../pages/login.html";
+            }, 1000)
         }).fail(err => {
             if (err.status == 401) {
                 console.log(err.responseText )
