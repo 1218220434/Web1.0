@@ -11,11 +11,11 @@ import '../js/index-ajax.js';
 
 import { BASE_URL } from '../js/util.js';
 import { USER_IMG } from '../js/util.js';
-import {BASES_URL}from '../js/util.js';
+import { BASES_URL } from '../js/util.js';
 
-    // const BASE_URL = "http://192.168.110.8:8000/zjcx";
-    // const USER_IMG = "http://192.168.110.8:8000";
-    // 动态渲染
+// const BASE_URL = "http://192.168.110.8:8000/zjcx";
+// const USER_IMG = "http://192.168.110.8:8000";
+// 动态渲染
 import { b } from '../js/ajax.js';
 
 // 点赞效果以及计数存储和渲染
@@ -27,12 +27,14 @@ var somead = []
 var someAddr = somead
 let allClient = []
 let _kong = ""
+
+// 获取个人所有动态
 $.myAjaxGet(`/mydynamic/all/`,  function (rsp_data)  {
     console.log(rsp_data)
-    // 取出回传数据的地址填入数组
+        // 取出回传数据的地址填入数组
     rsp_data.forEach(el => {
         somead.push(el.address_detail)
-       
+
     })
 
     // 将回传数据交百度API解析
@@ -44,7 +46,7 @@ $.myAjaxGet(`/mydynamic/all/`,  function (rsp_data)  {
                     var pointx = point.lng;
                     //纬度
                     var pointy = point.lat;
-                    
+
                     allClient.push({ x: pointx, y: pointy })
                 }
             })
@@ -55,28 +57,28 @@ $.myAjaxGet(`/mydynamic/all/`,  function (rsp_data)  {
     // 延时处理异步，动态渲染其余回传数据
     setTimeout(function() {
         // 处理作品类型
-        let hobbarry=[]
-        rsp_data.forEach((el)=>{
-            if(el.dynamic_type==0){
-                hobbarry.push("爱吃")
-            }else if(el.dynamic_type==1){
-                hobbarry.push("趣玩")
-            }else if(el.dynamic_type==1){
-                hobbarry.push("美景")
-            }else{
-                hobbarry.push("好物")
-            }
-        })
-       // 处理作品发布时间
-        var ac=""
-        var lk=""
-        var timearry=[]
-        rsp_data.forEach((el)=>{
-            ac=el.create_datetime.substring(0,10)
-            lk=el.create_datetime.substring(11,19)
-            timearry.push(ac+" "+lk)
-        })
-        // 动态渲染
+        let hobbarry = []
+        rsp_data.forEach((el) => {
+                if (el.dynamic_type == 0) {
+                    hobbarry.push("爱吃")
+                } else if (el.dynamic_type == 1) {
+                    hobbarry.push("趣玩")
+                } else if (el.dynamic_type == 1) {
+                    hobbarry.push("美景")
+                } else {
+                    hobbarry.push("好物")
+                }
+            })
+            // 处理作品发布时间
+        var ac = ""
+        var lk = ""
+        var timearry = []
+        rsp_data.forEach((el) => {
+                ac = el.create_datetime.substring(0, 10)
+                lk = el.create_datetime.substring(11, 19)
+                timearry.push(ac + " " + lk)
+            })
+            // 动态渲染
         rsp_data.forEach((el, index) => {
             // console.log(el["x"]);
             _kong += ` <div class="homeNeav-son flex-cpp">
@@ -148,7 +150,13 @@ $.myAjaxGet(`/mydynamic/all/`,  function (rsp_data)  {
 
 
 
-    }, 1000)
+    }, 800)
+})
+
+
+$.myAjaxGet(`/citylife/`,  function (rsp_data)  {
+    console.log(rsp_data)
+
 })
 
 
@@ -163,19 +171,19 @@ setTimeout(function() {
     // 点击打开地图
     let _af = $(".af")
     _af.on("click", function() {
-        $(this).next().children().first().addClass("opmap")
-        $(this).next().children().last().addClass("opmap")
-        let mapX = Number($(this).next().children().attr("dX"))
-        let mapY = Number($(this).next().children().attr("dY"))
-        var map = new BMap.Map("allmap"); // 创建Map实例
-        var point = new BMap.Point(mapX, mapY);
-        map.centerAndZoom(point, 17); // 初始化地图,用城市名设置地图中心点
-        map.enableScrollWheelZoom(); // 缩放功能
-        var marker = new BMap.Marker(point); // 创建标注
-        map.addOverlay(marker); // 将标注添加到地图中
-        // marker.setAnimation(BMAP_ANIMATION_BOUNCE);
-    })
-    // 关闭按钮
+            $(this).next().children().first().addClass("opmap")
+            $(this).next().children().last().addClass("opmap")
+            let mapX = Number($(this).next().children().attr("dX"))
+            let mapY = Number($(this).next().children().attr("dY"))
+            var map = new BMap.Map("allmap"); // 创建Map实例
+            var point = new BMap.Point(mapX, mapY);
+            map.centerAndZoom(point, 17); // 初始化地图,用城市名设置地图中心点
+            map.enableScrollWheelZoom(); // 缩放功能
+            var marker = new BMap.Marker(point); // 创建标注
+            map.addOverlay(marker); // 将标注添加到地图中
+            // marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        })
+        // 关闭按钮
     $("#closemap").on("click", function() {
         $(this).removeClass("opmap")
         $(this).prev().removeClass("opmap")
@@ -189,83 +197,85 @@ setTimeout(function() {
 
     // 响应式
     $(window).bind("load resize", function() {
-            let screenDom = document.documentElement.clientWidth;
-            let _img1 = 20,
-                _mf = 80,
-                _mf2 = 90
-                // 点击大图打开蒙板
-            $(".mainimg").on("click", function() {
-                let showimg = $(this).parent().parent().parent().parent().parent().parent().parent().children().first()
-                showimg.attr("src", $(this).attr("src"))
-                showimg.css("width", screenDom / 2.2)
-                showimg.attr("class", "showa")
-                showimg.next().attr("class", "showclose")
-            })
-            $(".closea").on("click", function() {
-                $(this).attr("class", "imgorg")
-                $(this).prev().attr("class", "imgorg")
-            })
+        let screenDom = document.documentElement.clientWidth;
+        let _img1 = 20,
+            _mf = 80,
+            _mf2 = 90
+            // 点击大图打开蒙板
+        $(".mainimg").on("click", function() {
+            let showimg = $(this).parent().parent().parent().parent().parent().parent().parent().children().first()
+            showimg.attr("src", $(this).attr("src"))
+            showimg.css("width", screenDom / 2.2)
+            showimg.attr("class", "showa")
+            showimg.next().attr("class", "showclose")
+        })
+        $(".closea").on("click", function() {
+            $(this).attr("class", "imgorg")
+            $(this).prev().attr("class", "imgorg")
+        })
 
-            $(".userNeav").css({
-                "top": screenDom / _img1,
-                "fontSize": screenDom / _mf
-            })
-            $(".userNeav p:eq(1)").css({
+        $(".userNeav").css({
+            "top": screenDom / _img1,
+            "fontSize": screenDom / _mf
+        })
+        $(".userNeav p:eq(1)").css({
 
-                "fontSize": screenDom / _mf2
-            })
-            $(".userNeav img").css({
-                "width": screenDom / _img1,
-            })
-
-
-            $(".homeNeav-any p").css({
-                "fontSize": screenDom / _mf
-            })
-            if (screenDom < 900) {
-                $(".homebanner").css("width", "100%")
-                $(".mainimg").css("width", "50%")
-                $(".homeNeav-any").css({
-                    "height": screenDom / 1.5 + $(".combox").height()
-                })
-            } else {
-                $(".homebanner").css("width", "74%")
-                $(".mainimg").css("width", "60%")
-                $(".homeNeav-any").css({
-                    "height": screenDom / 2.35 + $(".combox").height()
-                })
-            }
-            $(".user-imgone img").css({
-                "width": screenDom / _img1,
-                "left": screenDom / 20
-            })
+            "fontSize": screenDom / _mf2
+        })
+        $(".userNeav img").css({
+            "width": screenDom / _img1,
+            "height": $(".userNeav img").width(),
+        })
 
 
-            $(".user-imgone").css({
-                "height": $(".username").outerHeight(true) +
-                    $(".neavtime").outerHeight(true) +
-                    $(".userinfo").outerHeight(true) +
-                    $(".imgCol").outerHeight(true) +
-                    $(".comments").outerHeight(true) +
-                    $(".mainimg").outerHeight(true)
+        $(".homeNeav-any p").css({
+            "fontSize": screenDom / _mf
+        })
+        if (screenDom < 900) {
+            $(".homebanner").css("width", "100%")
+            $(".mainimg").css("width", "50%")
+            $(".homeNeav-any").css({
+                "height": screenDom / 1.5 + $(".combox").height()
             })
+        } else {
+            $(".homebanner").css("width", "74%")
+            $(".mainimg").css("width", "60%")
+            $(".homeNeav-any").css({
+                "height": screenDom / 2.35 + $(".combox").height()
+            })
+        }
+        $(".user-imgone img").css({
+            "width": screenDom / _img1,
+            "height": $(".user-imgone img").width(),
+            "left": screenDom / 20
+        })
 
 
-            $(".homeall").css({
-                "height": $(".homeNeav").height()
-            })
-            $(".homeall .eb").css({
-                "fontSize": screenDom / 75
-            })
-            $(".homeall .el").css({
-                "fontSize": screenDom / 80
-            })
-            $(".homeall .eg").css({
-                "fontSize": screenDom / 85
-            })
-            $(".mainimg").css({
-                "height": screenDom / 5
-            })
+        $(".user-imgone").css({
+            "height": $(".username").outerHeight(true) +
+                $(".neavtime").outerHeight(true) +
+                $(".userinfo").outerHeight(true) +
+                $(".imgCol").outerHeight(true) +
+                $(".comments").outerHeight(true) +
+                $(".mainimg").outerHeight(true)
+        })
+
+
+        $(".homeall").css({
+            "height": $(".homeNeav").height()
+        })
+        $(".homeall .eb").css({
+            "fontSize": screenDom / 75
+        })
+        $(".homeall .el").css({
+            "fontSize": screenDom / 80
+        })
+        $(".homeall .eg").css({
+            "fontSize": screenDom / 85
+        })
+        $(".mainimg").css({
+            "height": screenDom / 5
+        })
     })
 
     // 点击小图，切换大图

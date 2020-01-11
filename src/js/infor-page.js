@@ -10,11 +10,11 @@ import '../public/skill.js';
 
 import { BASE_URL } from '../js/util.js';
 import { USER_IMG } from '../js/util.js';
-import {BASES_URL}from '../js/util.js';
+import { BASES_URL } from '../js/util.js';
 
-    // const BASE_URL = "http://192.168.110.8:8000/zjcx";
-    // const USER_IMG = "http://192.168.110.8:8000";
-    // 动态渲染
+// const BASE_URL = "http://192.168.110.8:8000/zjcx";
+// const USER_IMG = "http://192.168.110.8:8000";
+// 动态渲染
 import { b } from '../js/ajax.js';
 
 let _li = [...document.querySelectorAll(".left-nav li")];
@@ -36,46 +36,52 @@ _li.forEach(function(el) {
     }
 });
 
-$.myAjaxGet(`/myinfo/`,  function (rsp_data)  {
+// 请求个人信息
+$.myAjaxGet(`/myinfo/`, function(rsp_data) {
     console.log(rsp_data)
-    // 取出回传数据的地址填入数组
-    
-    let hobby1=""
-    let hobby2=""
-    
-    let sexm=""
-    let is_vip=""
-    if(rsp_data.sex==1){
-        sexm="男"
-    }else{
-        sexm="女"
+        // 取出回传数据的地址填入数组
+
+    let hobby1 = ""
+    let hobby2 = ""
+
+    let sexm = ""
+    let is_vip = ""
+    if (rsp_data.sex == 1) {
+        sexm = "男"
+    } else {
+        sexm = "女"
     }
-            if(rsp_data.hobby1==0){
-                hobby1="爱吃"
-            }else if(rsp_data.hobby1==1){
-                hobby1="趣玩"
-            }else if(rsp_data.hobby1==1){
-                hobby1="美景"
-            }else{
-                hobby1="好物"
-            }
-            if(rsp_data.hobby2==0){
-                hobby2="爱吃"
-            }else if(rsp_data.hobby2==1){
-                hobby2="趣玩"
-            }else if(rsp_data.hobby2==1){
-                hobby2="美景"
-            }else{
-                hobby2="好物"
-            }
-            if(rsp_data.is_vip){
-                is_vip="尊贵的vip你可以为所欲为"
-            }else{
-                is_vip="非vip,点击充值"
-            }
-            let hobby=hobby1+" "+hobby2
-   
-    let  inp=` <form action="">
+    if (rsp_data.hobby1 == 0) {
+        hobby1 = "爱吃"
+    } else if (rsp_data.hobby1 == 1) {
+        hobby1 = "趣玩"
+    } else if (rsp_data.hobby1 == 1) {
+        hobby1 = "美景"
+    } else {
+        hobby1 = "好物"
+    }
+    if (rsp_data.hobby2 == 0) {
+        hobby2 = "爱吃"
+    } else if (rsp_data.hobby2 == 1) {
+        hobby2 = "趣玩"
+    } else if (rsp_data.hobby2 == 1) {
+        hobby2 = "美景"
+    } else {
+        hobby2 = "好物"
+    }
+    if (rsp_data.is_vip) {
+        is_vip = "尊贵的vip你可以为所欲为"
+    } else {
+        is_vip = "非vip,点击充值"
+    }
+    let hobby = hobby1 + " " + hobby2
+    let vip = ""
+    if (rsp_data.is_vip) {
+        vip = "您是尊贵的会员，您当然可以为所欲为"
+    } else {
+        vip = "非vip,点击充值"
+    }
+    let inp = ` <form action="">
     <label for="rusername">昵称:</label>
     <input type="text" class="rusername" value=${rsp_data.username}><br>
 
@@ -92,7 +98,7 @@ $.myAjaxGet(`/myinfo/`,  function (rsp_data)  {
     <input type="text" class="hobby" value=${hobby}><br>
 
     <label for="hobby">vip状态:</label>
-    <input type="text" class="hobby" value="非vip,点击充值"><br>
+    <input type="text" class="hobby" value=${vip}><br>
     
 </form>
 <div class="inforimg">
@@ -100,8 +106,132 @@ $.myAjaxGet(`/myinfo/`,  function (rsp_data)  {
                
             </div>
 `
-       
-$(".myinfom").html(inp)
 
-   
+    $(".myinfom").html(inp)
+
+
+})
+
+// 会员选择会员期限功能
+let _onem = [...document.querySelectorAll(".onem")];
+let _index = 0;
+_onem.forEach(function(el) {
+    // 4. 添加点击事件
+    el.onclick = function() {
+        // 5. 获取单击的当前菜单项的下标
+        let index = _onem.indexOf(this);
+        // 6. 通过移除class实现移除上一次菜单项选中和内容显示的效果
+        _onem[_index].classList.remove("blue");
+        // 7. 通过添加class实现本次菜单选中和内容显示的效果
+        _onem[index].classList.add("blue");
+        // 8. 更新下标，便于下一次点击时移除本次设置的效果
+        _index = index;
+    }
+});
+
+// 请求订单号
+
+$(".sub").on("click", function() {
+
+        console.log(typeof($(".blue").index() + 1))
+        $.ajax({
+            url: `${BASE_URL}/order/`,
+            type: 'post',
+            headers: {
+                Authorization: 'Bearer' + ' ' + localStorage.getItem('pas')
+            },
+            data: {
+                price: $(".blue").index() + 1,
+
+            },
+            cache: false,
+            success: function(rsp_data) {
+                // callback(rsp_data);
+                console.log(rsp_data)
+                let t = `  <h1>${rsp_data.vip_id}</h1>
+
+                <p>${rsp_data.order_number}</p>
+                <p>${rsp_data.vip_expiretime}</p>
+                <p>${rsp_data.vip_createtime}</p>`
+                $(".xuanran").html(t)
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 400) {
+                    formError(jqXHR)
+                } else if (jqXHR.status == 401) {
+                    $.ajax({
+                        url: `${BASE_URL}/fresh/`,
+                        type: 'post',
+                        data: { 'refresh': localStorage.getItem('refresh') },
+                        success: function(rsp_data) {
+                            localStorage.setItem('access', rsp_data['access']);
+                            $.myAjaxGet(`${BASE_URL}/login/`, function() {
+                                console.log(rsp_data)
+                            })
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            // window.location.href = projectName + '/polls/login.html'
+                            console.log("到这儿了")
+                        }
+                    })
+                }
+            }
+        })
+
+    })
+    // 确认支付请求支护宝链接
+$(".payprice").on("click", function() {
+    console.log()
+
+    $.ajax({
+        url: `${BASE_URL}/pay/${Number($(".xuanran h1").html())}`,
+        type: 'get',
+        headers: {
+            Authorization: 'Bearer' + ' ' + localStorage.getItem('pas')
+        },
+        data: {
+            vip_id: Number($(".xuanran h1").html()),
+
+        },
+        cache: false,
+        success: function(rsp_data) {
+            console.log(rsp_data)
+
+            $(".zhihubaourl a").html(`<a href=${rsp_data.url}>前往支付</a>`)
+
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 400) {
+                formError(jqXHR)
+            } else if (jqXHR.status == 401) {
+                $.ajax({
+                    url: `${BASE_URL}/fresh/`,
+                    type: 'post',
+                    data: { 'refresh': localStorage.getItem('refresh') },
+                    success: function(rsp_data) {
+                        localStorage.setItem('access', rsp_data['access']);
+                        $.myAjaxGet(`${BASE_URL}/login/`, function() {
+                            console.log(rsp_data)
+                        })
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // window.location.href = projectName + '/polls/login.html'
+                        console.log("到这儿了")
+                    }
+                })
+            }
+        }
+    })
+
+})
+$.myAjaxGet(`/mydynamic/praise/`, function(rsp_data) {
+    console.log(rsp_data)
+        // 取出回传数据的地址填入数组
+   let clike=""
+   rsp_data.forEach(el=>{
+       clike+=`<h1>点赞数：${el.praise_num}</h1>`
+   })
+   $(".mydinfo").html(clike)
+
 })

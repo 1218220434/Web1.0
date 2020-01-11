@@ -38,9 +38,9 @@ header .logined a:hover {
 header .logined .user-namec {
   color: #747474;
   position: relative;
-  width: 41px;
-  left: -285%;
-  top: 30px;
+  width: 70px;
+  left: -200%;
+  top: 23px;
 }
 header .logined .myuser-img {
   border-radius: 50%;
