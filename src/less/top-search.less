@@ -8,7 +8,7 @@
 
 
     #allmap {
-        box-shadow: inset 2px 2px 10px gray;
+        
 
         height     : 100%;
         overflow   : hidden;
@@ -18,16 +18,17 @@
     }
 
     .theTop-right {
-        box-shadow: -2px 0 80px rgb(82, 84, 114), inset 2px 4px 10px gray;
+        
         height    : 100%;
+        border-left: 2px solid rgb(173, 173, 173);
 
         .theTop-nav {
             display         : flex;
             justify-content : space-around;
             align-items     : center;
             height          : 5%;
-            background-color: #F69219;
-            color           : white;
+            background-color: #FFFFFF;
+            color           : #333333;
             cursor          : pointer;
             box-shadow      : 0 2px 10px rgb(83, 83, 83);
 
@@ -43,7 +44,7 @@
                 height     : 100%;
 
                 &:hover {
-                    color: orangered;
+                    color: #F69219;
                 }
             }
         }
@@ -52,7 +53,7 @@
             height: 95%;
 
             li {
-                outline:  1px dashed gray;
+                border-bottom: 1px solid rgb(199, 199, 199);
                 position: relative;
                 height  : 12.5%;
 
@@ -69,15 +70,19 @@
                 }
 
                 .infoab {
+                    box-sizing: border-box;
+                    padding: 0 10px;
                     position: absolute;
                     top     : 0;
 
+
                     img:first-child {
                         width: 12%;
+                        border-radius: 50%;
                     }
 
                     .infoaddress {
-                        width: 8px;
+                        width: 10px !important;
 
                     }
 
@@ -85,7 +90,7 @@
                     //     width: 25%;
                     // }
                     .artic {
-                        width     : 54%;
+                        width     : 60%;
                         margin-top: 5px;
 
                         p {
@@ -112,7 +117,8 @@
                     }
 
                     .theinfog {
-                        width: 70px;
+                        width: 16%;
+                        outline: 1px dashed gray;                      
                     }
                 }
             }
@@ -135,3 +141,4 @@
 
     background-image: linear-gradient(to right, rgb(177, 177, 177), rgb(122, 122, 122), rgb(177, 177, 177));
 }
+

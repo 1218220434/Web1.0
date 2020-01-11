@@ -68,11 +68,16 @@ $(window).bind("load resize", function() {
         $(".ajax").css("height", $(".the-d").height())
         $(".the-d li .impholi").css("width", $(".the-d li").width());
     }
-    $(".search").css({ "top": screenDom / 2.95, "height": 30 + screenDom / 95 })
-    $(".search input").css({ "height": 30 + screenDom / 95 })
+    $(".search").css({ 
+        "width":screenDom / 2,
+        "top": screenDom / 2.95, 
+        "height": 42 + screenDom / 95 })
+    $(".search input").css({ 
+        "height": 42 + screenDom / 95, 
+        "width": screenDom / 2.4 })
     $(".search img").css({
-        "width": 30 + screenDom / 96,
-        "height": 30 + screenDom / 95.8
+        "width": 42 + screenDom / 96,
+        "height": 42 + screenDom / 95
     })
 
     $(".bout").css({
