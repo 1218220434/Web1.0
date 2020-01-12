@@ -10,4 +10,5 @@ module.exports = {
     myhobbyPage: './src/js/myhobby-page.js',
     capturePage: './src/js/capture-page.js',
     inforPage: './src/js/infor-page.js',
+    paysucPage: './src/js/paysuc-page.js',
 }

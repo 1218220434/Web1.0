@@ -197,7 +197,7 @@ $(".payprice").on("click", function() {
         success: function(rsp_data) {
             console.log(rsp_data)
 
-            $(".zhihubaourl a").html(`<a href=${rsp_data.url}>前往支付</a>`)
+            $(".zhihubaourl a").html(`<a href=${rsp_data.url} target="_blank">前往支付</a>`)
 
 
         },
