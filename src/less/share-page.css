@@ -110,7 +110,7 @@ main .issue .displayer .publish .photo .picture_box .case {
   display: inline-block;
   width: 100px;
   height: 100px;
-  background: #f5f5f5 url("../images/duan/upload.png") no-repeat center center;
+  background: #f5f5f5 url("../images/duan/upload.JPG") no-repeat center center;
   background-size: cover;
   border: 1px dashed #ccc;
 }
