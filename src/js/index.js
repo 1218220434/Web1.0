@@ -151,18 +151,21 @@ $(window).bind("load resize", function() {
 
 
     });
+    //点击改变图片路径
+    $(".sen-logo ul li img").on("click",function(){
+        $(".cover .bh").attr("src",$(this).attr("src"))
+        console.log($(this))
+    })
+    console.log($(".vid .cover .bh"))
 })
 
-$(".wrper li").on("click", function() {
-    window.location.href = "../static/pages/share-page.html";
-})
+// $(".wrper li").on("click", function() {
+//     window.location.href = "../static/pages/share-page.html";
+// })
 
-$(".todayNeav").on("click", function() {
-    window.location.href = "../static/pages/share-page.html";
-})
-$(".sen-logo").on("click", function() {
-    window.location.href = "../static/pages/video-page.html";
-})
+// $(".sen-logo").on("click", function() {
+//     window.location.href = "../static/pages/video-page.html";
+// })
 
 
 $.myAjaxGet(`/myinfo/`, function(rsp_data) {

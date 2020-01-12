@@ -31,9 +31,8 @@ $(document).ready(function() {
             "fontSize": screenDom / 55
         })
 
-        $(".picture .small img").css("height", $(".picture .big img").height() / 3 - 8)
+        // $(".picture .small img").css("height", $(".picture .big img").height() / 3 - 8)
         $(".bbox .info").css("width", $(".bbox img").width())
-        $(".bbox").css("height", screenDom / 5.08)
         $(".bag").css("height", $(".bbox").height() * 3 + 60)
         $("main").css("height", $(".ban").height() + $(".tab").height() + $("#content .m-content").height())
         $(".player").css("width", $(".picture .big").width() / 3.8)

@@ -17,32 +17,7 @@ import { USER_IMG } from '../js/util.js';
 //随浏览器变化而变化
 $(window).bind("load resize", function () {
     let screenDom = document.documentElement.clientWidth;
-    $("main p").css("fontSize", screenDom / 120)
-    $("h4").css("fontSize", screenDom / 100)
-    $(".iconfont.big").css("fontSize", screenDom / 40)
-    $(".iconfont.small").css("fontSize", screenDom / 80)
-    $("p.location").css("fontSize", screenDom / 150)
-    $(".content").css("height", $(".bigbox").height())
 });
-//选项卡变换内容
-let menu_items = [...document.querySelectorAll(".tab .select")];
-let ct_items = [...document.querySelectorAll(".content .plate")];
-// 2. 定义变量记录上一次选中的下标，默认值为0
-let last_sel_index = 0;
-// 3. 遍历菜单项
-// menu_items.forEach(function (menu_item) {
-//     // 4. 添加点击事件
-//     menu_item.onclick = function () {
-//         // 5. 获取单击的当前菜单项的下标
-//         let index = menu_items.indexOf(this);
-//         // 6. 通过移除class实现移除上一次菜单项选中和内容显示的效果
-//         ct_items[last_sel_index].classList.remove("show");
-//         // 7. 通过添加class实现本次菜单选中和内容显示的效果
-//         ct_items[index].classList.add("show");
-//         // 8. 更新下标，便于下一次点击时移除本次设置的效果
-//         last_sel_index = index;
-//     }
-// });
 //选项卡变色
 $(".tabControl .tab .select").click(function () {
     $(this).addClass("show-c").siblings().removeClass("show-c");
@@ -65,7 +40,7 @@ $(".tabControl .tab .select").click(function () {
             var timearry = []
             rsp_data.forEach((el) => {
                 ac = el.create_datetime.substring(0, 10)
-                lk = el.create_datetime.substring(11, 19)
+                lk = el.create_datetime.substring(11, 16)
                 timearry.push(ac + " " + lk)
             })
             
@@ -92,11 +67,13 @@ $(".tabControl .tab .select").click(function () {
                         </section>
                         <section class="tail">
                             <div class="place">
-                                <p class="location">${el.address_detail}</p>
+                                <p class="location"><i class="iconfont icon-dizhi1 small"></i>${el.address_detail}</p>
                             </div>
                             <div class="discuss">
+                                <i class="iconfont icon-comment-copy small"></i>
                             </div>
                             <div class="love">
+                                <i class="iconfont icon-xin small"></i>
                             </div>
                         </section>
                         </div>`
@@ -145,7 +122,8 @@ $(".tabControl .tab .select").click(function () {
 
 
 //box hover变色
-$(".plate .box").each(function () {
+setTimeout(function(){
+    $(".plate .box").each(function () {
     $(this).on({
         mouseover: function () {
             $(this).find(".name").css("color", "#F69219");
@@ -160,6 +138,8 @@ $(".plate .box").each(function () {
         }
     })
 })
+},1000)
+
 
 //发布框
 $(".displayer span").click(function () {
