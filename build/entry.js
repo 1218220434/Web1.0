@@ -11,4 +11,5 @@ module.exports = {
     capturePage: './src/js/capture-page.js',
     inforPage: './src/js/infor-page.js',
     paysucPage: './src/js/paysuc-page.js',
+    antherPage: './src/js/anther-page.js',
 }

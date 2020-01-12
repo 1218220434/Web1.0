@@ -30,23 +30,23 @@ let ct_items = [...document.querySelectorAll(".content .plate")];
 // 2. 定义变量记录上一次选中的下标，默认值为0
 let last_sel_index = 0;
 // 3. 遍历菜单项
-menu_items.forEach(function (menu_item) {
-    // 4. 添加点击事件
-    menu_item.onclick = function () {
-        // 5. 获取单击的当前菜单项的下标
-        let index = menu_items.indexOf(this);
-        // 6. 通过移除class实现移除上一次菜单项选中和内容显示的效果
-        ct_items[last_sel_index].classList.remove("show");
-        // 7. 通过添加class实现本次菜单选中和内容显示的效果
-        ct_items[index].classList.add("show");
-        // 8. 更新下标，便于下一次点击时移除本次设置的效果
-        last_sel_index = index;
-    }
-});
+// menu_items.forEach(function (menu_item) {
+//     // 4. 添加点击事件
+//     menu_item.onclick = function () {
+//         // 5. 获取单击的当前菜单项的下标
+//         let index = menu_items.indexOf(this);
+//         // 6. 通过移除class实现移除上一次菜单项选中和内容显示的效果
+//         ct_items[last_sel_index].classList.remove("show");
+//         // 7. 通过添加class实现本次菜单选中和内容显示的效果
+//         ct_items[index].classList.add("show");
+//         // 8. 更新下标，便于下一次点击时移除本次设置的效果
+//         last_sel_index = index;
+//     }
+// });
 //选项卡变色
 $(".tabControl .tab .select").click(function () {
     $(this).addClass("show-c").siblings().removeClass("show-c");
-    console.log($(this).index())
+    
     $.ajax({
         url: `${BASE_URL}/type/hobby/`,
         type: 'get',
@@ -68,7 +68,7 @@ $(".tabControl .tab .select").click(function () {
                 lk = el.create_datetime.substring(11, 19)
                 timearry.push(ac + " " + lk)
             })
-            console.log(timearry)
+            
             let spacestr = ""
 
             rsp_data.forEach((el,index)=> {
@@ -102,6 +102,14 @@ $(".tabControl .tab .select").click(function () {
                         </div>`
             })
             $(".bigbox").html(spacestr)
+            $(".box").click(function(){
+                let myid=$(this).attr("data-set")
+                localStorage.setItem("myid",myid)
+                
+                window.location.href="../pages/anther-page.html"
+               
+               
+            })
         },
         error: function (jqXHR, textStatus, errorThrown) {
             if (jqXHR.status == 400) {
@@ -133,6 +141,9 @@ $(".tabControl .tab .select").click(function () {
         }
     })
 }).first().trigger("click");
+// 点击进入他人主页
+
+
 //box hover变色
 $(".plate .box").each(function () {
     $(this).on({
@@ -375,3 +386,5 @@ map.addEventListener("click", function (e) {
         })
     }, 200)
 });
+
+

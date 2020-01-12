@@ -176,7 +176,7 @@ oPhoneNum.onblur = function() {
             }).done(res => {
                 console.log("发送成功")
                 thespan.removeAttr("style")
-                thespan.html("去改变样式")
+                thespan.html("发送成功")
             }).fail(err => {
                 if (err.status == 401) {
                     console.log(err.responseText )

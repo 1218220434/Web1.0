@@ -36,6 +36,7 @@ $(window).bind("load resize", function() {
 
 // 判断登录后是否存储了username
 if (localStorage.getItem("user")) {
+    $(".logined div").attr("style","z-index:1000 !important")
     $(".user-namec").html(localStorage.getItem("name"))
     $(".myuser-img").fadeIn()
     $(".myuser-img").attr("src", USER_IMG + localStorage.getItem("user"))

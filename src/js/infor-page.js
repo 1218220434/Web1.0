@@ -147,7 +147,9 @@ $(".sub").on("click", function() {
             cache: false,
             success: function(rsp_data) {
                 // callback(rsp_data);
+                localStorage.setItem("vip_id",rsp_data.vip_id)
                 console.log(rsp_data)
+                console.log(rsp_data.vip_id)
                 let t = `  <h1>${rsp_data.vip_id}</h1>
 
                 <p>${rsp_data.order_number}</p>
@@ -196,9 +198,9 @@ $(".payprice").on("click", function() {
         cache: false,
         success: function(rsp_data) {
             console.log(rsp_data)
-
+            
             $(".zhihubaourl a").html(`<a href=${rsp_data.url} target="_blank">前往支付</a>`)
-
+            $(".check").html(`查看是否支付成功`)
 
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -225,6 +227,68 @@ $(".payprice").on("click", function() {
     })
 
 })
+
+// 查看是否支付成功
+$(".check").on("click",function(){
+    $.ajax({
+        url: `${BASE_URL}/pay/check/${localStorage.getItem('vip_id')}`,
+        type: 'get',
+        headers: {
+            Authorization: 'Bearer' + ' ' + localStorage.getItem('pas')
+        },
+        data: {
+            vip_id: `${localStorage.getItem('vip_id')}`,
+    
+        },
+        cache: false,
+        success: function(rsp_data) {
+            localStorage.setItem("message",rsp_data.message)
+            console.log("支付成功")
+            if(rsp_data.message="支付成功"){
+                console.log("成功了，自动刷新页面")
+                window.location.href="../pages/infor-page.html"
+            }else{
+                console.log("还未支付")
+            }
+            
+    
+            $(".zhihubaourl a").attr("href",rsp_data.url).attr("target","_blank").html("前往支付")
+            $(".check").html("查看支付状态")
+    
+    
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 400) {
+                formError(jqXHR)
+            } else if (jqXHR.status == 401) {
+                $.ajax({
+                    url: `${BASE_URL}/fresh/`,
+                    type: 'post',
+                    data: { 'refresh': localStorage.getItem('refresh') },
+                    success: function(rsp_data) {
+                        localStorage.setItem('access', rsp_data['access']);
+                        $.myAjaxGet(`${BASE_URL}/login/`, function() {
+                            console.log(rsp_data)
+                        })
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // window.location.href = projectName + '/polls/login.html'
+                        console.log("到这儿了")
+                    }
+                })
+            }
+        }
+    })
+})
+
+if(localStorage.getItem('vip_id')){
+    console.log("之前的订单支付成功了")
+}else{
+    console.log("之前的订单还未支付")
+}
+
+
+//查看我的动态点赞数
 $.myAjaxGet(`/mydynamic/praise/`, function(rsp_data) {
     console.log(rsp_data)
         // 取出回传数据的地址填入数组
