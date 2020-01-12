@@ -51,7 +51,7 @@ article .right-main .com {
   opacity: 1 !important;
 }
 article .right-main .myinfom {
-  width: 70%;
+  width: 83%;
 }
 article .right-main .myinfom form {
   width: 79%;
@@ -93,11 +93,48 @@ article .myvip {
   left: 50%;
   transform: translateX(-50%);
 }
+article .myvip button {
+  margin-top: 10px;
+  background-color: #6191eb;
+  width: 60px;
+  height: 30px;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.7s;
+  display: none;
+  vertical-align: top;
+}
+article .myvip button:hover {
+  box-shadow: 0 1px 5px gray;
+}
+article .myvip button a {
+  color: white;
+}
+article .myvip .zhihubaourl button {
+  width: 200px !important;
+  height: 40px !important;
+}
 article .onem {
+  margin-top: 30px;
   width: 200px;
-  height: 200px;
+  height: 100px;
   border: 1px solid #d6d6d6;
   transition: 0.7s;
+  padding-top: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: 0.2s;
+  cursor: pointer;
+}
+article .onem:hover {
+  box-shadow: 0 2px 10px gray;
+}
+article .onem h1,
+article .onem p {
+  margin-top: 10px;
+  text-align: center;
+  color: #F69219;
 }
 article .blue {
   border: 1px solid #6e9de4;
@@ -106,4 +143,12 @@ article .sub {
   width: 80px;
   background-color: #526299;
   color: white;
+}
+article .xuanran {
+  margin-top: 20px;
+  width: 80%;
+  border: 1px solid #c2c2c2;
+  padding: 20px;
+  border-radius: 5px;
+  color: #F69219;
 }

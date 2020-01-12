@@ -117,7 +117,7 @@ $.ajax({
                 <div class="othercomoents">
                     <img src=${USER_IMG}${localStorage.getItem("user")} class="othimg">
                     <textarea name="" id="" cols="30" rows="10" autofocus style="resize:none" placeholder="我想说。。。"></textarea><br>
-                    <button>评论</button>
+                    <button class="commenajax">评论</button>
                 </div>
                 
             </div>
@@ -323,50 +323,63 @@ $(".clike").on("click", function() {
             // 显示+1的效果
         $(this).children().first().next().next().addClass("nowjump")
 })
-// $(".clike").on("click", function() {
-//     $.ajax({
-//         url: `${BASE_URL}/addpraise/${$(".homeNeav-son").attr("myid")}/`,
-//         type: 'put',
-//         headers: {
-//             Authorization: 'Bearer' + " " + localStorage.getItem('pas')
-//         },
-//         data: $(".homeNeav-son").attr("myid"),
-//         cache: false,
-//         success: function(rsp_data) {
-//            console.log(rsp_data);
-//         },
-//         error: function(jqXHR, textStatus, errorThrown) {
-//             console.log(jqXHR)
-//             if (jqXHR.status == 400) {
-//                 console.log(jqXHR)
-//                 if ("non_field_errors" in JSON.parse(jqXHR.responseText)) {
-//                     let errmessage = JSON.parse(jqXHR.responseText)["non_field_errors"][0];
-//                     popup({ type: 'error', msg: errmessage, delay: 2000, bg: true, clickDomCancel: true });
-//                 } else if ('new_password' in JSON.parse(jqXHR.responseText)) {
-//                     let errmessage = JSON.parse(jqXHR.responseText)["new_password"][0];
-//                     popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
-//                 } else if ('new_password_too' in JSON.parse(jqXHR.responseText)) {
-//                     let errmessage = JSON.parse(jqXHR.responseText)["new_password_too"][0];
-//                     popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
-//                 }
-//             } else if (jqXHR.status == 401) {
-//                 $.ajax({
-//                     url: BASES_URL + '/refresh/',
-//                     type: 'post',
-//                     data: { 'refresh': localStorage.getItem('refresh') },
-//                     success: function(rsp_data) {
-//                         localStorage.setItem('access', rsp_data['access']);
-//                         $.myAjaxGet(url, callback)
-//                     },
-//                     error: function(jqXHR, textStatus, errorThrown) {
-//                         window.location.href = projectName + '/static/pages/login.html'
-//                     }
-//                 })
-//             }
-//         }
-//     })
-     
-// })
+
+// 评论功能
+setTimeout(function(){
+    $(".commenajax").on("click", function() {
+        
+      
+        $.ajax({
+            url: `${BASE_URL}/comment/`,
+            type: 'post',
+            headers: {
+                Authorization: 'Bearer' + " " + localStorage.getItem('pas')
+            },
+            data: {
+                content:String($(".othercomoents textarea").val()),
+                dynamic:Number($(".homeNeav-son").attr("myid")) ,
+                type:0
+            },
+            cache: false,
+            success: function(rsp_data) {
+               console.log(rsp_data);
+               $(".othercomoents textarea").addClass("opt")
+               $(".othercomoents button").hide()
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                if (jqXHR.status == 400) {
+                    console.log(jqXHR)
+                    if ("non_field_errors" in JSON.parse(jqXHR.responseText)) {
+                        let errmessage = JSON.parse(jqXHR.responseText)["non_field_errors"][0];
+                        popup({ type: 'error', msg: errmessage, delay: 2000, bg: true, clickDomCancel: true });
+                    } else if ('new_password' in JSON.parse(jqXHR.responseText)) {
+                        let errmessage = JSON.parse(jqXHR.responseText)["new_password"][0];
+                        popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
+                    } else if ('new_password_too' in JSON.parse(jqXHR.responseText)) {
+                        let errmessage = JSON.parse(jqXHR.responseText)["new_password_too"][0];
+                        popup({ type: 'error', msg: `密码${errmessage}`, delay: 2000, bg: true, clickDomCancel: true });
+                    }
+                } else if (jqXHR.status == 401) {
+                    $.ajax({
+                        url: BASES_URL + '/refresh/',
+                        type: 'post',
+                        data: { 'refresh': localStorage.getItem('refresh') },
+                        success: function(rsp_data) {
+                            localStorage.setItem('access', rsp_data['access']);
+                            $.myAjaxGet(url, callback)
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            window.location.href = projectName + '/static/pages/login.html'
+                        }
+                    })
+                }
+            }
+        })
+         
+    })
+},1200)
+
     
 
 // 异步延时页面处理

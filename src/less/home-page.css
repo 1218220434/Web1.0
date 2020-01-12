@@ -316,3 +316,11 @@ body {
 .homebanner .homeall .home-topSearch p {
   margin-bottom: 8px;
 }
+.andp {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #cfcfcf;
+  color: #F69219;
+  padding-left: 20px;
+  line-height: 40px;
+}

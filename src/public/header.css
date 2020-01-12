@@ -22,6 +22,7 @@ header .logined {
 }
 header .logined div {
   position: absolute;
+  z-index: -1;
 }
 header .logined img {
   width: 23px;
@@ -38,7 +39,7 @@ header .logined a:hover {
 header .logined .user-namec {
   color: #747474;
   position: relative;
-  width: 70px;
+  width: 88px;
   left: -200%;
   top: 23px;
 }
@@ -48,7 +49,7 @@ header .logined .myuser-img {
   height: 50px;
   position: relative;
   left: -100%;
-  top: -10px;
+  top: -13px;
   cursor: pointer;
   transition: 0.7s;
 }
