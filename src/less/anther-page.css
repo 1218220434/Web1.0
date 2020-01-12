@@ -291,6 +291,11 @@ body {
   border: 1px solid gray;
   font-size: 16px;
 }
+.homebanner .othercomoents .opt {
+  line-height: 50px;
+  border: 0;
+  background-color: #f9f9f9;
+}
 .homebanner .othercomoents button {
   background-color: #6191eb;
   width: 60px;
@@ -299,7 +304,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   float: right;
-  margin-right: 30px;
+  margin-right: 77px;
 }
 .homebanner .myhuifu {
   margin-top: 20px;

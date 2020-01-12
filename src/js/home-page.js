@@ -134,15 +134,7 @@ $.myAjaxGet(`/mydynamic/all/`,  function (rsp_data)  {
             </div>
             <div class="comments-some">
 
-                <div class="othercomoents flex-c">
-                        <img src="../images/图标/心.png" alt="" class="othimg">
-                        <p>我评论了你</p>
-                        
-                </div>
-                <div class="myhuifu flex-c">
-                        <p>我回复了你</p>
-                        <img src="../images/图标/红心.png" alt="" class="myimg">
-                </div>
+                
             </div>
             </div>
             </div>`
@@ -248,13 +240,25 @@ $(".anther li:eq(1)").on("click",function(){
     })
 })
 
+// 我的关注页面
 $(".anther li:eq(2)").on("click",function(){
    
     $.myAjaxGet(`/attenti/alluser/`,  function (rsp_data)  {
+        var acy = ""
+        var lky = ""
+        var timearryy = []
+        rsp_data.forEach((el) => {
+                acy = el.create_datetime.substring(0, 10)
+                lky = el.create_datetime.substring(11, 19)
+                timearryy.push(acy + " " + lky)
+        })
         console.log(rsp_data)
         let focuces=""
-        rsp_data.forEach((el) => {
-            focuces+=`<h1>${el.username}</h1>`
+        rsp_data.forEach((el,index) => {
+            focuces+=`
+            
+            <p class="andp">关注用户：${el.username}  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp       关注时间:${timearryy[index]}</p>
+            `
             })
            
         $(".myNeav").html(focuces)
