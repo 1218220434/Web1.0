@@ -85,5 +85,25 @@ article .right-main .inforimg {
 article .right-main .inforimg img {
   float: right;
   width: 160px;
+  height: 160px;
   border-radius: 50%;
+}
+article .myvip {
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+article .onem {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #d6d6d6;
+  transition: 0.7s;
+}
+article .blue {
+  border: 1px solid #6e9de4;
+}
+article .sub {
+  width: 80px;
+  background-color: #526299;
+  color: white;
 }

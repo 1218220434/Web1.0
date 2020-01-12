@@ -1,4 +1,4 @@
-import {BASES_URL}from '../js/util.js';
+import { BASES_URL } from '../js/util.js';
 export let b = $.extend({ //全局封装，把函数直接封装到jquery的属性上
     myAjaxGet: function(url, data, callback) {
         if (callback == undefined) {
@@ -51,7 +51,7 @@ export let b = $.extend({ //全局封装，把函数直接封装到jquery的属�
             url: BASES_URL + url,
             type: 'post',
             headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('access')
+                Authorization: 'Bearer' + " " + localStorage.getItem('pas')
             },
             data: data,
             cache: false,
@@ -74,7 +74,7 @@ export let b = $.extend({ //全局封装，把函数直接封装到jquery的属�
                     }
                 } else if (jqXHR.status == 401) {
                     $.ajax({
-                        url: BASES_URL + '/system_user/refresh/',
+                        url: BASES_URL + '/refresh/',
                         type: 'post',
                         data: { 'refresh': localStorage.getItem('refresh') },
                         success: function(rsp_data) {
