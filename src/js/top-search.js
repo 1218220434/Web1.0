@@ -100,7 +100,7 @@ $.ajax({
 
                 "width": (1 - screenDom / 1900) * 10 + 30 + "%",
             }).prev().css({
-                "width": (1 - ($(".theTop-right").width() / screenDom)) * 99.8 + "%",
+                "width": (1 - ($(".theTop-right").width() / screenDom)) * 99.5 + "%",
             })
 
             $(".top-map").css({

@@ -228,6 +228,7 @@
   position: absolute;
   top: -205px;
   line-height: 40px;
+  left: -49px;
 }
 .todayNeav .todayone .todayone-text div h2 {
   display: inline-block;
@@ -235,20 +236,19 @@
   font-size: 26px;
   position: absolute;
   top: -205px;
-  left: 40px;
+  left: -22px;
   line-height: 40px;
 }
 .todayNeav .todayone .todayone-text .p1 {
   display: inline-block;
   margin: 0 auto;
   line-height: 24px;
-  font-size: 26px;
   position: absolute;
   top: -200px;
   right: 120px;
   font-family: MicrosoftYaHei;
   color: #8a8a8a;
-  font-size: 18px;
+  font-size: 16px;
   width: 16px;
   letter-spacing: -6px;
   word-wrap: break-word;
@@ -257,13 +257,12 @@
   display: inline-block;
   margin: 0 auto;
   line-height: 24px;
-  font-size: 26px;
   position: absolute;
   top: -200px;
   right: 80px;
   font-family: MicrosoftYaHei;
   color: #8a8a8a;
-  font-size: 18px;
+  font-size: 16px;
   width: 16px;
   letter-spacing: -6px;
   word-wrap: break-word;
@@ -272,13 +271,12 @@
   display: inline-block;
   margin: 0 auto;
   line-height: 24px;
-  font-size: 26px;
   position: absolute;
   top: -200px;
   right: 40px;
   font-family: MicrosoftYaHei;
   color: #8a8a8a;
-  font-size: 18px;
+  font-size: 16px;
   width: 16px;
   letter-spacing: -6px;
   word-wrap: break-word;
@@ -288,11 +286,12 @@
   margin-top: 100px;
 }
 .todayNeav .todaytwo .todaytwoText {
-  width: 39%;
+  width: 23%;
 }
 .todayNeav .todaytwo .todaytwoText .textH {
   position: relative;
-  left: 45%;
+  left: 27%;
+  font-size: 12px !important;
 }
 .todayNeav .todaytwo .todaytwoText .textH h1 {
   margin: 0 auto;
@@ -300,17 +299,17 @@
   writing-mode: vertical-rl;
   writing-mode: tb-lr;
   padding: 0 10px;
-  font-size: 26px;
+  font-size: 22px;
 }
 .todayNeav .todaytwo .todaytwoText .textP {
   position: relative;
-  left: 10%;
+  left: -4%;
   padding-left: 40px;
 }
 .todayNeav .todaytwo .todaytwoText .textP p {
   margin: 0 auto;
   padding: 0 10px;
-  font-size: 20px;
+  font-size: 17px;
   color: #666666;
   display: inline-block;
   writing-mode: vertical-rl;
@@ -351,13 +350,17 @@
 .todayNeav .todaythr .todaythrText h1 {
   margin: 0 auto;
   display: inline-block;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
+  -webkit-writing-mode: tb-lr;
+  -ms-writing-mode: tb-lr;
   writing-mode: tb-lr;
   padding: 0 10px;
-  font-size: 26px;
+  font-size: 14px;
   position: absolute;
   top: 0;
-  left: -140px;
+  left: -75px;
   letter-spacing: 20px;
 }
 .todayNeav .todaythr .todaythrText .p1 {
@@ -367,11 +370,15 @@
 }
 .todayNeav .todaythr .todaythrText p {
   margin: 0 auto;
-  padding: 0 10px;
-  font-size: 20px;
+  padding: 0 5px;
+  font-size: 18px;
   color: #666666;
   display: inline-block;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
+  -webkit-writing-mode: tb-lr;
+  -ms-writing-mode: tb-lr;
   writing-mode: tb-lr;
   letter-spacing: 5px;
   color: #8a8a8a;

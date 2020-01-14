@@ -279,16 +279,27 @@ main {
                         }
 
                         .name {
-                            text-align: left;
-                            width: 30%;
+                            text-align: center;
+                            width: 34%;
+                            
+                                p{
+                                    font-size: 12px !important;
+                                   
 
+                                }
                         }
 
                         .time {
 
                             text-align: right;
                             width: 40%;
-                            font-size: 13px;
+                            font-size: 12px;
+                            p{
+                                width: 100%;
+                                overflow: hidden;   //隐藏
+white-space: nowrap;  //不换行
+text-overflow: ellipsis; 
+                            }
                         }
 
                     }
@@ -305,11 +316,16 @@ main {
                         height: 10%;
                         box-sizing: border-box;
                         padding: 6px 0 0 0;
+                       
 
                         p {
                             letter-spacing: 1px;
                             word-spacing: 1px;
-                            font-size: 14px;
+                            font-size: 12px;
+                            width: 100%;
+                            overflow: hidden;   //隐藏
+white-space: nowrap;  //不换行
+text-overflow: ellipsis; 
                         }
                     }
 
@@ -354,14 +370,14 @@ main {
 
 }
 
-.myuser-img{
-    top:-10px !important;
-}
-.user-namec{
-    width: 90px !important;
-    left: -204% !important;
-    top: 28px !important;
-}
+// .myuser-img{
+//     top:-10px !important;
+// }
+// .user-namec{
+//     width: 90px !important;
+//     left: -170% !important;
+//     top: 28px !important;
+// }
 footer{
     margin-top: 0 !important;
 }

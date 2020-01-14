@@ -115,7 +115,7 @@ $.myAjaxGet(`/myinfo/`, function(rsp_data) {
 // 会员选择会员期限功能
 
 $(".left-nav li:eq(1)").on('click',function(){
-    console.log(1)
+    
     $.ajax({
         url: `${BASE_URL}/Price/`,
         type: 'get',
@@ -169,6 +169,7 @@ $(".left-nav li:eq(1)").on('click',function(){
 setTimeout(function(){
     $(".onem").on("click",function(){
         $(".sub").show()
+        console.log(1)
     })
     let _onem = [...document.querySelectorAll(".onem")];
 let _index = 0;
@@ -185,7 +186,7 @@ _onem.forEach(function(el) {
         _index = index;
     }
 });
-},1100)
+},2300)
 
 
 // 请求订单号

@@ -51,11 +51,11 @@ article .right-main .com {
   opacity: 1 !important;
 }
 article .right-main .myinfom {
-  width: 83%;
+  width: 100%;
 }
 article .right-main .myinfom form {
-  width: 79%;
-  padding-left: 120px;
+  width: 70%;
+  padding-left: 80px;
   padding-top: 80px;
   box-sizing: border-box;
 }
@@ -66,11 +66,12 @@ article .right-main .myinfom label {
   text-align: right;
 }
 article .right-main .myinfom input {
+  font-size: 12px;
   margin-left: 20px;
   margin-top: 20px;
   border-radius: 3px;
   border: 1px solid #c7c7c7;
-  width: 280px;
+  width: 220px;
   height: 40px;
   padding-left: 30px;
   color: #aaaaaa;
@@ -81,11 +82,12 @@ article .right-main .myinfom input:hover {
 }
 article .right-main .inforimg {
   width: 20%;
+  margin: 0 auto;
 }
 article .right-main .inforimg img {
-  float: right;
-  width: 160px;
-  height: 160px;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 article .myvip {
@@ -117,7 +119,7 @@ article .myvip .zhihubaourl button {
 }
 article .onem {
   margin-top: 30px;
-  width: 200px;
+  width: 160px;
   height: 100px;
   border: 1px solid #d6d6d6;
   transition: 0.7s;

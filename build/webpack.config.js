@@ -4,10 +4,10 @@ const entry = require('./entry');
 const loaders = require('./loader');
 const plugins = require('./plugins');
 // 2. 导出配置
-// const MY_URL = '192.168.110.182'
+const MY_URL = '192.168.110.183'
 // 无线网地址
 
-const MY_URL = '127.0.0.1'
+// const MY_URL = '127.0.0.1'
 // const MY_URL = '192.168.7.8'
 const PORT = 8081
     // 本地地址

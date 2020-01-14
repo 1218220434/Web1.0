@@ -1,6 +1,6 @@
 // 导航栏链接
 // logo跳index页
-const myurl = 'http://127.0.0.1:8081'
+const myurl = 'http://192.168.110.183:8081'
 // const myurl = 'http://192.168.7.8:8081'
 $(".logo").click(function() {
     if (location.href.indexOf('static') > 0) {

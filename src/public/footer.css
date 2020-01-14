@@ -67,3 +67,7 @@ footer .skill li:hover {
 footer .skill .capture {
   opacity: 0.1;
 }
+footer .lastli {
+  background-color: white ;
+  opacity: 0.1 !important;
+}
